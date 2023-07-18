@@ -1,4 +1,4 @@
-package com.example.puppyfriend_frontend
+package com.example.puppyfriend_frontend.View.SignUp
 
 import android.os.Bundle
 import android.os.PersistableBundle
