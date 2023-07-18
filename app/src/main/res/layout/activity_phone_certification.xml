@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/actionbar_inner_page_top"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:id="@+id/txt_notification1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="안전한 이용을 위해서\n휴대폰 인증을 해주세요."
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="99dp"
+            android:layout_marginStart="30dp"/>
+
+        <TextView
+            android:id="@+id/txt_phone_certification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="번호를 입력해주세요"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="238dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInput_phone_number"
+            android:layout_width="198dp"
+            android:layout_height="44dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="270dp"
+            android:layout_marginStart="20dp"
+            style="@style/TextInputLayoutStyle">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEdit_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_send_number"
+            android:layout_width="98dp"
+            android:layout_height="44dp"
+            android:text="인증번호 발송"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/textInput_phone_number"
+            app:layout_constraintTop_toTopOf="@id/textInput_phone_number"
+            app:layout_constraintBottom_toBottomOf="@id/textInput_phone_number"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/style_phone_certification_send"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInput_number"
+            android:layout_width="304dp"
+            android:layout_height="44dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="324dp"
+            android:layout_marginStart="20dp"
+            style="@style/TextInputLayoutStyle">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEdit_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="243dp"
+            android:layout_marginTop="340dp"
+            android:text="남은 시간 2:30"
+            android:textSize="10sp"
+            android:textColor="#FF0000"/>
+
+        <TextView
+            android:id="@+id/txt_notification2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인증번호가 오지 않으신가요?"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="458dp"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/txt_notification3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="통신사 스팸 보관함 또는 차단 메세지 함을 확인해 보세요."
+            android:textSize="12sp"
+            android:textColor="#7A7A7A"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="487dp"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/txt_notification4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인증번호가 오지 않으신가요?"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="544dp"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/txt_notification5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="‘퍼피프렌드' 카카오톡 문의를 남겨주세요."
+            android:textSize="12sp"
+            android:textColor="#7A7A7A"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="573dp"
+            android:includeFontPadding="false"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_qna_kakao"
+            android:layout_width="112dp"
+            android:layout_height="44dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="598dp"
+            android:background="@drawable/style_signup_basic"
+            android:text="카카오톡 문의 바로가기"
+            android:textSize="10sp"
+            android:textColor="#7A7A7A"
+            android:outlineProvider="none"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_certificate"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/style_signup_done"
+        android:text="인증하기"
+        android:textAlignment="center"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
