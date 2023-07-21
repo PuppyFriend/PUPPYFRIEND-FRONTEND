@@ -75,6 +75,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="324dp"
             android:layout_marginStart="20dp"
+            app:errorEnabled="true"
             style="@style/TextInputLayoutStyle">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEdit_number"
@@ -171,6 +172,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/style_signup_done"
         android:text="인증하기"
+        android:textSize="25sp"
         android:textAlignment="center"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
