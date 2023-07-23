@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="375dp"
-    android:layout_height="812dp"
+    android:layout_width="360dp"
+    android:layout_height="740dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
     android:background="#ffffff">
 
     <TextView
@@ -511,9 +513,9 @@
         app:layout_constraintStart_toEndOf="@+id/switch_lazy"
         app:layout_constraintTop_toBottomOf="@+id/text_peopleLike" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_start"
-        android:layout_width="375dp"
+        android:layout_width="match_parent"
         android:layout_height="65dp"
         android:background="#f4b0bd"
         android:fontFamily="@font/inter"
