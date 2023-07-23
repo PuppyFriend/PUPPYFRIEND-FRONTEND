@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="360dp"
+    android:layout_height="740dp"
+    android:background="#ffffff">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_mypuppy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="115.85dp"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:text="my puppy"
+                android:textColor="#000000"
+                android:textFontWeight="600"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- name broder -->
+            <TextView
+                android:id="@+id/text_nameBroder"
+                android:layout_width="91dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="19.79dp"
+                android:layout_marginTop="141.84dp"
+                android:background="@drawable/style_home_box_border"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- name text -->
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="136dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="24.2dp"
+                android:text="name"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_info_broder"
+                android:layout_width="175dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="170dp"
+                android:background="@drawable/style_home_box_border"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_info"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="171dp"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:text="puppy breed- age(month)- gender"
+                android:textColor="#000000"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/img_dog"
+                android:layout_width="71.97dp"
+                android:layout_height="73.23dp"
+                android:layout_marginStart="225dp"
+                android:layout_marginTop="116dp"
+                android:background="@drawable/img_dog_profile"
+                android:transitionName="imgTrans"
+                android:src="@drawable/img_real_dog"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="220dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="18.15dp"
+                android:text="이번주 산책 리뷰"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_review_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="245dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="15.73dp"
+                android:text="5월 3주차에는 총 6번의 산책을 했어요.\n함께한 퍼프친구 :"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="13dp"
+                android:lineSpacingExtra="-3dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/text_puppyfriend_name"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="60dp"-->
+<!--                android:fontFamily="@font/inter_extrabold"-->
+<!--                android:lineHeight="15.73dp"-->
+<!--                android:maxLength="10"-->
+<!--                android:text="루루, 용식"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textFontWeight="800"-->
+<!--                android:textSize="13dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/text_review_info"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/text_review_info" />-->
+
+            <ToggleButton
+                android:id="@+id/view_triangle"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="297dp"
+                android:layout_marginTop="280dp"
+                android:background="@drawable/icon_home_triangle"
+                android:textOn=" "
+                android:textOff=" "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_monday"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="294dp"
+                android:background="@drawable/style_home_review_circle"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:stateListAnimator="@null"
+                android:text="월"
+                android:textAlignment="center"
+                android:textColor="#565656"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_tuesday"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="294dp"
+                android:background="@drawable/style_home_review_circle"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:stateListAnimator="@null"
+                android:text="화"
+                android:textAlignment="center"
+                android:textColor="#565656"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_wednesday"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="98dp"
+                android:layout_marginTop="294dp"
+                android:background="@drawable/style_home_review_circle"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:stateListAnimator="@null"
+                android:text="수"
+                android:textAlignment="center"
+                android:textColor="#565656"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_thursday"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="145dp"
+                android:layout_marginTop="294dp"
+                android:background="@drawable/style_home_review_circle"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:stateListAnimator="@null"
+                android:text="목"
+                android:textAlignment="center"
+                android:textColor="#565656"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_friday"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="192dp"
+                android:layout_marginTop="294dp"
+                android:background="@drawable/style_home_review_circle"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:stateListAnimator="@null"
+                android:text="금"
+                android:textAlignment="center"
+                android:textColor="#565656"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_saturday"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="237dp"
+                android:layout_marginTop="294dp"
+                android:background="@drawable/style_home_review_circle"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:stateListAnimator="@null"
+                android:text="토"
+                android:textAlignment="center"
+                android:textColor="#565656"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_sunday"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="283dp"
+                android:layout_marginTop="294dp"
+                android:background="@drawable/style_home_review_circle"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:stateListAnimator="@null"
+                android:text="일"
+                android:textAlignment="center"
+                android:textColor="#565656"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="379dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="15.73dp"
+                android:text="목표 산책 달성도"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_progressbar_outline"
+                android:layout_width="105.05dp"
+                android:layout_height="105.05dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/style_progressbar_outline"
+                app:layout_constraintBottom_toBottomOf="@+id/progressbar_back"
+                app:layout_constraintEnd_toEndOf="@+id/progressbar_back"
+                app:layout_constraintStart_toStartOf="@+id/progressbar_back"
+                app:layout_constraintTop_toTopOf="@+id/progressbar_back" />
+
+            <ProgressBar
+                android:id="@+id/progressbar_back"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="93.16dp"
+                android:layout_height="92.98dp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="117dp"
+                android:layout_marginTop="414dp"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/icon_home_progressbar_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressbar_front"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="93.16dp"
+                android:layout_height="92.98dp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="117dp"
+                android:layout_marginTop="414dp"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/icon_home_progressbar_front"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_progessbar_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="144dp"
+                android:layout_marginTop="446.89dp"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="22.99dp"
+                android:text="86%"
+                android:textColor="#685621"
+                android:textFontWeight="600"
+                android:textSize="19dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_progessbar_goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="532.38dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="15.73dp"
+                android:text="목표 7회 중 6회 달성!\n아주 잘하고 있어요. 댕댕이와 함께 행복한 일주일이네요!"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="13dp"
+                android:lineSpacingExtra="-3dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_home_line"
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:layout_marginTop="41.24dp"
+                android:background="#a8a8a8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_progessbar_goal" />
+
+
+            <TextView
+                android:id="@+id/text_community"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19.38dp"
+                android:layout_marginTop="29dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="18.15dp"
+                android:text="커뮤니티"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view_home_line" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_reservation"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_marginLeft="63.01dp"
+                android:layout_marginTop="76.77dp"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="13.31dp"
+                android:text="동네예약"
+                android:textColor="#000000"
+                android:textFontWeight="600"
+                android:textSize="11dp"
+                android:background="@drawable/style_home_gray_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view_home_line" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_market"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_marginLeft="176.01dp"
+                android:layout_marginTop="76.77dp"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="13.31dp"
+                android:text="펖마켓"
+                android:textColor="#000000"
+                android:textFontWeight="600"
+                android:textSize="11dp"
+                android:background="@drawable/style_home_gray_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view_home_line" />
+
+            <View
+                android:id="@+id/view_blank"
+                android:layout_width="wrap_content"
+                android:layout_height="103dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_market" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
