@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/out_layout"
+    android:layout_width="360dp"
+    android:layout_height="740dp"
+    android:backgroundTint="@android:color/transparent"
+    tools:context=".View.Home.ImageActivity"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/img_full"
+        android:layout_width="207.46dp"
+        android:layout_height="211.09dp"
+        android:transitionName="imgTrans"
+        android:layout_marginTop="222.79dp"
+        android:layout_marginLeft="76.27dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
