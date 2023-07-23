@@ -1,9 +1,7 @@
-package com.example.myapplication
+package com.example.puppyfriend_frontend.View.FirstLogin
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.puppyfriend_frontend.View.Home.HomeActivity

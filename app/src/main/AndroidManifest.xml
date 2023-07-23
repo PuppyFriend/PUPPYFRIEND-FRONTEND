@@ -40,6 +40,8 @@
                 android:value="" />
         </activity>
         <activity android:name=".View.Home.ImageActivity"></activity>
+        <activity android:name=".View.FirstLogin.MoreInfoActivity"></activity>
+        <activity android:name=".View.FirstLogin.InfoActivity"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="375dp"
-    android:layout_height="812dp"
-    android:background="#ffffff"
-    tools:context=".InfoActivity">
+    android:layout_width="360dp"
+    android:layout_height="740dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:background="#ffffff">
 
     <!-- Auto layout, variables, and unit scale are not yet supported -->
 
@@ -122,7 +123,7 @@
 
     <EditText
         android:id="@+id/edit_nickname"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="130dp"
         android:layout_marginTop="12dp"
@@ -141,7 +142,7 @@
 
     <EditText
         android:id="@+id/edit_puppyName"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="12dp"
@@ -208,12 +209,12 @@
         app:layout_constraintStart_toEndOf="@+id/text_month"
         app:layout_constraintTop_toTopOf="@+id/text_birth" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_arrow"
-        android:layout_width="375dp"
+        android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_below="@+id/text_birth"
-        android:background="#D9D9D9"
+        android:background="#f4b0bd"
         android:drawableBottom="@drawable/img_arrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
