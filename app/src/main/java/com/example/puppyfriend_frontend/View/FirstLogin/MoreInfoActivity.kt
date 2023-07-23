@@ -1,9 +1,7 @@
-package com.example.myapplication
+package com.example.puppyfriend_frontend.View.FirstLogin
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.puppyfriend_frontend.View.Home.HomeActivity
 import com.example.puppyfriend_frontend.databinding.ActivityMoreinfoBinding

@@ -1,30 +1,22 @@
 package com.example.puppyfriend_frontend.View.Home
 
+import android.annotation.SuppressLint
 import android.app.ActivityOptions
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
-import android.renderscript.ScriptGroup.Input
-import android.text.InputFilter
-import android.view.LayoutInflater
-import android.view.View
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.InfoActivity
+import com.example.puppyfriend_frontend.View.FirstLogin.InfoActivity
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.databinding.ActivityHomeBinding
 import com.example.puppyfriend_frontend.databinding.CustomDialogBinding
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.*
-import kotlin.math.max
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityHomeBinding
@@ -37,12 +29,18 @@ class HomeActivity : AppCompatActivity() {
         private const val DIALOG_SHOWN_KEY = "dialog_shown_key"
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        viewBinding.progressbarFront.progress = 86
+        var goalPercent: Int = 86
+
+        // 후에 날짜 버튼과 연동(기술관련 질문)
+        viewBinding.progressbarFront.progress = goalPercent
+        viewBinding.textProgessbarPercent.text = "$goalPercent%"
+
         viewBinding.progressbarFront.rotation = 90f     // 회전
         viewBinding.progressbarFront.scaleY = -1f       // y축을 기준으로 좌우 반전
 
@@ -86,21 +84,18 @@ class HomeActivity : AppCompatActivity() {
 
         // 함께한 퍼프 친구 이름
         var puppyFriendName: String = "루루, 용식"
+        var maxLength = 10
+
+        if (puppyFriendName.length > maxLength) {
+            puppyFriendName = puppyFriendName.substring(0, maxLength)
+        }
 
 
-        viewBinding.textReviewInfo.text = nowDate + "월 "+ currentWeeOfMonth +"주차에는 총 n번의 산책을 했어요.\n함께한 퍼프친구 :" + puppyFriendName
+        viewBinding.textReviewInfo.text = "${nowDate}월 ${currentWeeOfMonth}주차에는 총 n번의 산책을 했어요.\n함께한 퍼프친구: $puppyFriendName"
 
-
-        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        showDialogFlag = sharedPreferences.getBoolean(DIALOG_SHOWN_KEY, false)
-
-//        if (showDialogFlag) {
-//            showDialog()
-//        }
-//
-//        val editor = sharedPreferences.edit()
-//        editor.putBoolean(DIALOG_SHOWN_KEY, true)
-//        editor.apply()
+        if (showDialogFlag) {
+            showDialog()
+        }
 
     }
 
