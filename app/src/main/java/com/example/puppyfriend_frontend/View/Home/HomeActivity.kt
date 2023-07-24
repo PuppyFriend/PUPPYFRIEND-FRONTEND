@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.puppyfriend_frontend.View.FirstLogin.InfoActivity
@@ -17,17 +18,12 @@ import com.example.puppyfriend_frontend.databinding.CustomDialogBinding
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.*
+import java.util.regex.Pattern
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityHomeBinding
-    private lateinit var sharedPreferences: SharedPreferences
 
     private var showDialogFlag: Boolean = true
-
-    companion object {
-        private const val INFO_ACTIVITY_REQUEST_CODE = 123
-        private const val DIALOG_SHOWN_KEY = "dialog_shown_key"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,9 +87,6 @@ class HomeActivity : AppCompatActivity() {
 
         viewBinding.textReviewInfo.text = "${nowDate}월 ${currentWeeOfMonth}주차에는 총 n번의 산책을 했어요.\n함께한 퍼프친구 : $puppyFriendName"
 
-
-        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        showDialogFlag = sharedPreferences.getBoolean(DIALOG_SHOWN_KEY, false)
 
         if (showDialogFlag) {
             showDialog()
