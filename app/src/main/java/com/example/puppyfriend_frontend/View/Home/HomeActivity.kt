@@ -1,13 +1,14 @@
 package com.example.puppyfriend_frontend.View.Home
 
-import android.annotation.SuppressLint
 import android.app.ActivityOptions
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.puppyfriend_frontend.View.FirstLogin.InfoActivity
@@ -17,27 +18,20 @@ import com.example.puppyfriend_frontend.databinding.CustomDialogBinding
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.*
+import java.util.regex.Pattern
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityHomeBinding
-    private lateinit var sharedPreferences: SharedPreferences
 
     private var showDialogFlag: Boolean = true
 
-    companion object {
-        private const val INFO_ACTIVITY_REQUEST_CODE = 123
-        private const val DIALOG_SHOWN_KEY = "dialog_shown_key"
-    }
-
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        var goalPercent: Int = 86
-
-        // 후에 날짜 버튼과 연동(기술관련 질문)
+        // 후에 산책 리뷰로 연동해야함 *
+        val goalPercent: Int = 86
         viewBinding.progressbarFront.progress = goalPercent
         viewBinding.textProgessbarPercent.text = "$goalPercent%"
 
@@ -84,14 +78,15 @@ class HomeActivity : AppCompatActivity() {
 
         // 함께한 퍼프 친구 이름
         var puppyFriendName: String = "루루, 용식"
-        var maxLength = 10
+        val maxLength = 10
 
         if (puppyFriendName.length > maxLength) {
             puppyFriendName = puppyFriendName.substring(0, maxLength)
         }
 
 
-        viewBinding.textReviewInfo.text = "${nowDate}월 ${currentWeeOfMonth}주차에는 총 n번의 산책을 했어요.\n함께한 퍼프친구: $puppyFriendName"
+        viewBinding.textReviewInfo.text = "${nowDate}월 ${currentWeeOfMonth}주차에는 총 n번의 산책을 했어요.\n함께한 퍼프친구 : $puppyFriendName"
+
 
         if (showDialogFlag) {
             showDialog()
