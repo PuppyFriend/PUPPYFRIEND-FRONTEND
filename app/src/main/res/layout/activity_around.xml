@@ -6,19 +6,12 @@
     android:id="@+id/constraint_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
     tools:context=".View.Around.AroundActivity">
     <include
         android:id="@+id/actionbar"
         layout="@layout/actionbar_inner_page_top"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/actionbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_top"
@@ -27,7 +20,7 @@
             android:layout_marginHorizontal="23dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/actionbar">
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -59,7 +52,7 @@
                     android:layout_gravity="center"
                     android:background="@color/nothing"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/icon_around_range" />
+                    android:src="@drawable/icon_around_set_range" />
             </LinearLayout>
 
 
@@ -75,22 +68,21 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/edit_search"
                     android:layout_width="160dp"
                     android:layout_height="30dp"
                     android:background="@color/nothing"
                     android:ems="10"
                     android:hint="Search..."
-                    android:inputType="textPersonName"
                     android:textSize="15sp" />
 
                 <ImageButton
-                    android:id="@+id/imageButton2"
+                    android:id="@+id/btn_search"
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_gravity="center"
-                    android:background="@color/nothing"
                     android:scaleType="fitCenter"
+                    android:background="@color/nothing"
                     android:src="@drawable/icon_around_search" />
             </LinearLayout>
 
@@ -190,7 +182,6 @@
                     tools:listitem="@layout/listitem_around" />
             </LinearLayout>
         </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:id="@+id/view"
