@@ -1,6 +1,5 @@
 package com.example.puppyfriend_frontend.View.Home
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -18,7 +17,7 @@ class ImageActivity: AppCompatActivity() {
         // 배경을 투명하게 설정
         window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        val imgResId = R.drawable.img_real_dog          // 이미지 리소스 id를 가져오는 로직
+        val imgResId = R.drawable.img_real_circle_dog          // 이미지 리소스 id를 가져오는 로직
 
         viewBinding.imgFull.setImageResource(imgResId)
         viewBinding.outLayout.setOnClickListener{

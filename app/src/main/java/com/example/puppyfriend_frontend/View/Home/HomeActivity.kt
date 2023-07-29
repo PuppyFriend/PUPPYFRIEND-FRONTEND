@@ -9,8 +9,12 @@ import android.graphics.drawable.ColorDrawable
 import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
 import android.text.InputFilter
+import android.view.View
 import android.view.WindowManager
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.constraintlayout.widget.ConstraintSet.Constraint
 import com.example.puppyfriend_frontend.View.FirstLogin.InfoActivity
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.databinding.ActivityHomeBinding
@@ -23,13 +27,14 @@ import java.util.regex.Pattern
 class HomeActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityHomeBinding
 
+    private var isZoomed = false             // 홈 프로필 사진 클릭 boolean 값
     private var showDialogFlag: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
-        
+
         // 후에 산책 리뷰로 연동해야함 *
         val goalPercent: Int = 86
         viewBinding.progressbarFront.progress = goalPercent
@@ -38,10 +43,8 @@ class HomeActivity : AppCompatActivity() {
         viewBinding.progressbarFront.rotation = 90f     // 회전
         viewBinding.progressbarFront.scaleY = -1f       // y축을 기준으로 좌우 반전
 
-
         viewBinding.imgDog.setOnClickListener {
-            val imgResId = R.drawable.img_real_dog
-            clickEvent(imgResId)
+            toggleZoom()
         }
 
         // 현재 month 확인
@@ -88,19 +91,41 @@ class HomeActivity : AppCompatActivity() {
         viewBinding.textReviewInfo.text = "${nowDate}월 ${currentWeeOfMonth}주차에는 총 n번의 산책을 했어요.\n함께한 퍼프친구 : $puppyFriendName"
 
 
-        if (showDialogFlag) {
-            showDialog()
-        }
+//        if (showDialogFlag) {
+//            showDialog()
+//        }
 
     }
 
-    private fun clickEvent(imgResId: Int) {
-        val intent = Intent(this,  ImageActivity::class.java)
-        intent.putExtra("imgResId", imgResId)
+//    private fun clickEvent(imgResId: Int) {
+//        val intent = Intent(this,  ImageActivity::class.java)
+//        intent.putExtra("imgResId", imgResId)
+//
+//        // Optional
+//        val options = ActivityOptions.makeSceneTransitionAnimation(this, viewBinding.imgDog, "imgTrans")
+//        startActivity(intent, options.toBundle())
+//    }
 
-        // Optional
-        val options = ActivityOptions.makeSceneTransitionAnimation(this, viewBinding.imgDog, "imgTrans")
-        startActivity(intent, options.toBundle())
+    // 홈 프로필 사진 확대
+    private fun toggleZoom() {
+        if (isZoomed) {
+            // 이미지가 확대된 상태이면 다시 원래 크기로 돌아감
+            viewBinding.imgDog.scaleX = 1.0f
+            viewBinding.imgDog.scaleY = 1.0f
+            viewBinding.imgDog.translationX = 0.0f
+            viewBinding.imgDog.translationY = 0.0f
+            isZoomed = false
+        } else {
+            // 이미지가 원래 크기인 상태에서 확대함
+            viewBinding.imgDog.scaleX = 2.0f
+            viewBinding.imgDog.scaleY = 2.0f
+            // 이미지를 가운데로 이동
+            val offsetX = (viewBinding.imgDog.width * 0.5f) * (viewBinding.imgDog.scaleX - 1)
+            val offsetY = (viewBinding.imgDog.height * 0.5f) * (viewBinding.imgDog.scaleY - 1)
+            viewBinding.imgDog.translationX = -offsetX
+            viewBinding.imgDog.translationY = -offsetY
+            isZoomed = true
+        }
     }
 
     private fun showDialog(){

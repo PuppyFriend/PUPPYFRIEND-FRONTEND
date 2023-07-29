@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
     android:layout_height="740dp"
+    android:layout_gravity="center"
     android:background="#ffffff">
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/scroll_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -16,7 +18,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/text_mypuppy"
@@ -54,11 +58,11 @@
                 android:layout_marginTop="136dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="24.2dp"
+                android:maxLength="20"
                 android:text="name"
                 android:textColor="#000000"
                 android:textFontWeight="800"
                 android:textSize="20dp"
-                android:maxLength="20"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,8 +99,11 @@
                 android:layout_marginStart="225dp"
                 android:layout_marginTop="116dp"
                 android:background="@drawable/img_dog_profile"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_real_circle_dog"
                 android:transitionName="imgTrans"
-                android:src="@drawable/img_real_dog"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -123,39 +130,39 @@
                 android:layout_marginTop="245dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="15.73dp"
+                android:lineSpacingExtra="-3dp"
                 android:text="5월 3주차에는 총 6번의 산책을 했어요.\n함께한 퍼프친구 :"
                 android:textColor="#000000"
                 android:textFontWeight="800"
                 android:textSize="13dp"
-                android:lineSpacingExtra="-3dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-<!--            <TextView-->
-<!--                android:id="@+id/text_puppyfriend_name"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="60dp"-->
-<!--                android:fontFamily="@font/inter_extrabold"-->
-<!--                android:lineHeight="15.73dp"-->
-<!--                android:maxLength="10"-->
-<!--                android:text="루루, 용식"-->
-<!--                android:textColor="#000000"-->
-<!--                android:textFontWeight="800"-->
-<!--                android:textSize="13dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/text_review_info"-->
-<!--                app:layout_constraintEnd_toEndOf="@+id/text_review_info" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/text_puppyfriend_name"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="60dp"-->
+            <!--                android:fontFamily="@font/inter_extrabold"-->
+            <!--                android:lineHeight="15.73dp"-->
+            <!--                android:maxLength="10"-->
+            <!--                android:text="루루, 용식"-->
+            <!--                android:textColor="#000000"-->
+            <!--                android:textFontWeight="800"-->
+            <!--                android:textSize="13dp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/text_review_info"-->
+            <!--                app:layout_constraintEnd_toEndOf="@+id/text_review_info" />-->
 
             <ToggleButton
-                android:id="@+id/view_triangle"
+                android:id="@+id/togglebtn_home_triangle"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="297dp"
                 android:layout_marginTop="280dp"
-                android:background="@drawable/icon_home_triangle"
-                android:textOn=" "
+                android:background="@drawable/icon_triangle_togglebtn_off"
                 android:textOff=" "
+                android:textOn=" "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -165,7 +172,7 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="7dp"
                 android:layout_marginTop="294dp"
-                android:background="@drawable/style_home_review_circle"
+                android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:stateListAnimator="@null"
@@ -183,7 +190,7 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="53dp"
                 android:layout_marginTop="294dp"
-                android:background="@drawable/style_home_review_circle"
+                android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:stateListAnimator="@null"
@@ -201,7 +208,7 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="98dp"
                 android:layout_marginTop="294dp"
-                android:background="@drawable/style_home_review_circle"
+                android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:stateListAnimator="@null"
@@ -219,7 +226,7 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="145dp"
                 android:layout_marginTop="294dp"
-                android:background="@drawable/style_home_review_circle"
+                android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:stateListAnimator="@null"
@@ -237,7 +244,7 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="192dp"
                 android:layout_marginTop="294dp"
-                android:background="@drawable/style_home_review_circle"
+                android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:stateListAnimator="@null"
@@ -256,7 +263,7 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="237dp"
                 android:layout_marginTop="294dp"
-                android:background="@drawable/style_home_review_circle"
+                android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:stateListAnimator="@null"
@@ -274,7 +281,7 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="283dp"
                 android:layout_marginTop="294dp"
-                android:background="@drawable/style_home_review_circle"
+                android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:stateListAnimator="@null"
@@ -364,12 +371,12 @@
                 android:layout_marginTop="532.38dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="15.73dp"
+                android:lineSpacingExtra="-3dp"
                 android:text="목표 7회 중 6회 달성!\n아주 잘하고 있어요. 댕댕이와 함께 행복한 일주일이네요!"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textFontWeight="800"
                 android:textSize="13dp"
-                android:lineSpacingExtra="-3dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -404,13 +411,13 @@
                 android:layout_height="88dp"
                 android:layout_marginLeft="63.01dp"
                 android:layout_marginTop="76.77dp"
+                android:background="@drawable/style_home_gray_circle"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="13.31dp"
                 android:text="동네예약"
                 android:textColor="#000000"
                 android:textFontWeight="600"
                 android:textSize="11dp"
-                android:background="@drawable/style_home_gray_circle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/view_home_line" />
 
@@ -420,13 +427,13 @@
                 android:layout_height="88dp"
                 android:layout_marginLeft="176.01dp"
                 android:layout_marginTop="76.77dp"
+                android:background="@drawable/style_home_gray_circle"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="13.31dp"
                 android:text="펖마켓"
                 android:textColor="#000000"
                 android:textFontWeight="600"
                 android:textSize="11dp"
-                android:background="@drawable/style_home_gray_circle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/view_home_line" />
 
