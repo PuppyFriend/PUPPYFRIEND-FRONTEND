@@ -3,26 +3,19 @@ package com.example.puppyfriend_frontend.View.Home
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
-import android.text.InputFilter
-import android.view.View
 import android.view.WindowManager
-import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.constraintlayout.widget.ConstraintSet.Constraint
 import com.example.puppyfriend_frontend.View.FirstLogin.InfoActivity
-import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.databinding.ActivityHomeBinding
 import com.example.puppyfriend_frontend.databinding.CustomDialogBinding
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.*
-import java.util.regex.Pattern
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityHomeBinding
@@ -95,13 +88,17 @@ class HomeActivity : AppCompatActivity() {
 //            showDialog()
 //        }
 
+        if (showDialogFlag) {
+            showDialog()
+        }
+
     }
 
 //    private fun clickEvent(imgResId: Int) {
 //        val intent = Intent(this,  ImageActivity::class.java)
 //        intent.putExtra("imgResId", imgResId)
 //
-//        // Optional
+//        // OptionalH
 //        val options = ActivityOptions.makeSceneTransitionAnimation(this, viewBinding.imgDog, "imgTrans")
 //        startActivity(intent, options.toBundle())
 //    }
