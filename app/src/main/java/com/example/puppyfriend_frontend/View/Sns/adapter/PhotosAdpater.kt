@@ -1,26 +1,60 @@
 package com.example.puppyfriend_frontend.View.Sns.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.View.Sns.model.Photo
 import com.example.puppyfriend_frontend.databinding.ItemPhotoBinding
 
-class PhotosAdapter(private val photosList: List<Photo>) :
-    RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
+class PhotosAdapter(private val photosList: List<Photo>, private val onIconClickListener: () -> Unit) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
-        val viewBinding = ItemPhotoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PhotoViewHolder(viewBinding)
+    companion object {
+        private const val VIEW_TYPE_ICON = 0
+        private const val VIEW_TYPE_PHOTO = 1
     }
 
-    override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
-        holder.bind(photosList[position])
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (viewType) {
+            VIEW_TYPE_ICON -> {
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_icon, parent, false)
+                IconViewHolder(view)
+            }
+            VIEW_TYPE_PHOTO -> {
+                val viewBinding =
+                    ItemPhotoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                PhotoViewHolder(viewBinding)
+            }
+            else -> throw IllegalArgumentException("Invalid view type")
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is IconViewHolder -> holder.bind()
+            is PhotoViewHolder -> holder.bind(photosList[position - 1]) // Subtract 1 to skip the icon
+        }
     }
 
     override fun getItemCount(): Int {
-        return photosList.size
+        return photosList.size + 1 // Add 1 to account for the icon item
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position == 0) VIEW_TYPE_ICON else VIEW_TYPE_PHOTO
+    }
+
+    inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind() {
+            // Add click listener for the new icon
+            itemView.setOnClickListener {
+                onIconClickListener.invoke()
+            }
+        }
     }
 
     inner class PhotoViewHolder(private val viewBinding: ItemPhotoBinding) :
@@ -29,7 +63,7 @@ class PhotosAdapter(private val photosList: List<Photo>) :
         fun bind(photo: Photo) {
             Glide.with(viewBinding.root)
                 .load(photo.url)
-                .into(viewBinding.imageViewPhoto)
+                .into(viewBinding.imgPhoto)
         }
     }
 }

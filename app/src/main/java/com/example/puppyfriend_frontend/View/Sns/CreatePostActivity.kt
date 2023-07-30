@@ -21,8 +21,6 @@ import com.example.puppyfriend_frontend.View.Sns.adapter.PhotosAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Photo
 import com.example.puppyfriend_frontend.databinding.ActivityCreatepostBinding
 
-
-
 class CreatePostActivity:AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityCreatepostBinding
@@ -85,7 +83,7 @@ class CreatePostActivity:AppCompatActivity() {
             toggleCheckVisibility(it)
             viewBinding.viewContentBackground.setBackgroundColor(Color.parseColor("#FBE0E4"))
         }
-        
+
         // 카테고리_질문 클릭 시 색변화
         viewBinding.imgCategoryQuestion.setOnClickListener{
             viewBinding.imgCategoryQuestion.isSelected = !viewBinding.imgCategoryQuestion.isSelected
@@ -140,8 +138,14 @@ class CreatePostActivity:AppCompatActivity() {
 
     private fun showPhotos() {
         val photosList = getPhotosList()
-        photosAdapter = PhotosAdapter(photosList)
-        val recyclerView: RecyclerView = viewBinding.recyclerViewPhotos
+        photosAdapter = PhotosAdapter(photosList) {
+            // Handle the click event for the new icon here
+            // For example, you can start a new activity or perform any other action
+            // when the user clicks the icon in the first cell.
+            // TODO: Add your desired functionality here
+            Toast.makeText(this, "New Icon Clicked!", Toast.LENGTH_SHORT).show()
+        }
+        val recyclerView: RecyclerView = viewBinding.rvGallery
         recyclerView.layoutManager = GridLayoutManager(this, 5)
         recyclerView.adapter = photosAdapter
     }
@@ -176,55 +180,5 @@ class CreatePostActivity:AppCompatActivity() {
         return photosList
     }
 
-        //    private fun openGallery() {
-//        storage = FirebaseStorage.getInstance()
-//
-//        var photoPickerIntent = Intent(Intent.ACTION_PICK)
-//        photoPickerIntent.type="image/*"
-//        startActivityForResult(photoPickerIntent, PICK_IMAGE_FROM_ALBUM)
-//
-//        viewBinding.btnSnsPostingRegister.setOnClickListener {
-//            contentUpload()
-//        }
-//    }
-//
-//        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (requestCode == RESULT_OK)
-//            if (resultCode == GALLERY) {
-//                var ImageData: Uri? = data?.data
-//                Toast.makeText(this, ImageData.toString(), Toast.LENGTH_SHORT).show()
-//                try {
-//                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, ImageData)
-//                    viewBinding.imgSnsPosting.setImageBitmap(bitmap)
-//                } catch (e: Exception) {
-//                    e.printStackTrace()
-//                }
-//            }
-        }
-//    }
 
-
-//
-//    private fun contentUpload() {
-//        var timestamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-//        var imageFileName = "IMAGE_" + timestamp + "_.png"
-//
-//        var storageRef = storage?.reference?.child("images")?.child(imageFileName)
-//
-//        storageRef?.putFile(photoUri!!)?.addOnSuccessListener {
-//            val uploadStatusMessage = "Upload Status: Success"
-//            Toast.makeText(this, uploadStatusMessage, Toast.LENGTH_LONG).show()
-//
-//            val intent = Intent(this, AddPhotoActivity::class.java)
-//            intent.putExtra("upload_status", uploadStatusMessage)
-//            startActivity(intent)
-//        }?.addOnFailureListener{
-//            val uploadStatusMessage = "Upload Status: Failed"
-//            Toast.makeText(this, uploadStatusMessage, Toast.LENGTH_LONG).show()
-//
-//            val intent = Intent(this, AddPhotoActivity::class.java)
-//            intent.putExtra("upload_status", uploadStatusMessage)
-//            startActivity(intent)
-//        }
-//    }
+}
