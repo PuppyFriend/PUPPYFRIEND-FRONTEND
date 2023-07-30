@@ -39,6 +39,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
+        <activity android:name=".View.Login.LoginActivity"/>
+        <activity android:name=".View.SignUp.SignUpActivity"/>
+        <activity android:name=".View.SignUp.SignUpPhoneActivity"/>
+        <activity android:name=".View.SignUp.SignUpAgreeActivity"/>
+        <activity android:name=".View.SignUp.SignUpLocationActivity"/>
     </application>
 
 </manifest>
