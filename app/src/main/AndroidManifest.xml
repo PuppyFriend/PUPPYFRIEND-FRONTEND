@@ -55,7 +55,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".View.Sns.CreatePostActivity"
+            android:name=".View.Sns.SnsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,7 +68,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".View.Sns.SnsActivity"
+            android:name=".View.Sns.CreatePostActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

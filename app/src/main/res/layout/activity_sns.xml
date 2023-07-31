@@ -7,18 +7,6 @@
     android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-            <View
-                android:id="@+id/toggle_hiddenView"
-                android:layout_width="wrap_content"
-                android:layout_height="160dp"
-                android:layout_marginTop="303dp"
-                android:background="@drawable/style_sns_hashtag_border"
-                android:visibility="gone"
-                android:elevation="10dp"
-                android:translationZ="-8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
         <ScrollView
             android:id="@+id/scroll_sns"
             android:layout_width="match_parent"
@@ -190,8 +178,8 @@
                         android:id="@+id/img_sns_main_profile"
                         android:layout_width="57.81dp"
                         android:layout_height="58.97dp"
-                        android:layout_marginLeft="23.1dp"
-                        android:layout_marginTop="241.7dp"
+                        android:layout_marginLeft="25.22dp"
+                        android:layout_marginTop="241.2dp"
                         android:background="@drawable/img_dog_profile"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -216,8 +204,8 @@
                         android:id="@+id/text_follower_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="105.71dp"
-                        android:layout_marginTop="263.22dp"
+                        android:layout_marginLeft="107.84dp"
+                        android:layout_marginTop="262.72dp"
                         android:fontFamily="@font/inter_bold"
                         android:lineHeight="24.2dp"
                         android:text="10"
@@ -230,12 +218,13 @@
                     <TextView
                         android:id="@+id/text_follwer"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="103.71dp"
-                        android:layout_marginTop="288.22dp"
+                        android:layout_height="13dp"
+                        android:layout_marginLeft="105.84dp"
+                        android:layout_marginTop="287.72dp"
                         android:fontFamily="@font/inter_semibold"
                         android:lineHeight="12.1dp"
                         android:text="팔로워"
+                        android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="#565656"
                         android:textFontWeight="600"
@@ -247,8 +236,8 @@
                         android:id="@+id/text_following_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="160.71dp"
-                        android:layout_marginTop="263.22dp"
+                        android:layout_marginLeft="162.84dp"
+                        android:layout_marginTop="262.72dp"
                         android:fontFamily="@font/inter_bold"
                         android:lineHeight="24.2dp"
                         android:text="20"
@@ -261,9 +250,9 @@
                     <TextView
                         android:id="@+id/text_following"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="160.71dp"
-                        android:layout_marginTop="288.22dp"
+                        android:layout_height="13dp"
+                        android:layout_marginLeft="161.84dp"
+                        android:layout_marginTop="287.72dp"
                         android:fontFamily="@font/inter_semibold"
                         android:lineHeight="12.1dp"
                         android:text="팔로잉"
@@ -285,6 +274,19 @@
                         android:textOn=" "
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <FrameLayout
+                        android:id="@+id/fragment_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:background="@drawable/style_sns_hashtag_border"
+                        android:elevation="10dp"
+                        android:translationZ="-8dp"
+                        android:visibility="gone"
+                        android:layout_marginTop="300.17dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
 
                     <TextView
                         android:id="@+id/text_post"

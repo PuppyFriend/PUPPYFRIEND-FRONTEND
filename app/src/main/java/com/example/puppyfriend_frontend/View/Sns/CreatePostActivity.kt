@@ -145,7 +145,7 @@ class CreatePostActivity:AppCompatActivity() {
             // TODO: Add your desired functionality here
             Toast.makeText(this, "New Icon Clicked!", Toast.LENGTH_SHORT).show()
         }
-        val recyclerView: RecyclerView = viewBinding.rvGallery
+        val recyclerView: RecyclerView = viewBinding.recyclerViewGallery
         recyclerView.layoutManager = GridLayoutManager(this, 5)
         recyclerView.adapter = photosAdapter
     }
