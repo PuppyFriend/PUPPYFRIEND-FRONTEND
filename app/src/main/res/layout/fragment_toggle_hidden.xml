@@ -61,7 +61,7 @@
 
         <View
             android:id="@+id/view_toggle_hidden"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="160dp"
             android:background="@drawable/style_sns_hashtag_border"
             android:visibility="gone"

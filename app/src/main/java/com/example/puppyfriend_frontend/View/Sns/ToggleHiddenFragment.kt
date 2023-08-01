@@ -34,7 +34,7 @@ class ToggleHiddenFragment: Fragment() {
 
     private fun setupRecyclerView() {
         val characterList = createCharacterList()
-        val activityList = createActivity()
+        val activityList = createActivityList()
 
         val characterRecyclerView = viewBinding.recyclerViewCharacter
         val activityRecyclerView = viewBinding.recyclerViewActivity
@@ -55,7 +55,7 @@ class ToggleHiddenFragment: Fragment() {
         return characterList
     }
 
-    private fun createActivity(): List<Activity> {
+    private fun createActivityList(): List<Activity> {
         val activityList = mutableListOf<Activity>()
         activityList.add(Activity("산책친구에요"))
         activityList.add(Activity("돌보미 구해요"))
