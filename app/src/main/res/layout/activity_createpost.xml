@@ -298,7 +298,7 @@
             android:layout_column="0"
             android:layout_marginLeft="10.88dp"
             android:layout_marginTop="15dp"
-            android:text="게시물 내 이미지"
+            android:text="게시물 내 이미지 0/1"
             android:fontFamily="@font/baloo_da2_extra_bold"
             android:textFontWeight="700"
             android:textSize="15dp"

@@ -7,6 +7,16 @@
     android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/img_sns_posting_btn"
+        android:layout_width="50dp"
+        android:layout_height="52.29dp"
+        android:background="@drawable/img_sns_posting_btn"
+        android:layout_marginTop="562.02dp"
+        android:layout_marginLeft="155.48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
         <ScrollView
             android:id="@+id/scroll_sns"
             android:layout_width="match_parent"
@@ -470,14 +480,14 @@
                                     android:layout_marginTop="7dp">
 
                                     <View
-                                        android:layout_width="164dp"
+                                        android:layout_width="144dp"
                                         android:layout_height="76dp"
                                         android:background="#FFCEB9"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />
 
                                     <View
-                                        android:layout_width="164dp"
+                                        android:layout_width="144dp"
                                         android:layout_height="76dp"
                                         android:layout_marginLeft="163.96dp"
                                         android:background="#CCFCF8C4"
@@ -490,5 +500,5 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
