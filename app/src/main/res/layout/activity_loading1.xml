@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Loading.Loading1Activity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="121dp"
+            android:background="@drawable/icon_loading1_ellipse"/>
+
+        <ImageView
+            android:id="@+id/img_walking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_loading_walking"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="178dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_loading1_puppy"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/img_walking"
+            android:layout_marginTop="258dp"
+            android:layout_marginStart="7dp"
+            />
+
+        <TextView
+            android:id="@+id/txt_notification1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="퍼피프렌드와\n더 즐겁게 산책해요"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter_700"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="384.16dp"
+            android:layout_marginStart="63dp"/>
+
+
+        <TextView
+            android:id="@+id/txt_notification2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. 우리의 발자국을 남기고\n    산책일지를 써요\n\n2. 동네 퍼프와 함께 산책해요"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/inter_400"
+            app:layout_constraintStart_toStartOf="@id/txt_notification1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="457.1dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/style_loading1"
+        android:drawableTop="@drawable/icon_loading_right_arrow"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

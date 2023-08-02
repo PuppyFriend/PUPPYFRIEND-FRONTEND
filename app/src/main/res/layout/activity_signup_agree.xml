@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/actionbar_inner_page_top"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:id="@+id/txt_notification1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원활한 이용을 위해서\n약관동의를 해주세요."
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="99dp"
+            android:layout_marginStart="30dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_agree_all"
+            android:layout_width="298.69dp"
+            android:layout_height="44dp"
+            android:background="@drawable/selector_signup_agree"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_notification1"
+            android:layout_marginTop="130dp"
+            android:gravity="center"
+            android:paddingStart="16.84dp"
+            android:drawableStart="@drawable/selector_signup_agree_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/btn_agree_all"
+            app:layout_constraintTop_toTopOf="@id/btn_agree_all"
+            app:layout_constraintBottom_toBottomOf="@id/btn_agree_all"
+            android:layout_marginStart="49.84dp"
+            android:text="전체 동의"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:elevation="5dp"/>
+        
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_agree_first"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/selector_signup_agree_text"
+            app:layout_constraintStart_toStartOf="@id/btn_agree_all"
+            app:layout_constraintTop_toBottomOf="@id/btn_agree_all"
+            android:layout_marginTop="38dp"
+            android:layout_marginStart="6.84dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/btn_agree_first"
+            app:layout_constraintTop_toTopOf="@id/btn_agree_first"
+            app:layout_constraintBottom_toBottomOf="@id/btn_agree_first"
+            android:text="[필수] 퍼피프렌드 이용약관 동의"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_marginStart="12dp"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_agree_second"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/selector_signup_agree_text"
+            app:layout_constraintStart_toStartOf="@id/btn_agree_all"
+            app:layout_constraintTop_toBottomOf="@id/btn_agree_first"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="6.84dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/btn_agree_second"
+            app:layout_constraintTop_toTopOf="@id/btn_agree_second"
+            app:layout_constraintBottom_toBottomOf="@id/btn_agree_second"
+            android:text="[필수] 개인정보 및 위치정보 수집, 이용 동의"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_marginStart="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_agree_third"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/selector_signup_agree_text"
+            app:layout_constraintStart_toStartOf="@id/btn_agree_all"
+            app:layout_constraintTop_toBottomOf="@id/btn_agree_second"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="6.84dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/btn_agree_third"
+            app:layout_constraintTop_toTopOf="@id/btn_agree_third"
+            app:layout_constraintBottom_toBottomOf="@id/btn_agree_third"
+            android:text="[선택] 마케팅 정보 수집 동의"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_marginStart="12dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/style_signup_done"
+        android:text="다음"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

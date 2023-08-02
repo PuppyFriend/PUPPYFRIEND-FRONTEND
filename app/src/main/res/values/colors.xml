@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="main_pink">#F4B0BD</color>
+    <color name="main_yellow">#FFD662</color>
+
+    <color name="sub_pink">#FBE0E4</color>
+    <color name="sun_green">#D2E1D6</color>
+    <color name="sub_orange">#FFC2A9</color>
+    <color name="sub_yellow">#FCF8C4</color>
+    <color name="sub_blue">#C6E8F2</color>
+
+    <color name="gray">#EEEEEE</color>
+    <color name="nothing">#00000000</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

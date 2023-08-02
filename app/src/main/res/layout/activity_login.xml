@@ -30,14 +30,27 @@
         app:layout_constraintBottom_toBottomOf="@id/img_ellipse_yellow"/>
 
     <ImageView
-        android:id="@+id/img_img_ellipse_yellowPink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/img_puppy_login"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="278dp"
-        android:background="@drawable/img_login_pinkyellow"/>
+        android:background="@drawable/img_puppy_login"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="84dp"
+        android:layout_height="42.65dp"
+        android:background="@drawable/style_login_puppy"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="230dp"
+        android:text="‘퍼피프렌드’의 마스코트 ‘김퍼필'"
+        android:textColor="@color/black"
+        android:textSize="8sp"/>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_kakao"

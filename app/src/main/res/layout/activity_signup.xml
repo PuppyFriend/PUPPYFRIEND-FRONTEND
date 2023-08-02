@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/actionbar"
-        layout="@layout/actionbar_inner_page_top"/>
+        layout="@layout/actionbar_inner_page_top" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -28,7 +28,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="146.98dp"
+                android:layout_marginTop="175.63dp"
                 android:hint="이름"
                 app:errorEnabled="true"
                 app:endIconMode="clear_text"
@@ -37,6 +37,7 @@
                     android:id="@+id/textInputEdit_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="16sp"
                     android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,11 +47,13 @@
                 android:layout_height="60.04dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="231.98dp"
+                app:layout_constraintTop_toBottomOf="@id/textInput_name"
+                android:layout_marginTop="30.63dp"
                 android:hint="닉네임"
                 app:errorEnabled="true"
+                app:helperTextEnabled="true"
                 app:endIconMode="clear_text"
+                app:helperText="한글 12자리 이하로 구성해주세요"
                 style="@style/TextInputLayoutStyle">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputEdit_nickname"
@@ -65,8 +68,8 @@
                 android:layout_height="60.04dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="315.98dp"
+                app:layout_constraintTop_toBottomOf="@id/textInput_nickname"
+                android:layout_marginTop="30.63dp"
                 android:hint="아이디"
                 app:errorEnabled="true"
                 app:endIconMode="clear_text"
@@ -85,11 +88,12 @@
                 android:layout_height="60.04dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="401.98dp"
+                app:layout_constraintTop_toBottomOf="@id/textInput_id"
+                android:layout_marginTop="30.63dp"
                 android:hint="비밀번호"
                 app:errorEnabled="true"
-                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:helperText="영문, 숫자, 특수 문자를 조합해 8~10자리를 입력하세요."
                 style="@style/TextInputLayoutStyle">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputEdit_password"
@@ -104,8 +108,8 @@
                 android:layout_height="60.04dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="489.98dp"
+                app:layout_constraintTop_toBottomOf="@id/textInput_password"
+                android:layout_marginTop="30.63dp"
                 android:hint="비밀번호 확인"
                 app:errorEnabled="true"
                 app:endIconMode="clear_text"
@@ -114,118 +118,83 @@
                     android:id="@+id/textInputEdit_password_check"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="16sp"
                     android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInput_telecom"
-                android:layout_width="315.01dp"
-                android:layout_height="60.04dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="577.98dp"
-                android:hint="통신사"
-                app:errorEnabled="true"
+                android:id="@+id/textInput_birth_year"
+                android:layout_width="126.45dp"
+                android:layout_height="43.67dp"
+                app:layout_constraintStart_toStartOf="@id/textInput_password_check"
+                app:layout_constraintEnd_toStartOf="@id/textInput_birth_month"
+                app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
+                android:layout_marginTop="30.63dp"
+                android:hint="출생 연도"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
                 style="@style/TextInputLayoutDropDownStyle">
                 <AutoCompleteTextView
-                    android:id="@+id/textInputEdit_telecom"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:inputType="none"/>
+                    android:inputType="none"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInput_phone_number"
-                android:layout_width="315.01dp"
-                android:layout_height="60.04dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="662.98dp"
-                android:hint="전화번호"
-                app:errorEnabled="true"
-                app:endIconMode="clear_text"
-                style="@style/TextInputLayoutStyle">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEdit_phone_number"
+                android:id="@+id/textInput_birth_month"
+                android:layout_width="80.21dp"
+                android:layout_height="43.67dp"
+                app:layout_constraintStart_toEndOf="@id/textInput_birth_year"
+                app:layout_constraintEnd_toStartOf="@id/textInput_birth_day"
+                app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
+                android:layout_marginTop="30.63dp"
+                android:hint="월"
+                style="@style/TextInputLayoutDropDownStyle">
+                <AutoCompleteTextView
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"/>
+                    android:layout_height="match_parent"
+                    android:inputType="none"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
-            
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_send_number"
-                android:layout_width="64.42dp"
-                android:layout_height="56.99dp"
-                android:text="인증번호\n발송"
-                android:textSize="12sp"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@id/textInput_phone_number"
-                app:layout_constraintTop_toTopOf="@id/textInput_phone_number"
-                app:layout_constraintBottom_toBottomOf="@id/textInput_phone_number"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/style_signup_send"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInput_number"
-                android:layout_width="315.01dp"
-                android:layout_height="60.04dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="747.98dp"
-                android:hint="인증번호"
-                app:errorEnabled="true"
-                app:endIconMode="clear_text"
-                style="@style/TextInputLayoutStyle">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEdit_number"
+                android:id="@+id/textInput_birth_day"
+                android:layout_width="80.21dp"
+                android:layout_height="43.67dp"
+                app:layout_constraintStart_toEndOf="@id/textInput_birth_month"
+                app:layout_constraintEnd_toEndOf="@id/textInput_password_check"
+                app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
+                android:layout_marginTop="30.63dp"
+                android:hint="일"
+                style="@style/TextInputLayoutDropDownStyle">
+                <AutoCompleteTextView
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"/>
+                    android:layout_height="match_parent"
+                    android:inputType="none"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_check_number"
-                android:layout_width="64.42dp"
-                android:layout_height="56.99dp"
-                android:text="인증"
-                android:textSize="12sp"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@id/textInput_number"
-                app:layout_constraintTop_toTopOf="@id/textInput_number"
-                app:layout_constraintBottom_toBottomOf="@id/textInput_number"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/style_signup_send"
-                android:visibility="invisible"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInput_sexual"
+                android:layout_width="80.21dp"
+                android:layout_height="43.67dp"
+                app:layout_constraintStart_toStartOf="@id/textInput_password_check"
+                app:layout_constraintTop_toBottomOf="@id/textInput_birth_year"
+                android:layout_marginTop="30.63dp"
+                android:hint="성별"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                style="@style/TextInputLayoutDropDownStyle">
+                <AutoCompleteTextView
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="none"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/txt_stop_watch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5:00"
-                android:textSize="13sp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="@id/textInput_number"
-                app:layout_constraintTop_toTopOf="@id/textInput_number"
-                app:layout_constraintBottom_toBottomOf="@id/textInput_number"
-                android:layout_marginEnd="15dp"/>
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="315.01dp"
-                android:layout_height="60.04dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textInput_number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="다음"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="112.57dp"
-                android:layout_marginBottom="101.96dp"
-                android:background="@drawable/style_signup_send" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -246,16 +215,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="99dp"
+        android:layout_marginTop="130.42dp"
         android:textStyle="bold"/>
     
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/style_signup_done"
-        android:text="ㅇㅇ"
+        android:text="다음"
+        android:textSize="25sp"
         android:textAlignment="center"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

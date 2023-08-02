@@ -1,12 +1,18 @@
 package com.example.puppyfriend_frontend.View.SignUp
 
+import android.content.Intent
+import android.graphics.Outline
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.view.ViewOutlineProvider
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat.setElevation
 import androidx.lifecycle.VIEW_MODEL_STORE_OWNER_KEY
 import com.example.puppyfriend_frontend.databinding.ActivitySignupBinding
+import com.google.android.material.shape.MaterialShapeUtils.setElevation
 
 class SignUpActivity: AppCompatActivity() {
     lateinit var viewBinding: ActivitySignupBinding
@@ -14,6 +20,11 @@ class SignUpActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+
+        viewBinding.btnNext.setOnClickListener {
+            val intent = Intent(this, SignUpPhoneActivity::class.java)
+            startActivity(intent)
+        }
 
         initView()
     }
