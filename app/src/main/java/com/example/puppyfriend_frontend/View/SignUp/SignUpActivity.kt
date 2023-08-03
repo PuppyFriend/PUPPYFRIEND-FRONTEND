@@ -26,7 +26,13 @@ class SignUpActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
-        initView()
+        initActionBar()
+//        initView()
+    }
+
+    fun initActionBar(){
+        viewBinding.actionbar.appbarPageNameLeftTv.text = "회원가입"
+        viewBinding.actionbar.appbarBackBtn.setOnClickListener { onBackPressed() }
     }
 
     fun initView(){
