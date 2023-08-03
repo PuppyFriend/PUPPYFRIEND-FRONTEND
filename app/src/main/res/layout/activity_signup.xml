@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/actionbar"
-        layout="@layout/actionbar_inner_page_top" />
+        layout="@layout/actionbar_signup" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -19,7 +19,7 @@
         
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInput_name"
@@ -134,7 +134,8 @@
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 style="@style/TextInputLayoutDropDownStyle">
                 <AutoCompleteTextView
-                    android:textSize="16sp"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_400"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
@@ -152,7 +153,8 @@
                 android:hint="월"
                 style="@style/TextInputLayoutDropDownStyle">
                 <AutoCompleteTextView
-                    android:textSize="16sp"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/inter_400"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
@@ -170,7 +172,7 @@
                 android:hint="일"
                 style="@style/TextInputLayoutDropDownStyle">
                 <AutoCompleteTextView
-                    android:textSize="16sp"
+                    android:textSize="13sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
@@ -179,16 +181,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInput_sexual"
-                android:layout_width="80.21dp"
+                android:layout_width="100.21dp"
                 android:layout_height="43.67dp"
                 app:layout_constraintStart_toStartOf="@id/textInput_password_check"
                 app:layout_constraintTop_toBottomOf="@id/textInput_birth_year"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="30.63dp"
+                android:layout_marginBottom="268.14dp"
                 android:hint="성별"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 style="@style/TextInputLayoutDropDownStyle">
                 <AutoCompleteTextView
-                    android:textSize="16sp"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter_400"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
@@ -201,7 +206,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="138dp"
+        android:layout_height="160dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/white"/>
@@ -215,7 +220,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="130.42dp"
+        android:layout_marginTop="110.42dp"
         android:textStyle="bold"/>
     
     <androidx.appcompat.widget.AppCompatButton

@@ -16,5 +16,12 @@ class SignUpPhoneActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpAgreeActivity::class.java)
             startActivity(intent)
         }
+
+        initActionBar()
+    }
+
+    fun initActionBar(){
+        viewBinding.actionbar.appbarPageNameLeftTv.text = "휴대폰 인증"
+        viewBinding.actionbar.appbarBackBtn.setOnClickListener { onBackPressed() }
     }
 }
