@@ -6,10 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.puppyfriend_frontend.R
+import com.example.puppyfriend_frontend.View.Sns.OnPhotoClickListener
 import com.example.puppyfriend_frontend.View.Sns.model.Photo
 import com.example.puppyfriend_frontend.databinding.ItemPhotoBinding
 
-class PhotosAdapter(private val photosList: List<Photo>, private val onIconClickListener: () -> Unit) :
+class PhotosAdapter(
+    private val photosList: List<Photo>,
+    private val onPhotoClickListener: (Photo) -> Unit,
+    private val onIconClickListener: () -> Unit
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -64,6 +69,10 @@ class PhotosAdapter(private val photosList: List<Photo>, private val onIconClick
             Glide.with(viewBinding.root)
                 .load(photo.url)
                 .into(viewBinding.imgPhoto)
+
+            viewBinding.imgPhoto.setOnClickListener {
+                onPhotoClickListener.invoke(photo)
+            }
         }
     }
 }

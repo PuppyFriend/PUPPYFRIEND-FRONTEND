@@ -3,6 +3,7 @@ package com.example.puppyfriend_frontend.View.Sns.adapter
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
+import android.net.Uri
 import android.view.DragEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -29,10 +30,6 @@ class PostingAdapter(private val postingList: List<Posting>) : RecyclerView.Adap
         val posting = postingList[position]
         holder.bind(posting)
 
-//        // item끼리 간격 설정
-//        val layoutParams = holder.itemView.layoutParams
-//        layoutParams.height = 6
-//        holder.itemView.requestLayout()
     }
 
     override fun getItemCount(): Int {
@@ -45,7 +42,7 @@ class PostingAdapter(private val postingList: List<Posting>) : RecyclerView.Adap
             // Posting 객체로부터 데이터를 가져와서 뷰에 설정
             itemBinding.textBlueMemoDate.text = posting.date     // local date를 string으로 변환
             itemBinding.textBlueMemoComment.text = posting.content
-            itemBinding.imgBlueMemo.setImageResource(posting.image)
+            itemBinding.imgBlueMemo.setImageURI(Uri.parse(posting.image))
 
             val backgroundColor = ColorDrawable(posting.contentBackgroundColor)
             itemBinding.viewBlueMemo.background = backgroundColor
