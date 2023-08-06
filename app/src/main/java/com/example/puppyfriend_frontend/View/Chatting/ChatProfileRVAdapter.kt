@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.puppyfriend_frontend.Model.ChatProfile
+import com.example.puppyfriend_frontend.View.Chatting.Dialog.ChatRoomExitDialog
 import com.example.puppyfriend_frontend.databinding.ItemChatProfileBinding
 
 class ChatProfileRVAdapter(private val longClick: () -> Unit,
@@ -47,10 +48,12 @@ class ChatProfileRVAdapter(private val longClick: () -> Unit,
                 viewBinding.swipeItemview.translationX = 0f
 
             viewBinding.btnAlarm.setOnClickListener {
-
+                viewBinding.btnAlarm.isSelected = !viewBinding.btnAlarm.isSelected
             }
 
             viewBinding.btnDelete.setOnClickListener {
+                val exitDialog = ChatRoomExitDialog(context)
+                exitDialog.start()
 
             }
         }

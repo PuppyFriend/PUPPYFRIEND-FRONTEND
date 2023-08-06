@@ -13,6 +13,13 @@
         android:theme="@style/Theme.PUPPYFRIENDFRONTEND"
         tools:targetApi="31">
         <activity
+            android:name=".ChattingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".View.Around.AroundsearchActivity"
             android:exported="true">
             <meta-data
@@ -38,17 +45,12 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- 첫 화면 로딩 페이지 -->
+        </activity> <!-- 첫 화면 로딩 페이지 -->
         <activity android:name=".View.Loading.Loading1Activity" />
         <activity android:name=".View.Loading.Loading2Activity" />
         <activity android:name=".View.Loading.Loading3Activity" />
-        <activity android:name=".View.Loading.Loading4Activity" />
-
-        <!-- 로그인 페이지 -->
-        <activity android:name=".View.Login.LoginActivity" />
-
-        <!-- 회원가입 페이지 -->
+        <activity android:name=".View.Loading.Loading4Activity" /> <!-- 로그인 페이지 -->
+        <activity android:name=".View.Login.LoginActivity" /> <!-- 회원가입 페이지 -->
         <activity android:name=".View.SignUp.SignUpActivity" />
         <activity android:name=".View.SignUp.SignUpPhoneActivity" />
         <activity android:name=".View.SignUp.SignUpAgreeActivity" />
