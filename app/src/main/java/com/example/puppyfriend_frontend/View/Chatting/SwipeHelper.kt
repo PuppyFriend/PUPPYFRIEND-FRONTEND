@@ -105,7 +105,7 @@ class SwipeHelper: ItemTouchHelper.Callback() {
         isCurrentlyActive: Boolean // 스와이프 중인지 , 손 떼면 false 된다
     ) : Float {
         // View의 가로 길이의 30% 만 스와이프 되도록
-        val maxSwipe: Float = -view.width.toFloat() / 10 * 3 // 음수 값!!,  xml 상에서 삭제 영역이 아이템뷰 width의 0.3 만큼 차지하도록 설정한 것과 맞추기 위함
+        val maxSwipe: Float = -133.26f // 음수 값!!,  xml 상에서 삭제 영역이 아이템뷰 width의 0.3 만큼 차지하도록 설정한 것과 맞추기 위함
 
         // RIGHT 방향으로 swipe 막기
         val right: Float = 0f

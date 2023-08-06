@@ -18,7 +18,7 @@
             android:background="#C4C4C4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:drawableTop="@drawable/icon_chat_alarm"
+            android:drawableTop="@drawable/selector_chat_alarm"
             android:paddingTop="21dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
