@@ -57,6 +57,7 @@
         android:maxWidth="200dp"/>
 
     <TextView
+        android:id="@+id/item_txt_send_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/item_your_chat_iv"
