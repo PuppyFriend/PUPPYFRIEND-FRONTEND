@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    tools:context=".WalkFilterFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="지도 필터"
+            android:textSize="13sp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBox_map_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="장소"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:button="@drawable/selector_walk_filter_checkbox"/>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBox_map_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="다른 퍼프"
+                android:paddingLeft="5dp"
+                android:layout_weight="1"
+
+                android:button="@drawable/selector_walk_filter_checkbox"/>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBox_map_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="발자국"
+                android:paddingLeft="5dp"
+                android:layout_weight="1"
+                android:button="@drawable/selector_walk_filter_checkbox"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="내 위치"
+            android:textSize="13sp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBox_location_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모두에게 보이기"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:button="@drawable/selector_walk_filter_checkbox"/>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBox_location_my"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내 퍼프들만"
+                android:paddingLeft="5dp"
+                android:layout_weight="1"
+
+                android:button="@drawable/selector_walk_filter_checkbox"/>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBox_location_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="모두에게 숨기기"
+                android:paddingLeft="5dp"
+                android:layout_weight="1"
+                android:button="@drawable/selector_walk_filter_checkbox"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
