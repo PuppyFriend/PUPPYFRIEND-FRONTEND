@@ -15,10 +15,6 @@ class MoreInfoActivity: AppCompatActivity() {
         setContentView(viewBinding.root)
 
         viewBinding.btnStart.setOnClickListener{
-<<<<<<< HEAD
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-=======
             val receivedPuppyName = intent.getStringExtra("puppy_name")
             val receivedPuppySpecies = intent.getStringExtra("puppy_species")
             val receivedPuppyAge = intent.getStringExtra("puppy_age")
@@ -34,7 +30,6 @@ class MoreInfoActivity: AppCompatActivity() {
             intentToHome.putExtra("puppy_gender", receivedPuppyGender)
             intentToHome.putExtra("puppy_goal", receivedPuppyGoal)
             startActivity(intentToHome)
->>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
         }
 
     }

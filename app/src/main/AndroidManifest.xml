@@ -80,40 +80,8 @@
         </activity>
         <activity
             android:name=".View.MainActivity"
-            android:exported="true">
-=======
-            android:name=".View.FirstLogin.InfoActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".View.FirstLogin.MoreInfoActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".View.Home.HomeActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".View.Home.ImageActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".View.MainActivity"
             android:exported="true"
             >
->>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -124,18 +92,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".View.Sns.SnsActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-        <!-- 첫 화면 로딩 페이지 -->
-=======
         <activity
             android:name=".View.Sns.CreatePostActivity"
             android:exported="false">
@@ -148,7 +104,6 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
          <!-- 첫 화면 로딩 페이지 -->
->>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
         <activity android:name=".View.Loading.Loading1Activity" />
         <activity android:name=".View.Loading.Loading2Activity" />
         <activity android:name=".View.Loading.Loading3Activity" />

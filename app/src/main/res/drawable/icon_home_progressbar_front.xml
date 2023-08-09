@@ -3,17 +3,6 @@
 
     <item android:id="@android:id/progress">
             <shape
-<<<<<<< HEAD
-                android:innerRadius="30dp"
-                android:useLevel="true"
-                android:shape="ring"
-                android:thickness="15dp" >
-                <gradient
-                    android:angle="315"
-                    android:centerColor="#FFC2A9"
-                    android:endColor="#FFD662"
-                    android:startColor="#B3F4B0BD"
-=======
                 android:innerRadius="32dp"
                 android:useLevel="true"
                 android:shape="ring"
@@ -22,7 +11,6 @@
                     android:centerColor="#FFC2A9"
                     android:endColor="#FFD662"
                     android:startColor="#F4B0BD"
->>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                     android:type="linear"/>
             </shape>
     </item>
