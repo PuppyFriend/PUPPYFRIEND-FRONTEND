@@ -40,10 +40,9 @@
         android:textColor="#ffffff"
         android:textFontWeight="500"
         android:textSize="16dp"
+        android:lineSpacingExtra="-2dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_startInfo"
         app:layout_constraintEnd_toEndOf="@+id/btn_startInfo"
         app:layout_constraintStart_toStartOf="@+id/btn_startInfo"
         app:layout_constraintTop_toTopOf="@+id/btn_startInfo" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
