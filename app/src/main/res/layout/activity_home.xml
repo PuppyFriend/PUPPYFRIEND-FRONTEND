@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
     android:layout_height="740dp"
+<<<<<<< HEAD
+    android:background="#ffffff">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+=======
     android:layout_gravity="center"
     android:background="#ffffff">
 
@@ -11,6 +18,7 @@
         android:id="@+id/scroll_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -18,18 +26,29 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_width="match_parent"
+<<<<<<< HEAD
+            android:layout_height="match_parent">
+=======
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
 
             <TextView
                 android:id="@+id/text_mypuppy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="115.85dp"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+=======
                 android:layout_marginStart="25.55dp"
                 android:layout_marginTop="115dp"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="15.73dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:text="my puppy"
                 android:textColor="#000000"
                 android:textFontWeight="600"
@@ -38,30 +57,69 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!-- name broder -->
+<<<<<<< HEAD
+            <TextView
+                android:id="@+id/text_nameBroder"
+                android:layout_width="91dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="19.79dp"
+                android:layout_marginTop="141.84dp"
+                android:background="@drawable/style_home_box_border"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+=======
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
 
             <!-- name text -->
             <TextView
                 android:id="@+id/text_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="136dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="24.2dp"
+=======
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="138.24dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="24.2dp"
                 android:maxLength="20"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:text="name"
                 android:textColor="#000000"
                 android:textFontWeight="800"
                 android:textSize="20dp"
+                android:maxLength="20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+<<<<<<< HEAD
+                android:id="@+id/text_info_broder"
+                android:layout_width="175dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="170dp"
+                android:background="@drawable/style_home_box_border"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_info"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="171dp"
+=======
+                android:id="@+id/text_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25.21dp"
                 android:layout_marginTop="169.73dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:text="puppy breed- age(month)- gender"
@@ -75,6 +133,14 @@
             <ImageView
                 android:id="@+id/img_dog"
                 android:layout_width="71.97dp"
+<<<<<<< HEAD
+                android:layout_height="73.23dp"
+                android:layout_marginStart="225dp"
+                android:layout_marginTop="116dp"
+                android:background="@drawable/img_dog_profile"
+                android:transitionName="imgTrans"
+                android:src="@drawable/img_real_dog"
+=======
                 android:layout_height="74dp"
                 android:layout_marginStart="230.55dp"
                 android:layout_marginTop="115dp"
@@ -83,6 +149,7 @@
                 android:focusable="true"
                 android:scaleType="centerCrop"
                 android:transitionName="imgTrans"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,7 +158,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+<<<<<<< HEAD
+                android:layout_marginTop="220dp"
+=======
                 android:layout_marginTop="219.76dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="18.15dp"
                 android:text="이번주 산책 리뷰"
@@ -101,6 +172,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+<<<<<<< HEAD
+=======
             <ToggleButton
                 android:id="@+id/togglebtn_home_triangle_review"
                 android:layout_width="9.53dp"
@@ -113,23 +186,60 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
             <TextView
                 android:id="@+id/text_review_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+<<<<<<< HEAD
+                android:layout_marginTop="245dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="15.73dp"
+=======
                 android:layout_marginTop="244.76dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="15.73dp"
                 android:lineSpacingExtra="-3dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:text="5월 3주차에는 총 6번의 산책을 했어요.\n함께한 퍼프친구 :"
                 android:textColor="#000000"
                 android:textFontWeight="800"
                 android:textSize="13dp"
+<<<<<<< HEAD
+                android:lineSpacingExtra="-3dp"
+=======
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
+<<<<<<< HEAD
+<!--            <TextView-->
+<!--                android:id="@+id/text_puppyfriend_name"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="60dp"-->
+<!--                android:fontFamily="@font/inter_extrabold"-->
+<!--                android:lineHeight="15.73dp"-->
+<!--                android:maxLength="10"-->
+<!--                android:text="루루, 용식"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textFontWeight="800"-->
+<!--                android:textSize="13dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/text_review_info"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/text_review_info" />-->
+
+            <ToggleButton
+                android:id="@+id/view_triangle"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="297dp"
+                android:layout_marginTop="280dp"
+                android:background="@drawable/icon_home_triangle"
+                android:textOn=" "
+                android:textOff=" "
+=======
             <!--            <TextView-->
             <!--                android:id="@+id/text_puppyfriend_name"-->
             <!--                android:layout_width="wrap_content"-->
@@ -154,6 +264,7 @@
                 android:background="@drawable/icon_triangle_togglebtn_off"
                 android:textOff=" "
                 android:textOn=" "
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -161,8 +272,13 @@
                 android:id="@+id/btn_monday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+<<<<<<< HEAD
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="294dp"
+=======
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="295dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -179,8 +295,13 @@
                 android:id="@+id/btn_tuesday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+<<<<<<< HEAD
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="294dp"
+=======
                 android:layout_marginStart="55dp"
                 android:layout_marginTop="295dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -197,8 +318,13 @@
                 android:id="@+id/btn_wednesday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+<<<<<<< HEAD
+                android:layout_marginStart="98dp"
+                android:layout_marginTop="294dp"
+=======
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="295dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -216,7 +342,11 @@
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:layout_marginStart="145dp"
+<<<<<<< HEAD
+                android:layout_marginTop="294dp"
+=======
                 android:layout_marginTop="295dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -233,8 +363,13 @@
                 android:id="@+id/btn_friday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+<<<<<<< HEAD
+                android:layout_marginStart="192dp"
+                android:layout_marginTop="294dp"
+=======
                 android:layout_marginStart="190dp"
                 android:layout_marginTop="295dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -252,8 +387,13 @@
                 android:id="@+id/btn_saturday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+<<<<<<< HEAD
+                android:layout_marginStart="237dp"
+                android:layout_marginTop="294dp"
+=======
                 android:layout_marginStart="235dp"
                 android:layout_marginTop="295dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -270,8 +410,13 @@
                 android:id="@+id/btn_sunday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+<<<<<<< HEAD
+                android:layout_marginStart="283dp"
+                android:layout_marginTop="294dp"
+=======
                 android:layout_marginStart="280dp"
                 android:layout_marginTop="295dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -288,10 +433,17 @@
                 android:id="@+id/text_goal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="379dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="15.73dp"
+=======
                 android:layout_marginStart="19.38dp"
                 android:layout_marginTop="379.32dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="18.15dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:text="목표 산책 달성도"
                 android:textColor="#000000"
                 android:textFontWeight="800"
@@ -301,12 +453,21 @@
 
             <View
                 android:id="@+id/view_progressbar_outline"
+<<<<<<< HEAD
+                android:layout_width="105.05dp"
+                android:layout_height="105.05dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+=======
                 android:layout_width="106dp"
                 android:layout_height="106dp"
                 android:layout_marginStart="2px"
                 android:layout_marginTop="2px"
                 android:layout_marginEnd="2px"
                 android:layout_marginBottom="2px"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:background="@drawable/style_progressbar_outline"
                 app:layout_constraintBottom_toBottomOf="@+id/progressbar_back"
                 app:layout_constraintEnd_toEndOf="@+id/progressbar_back"
@@ -316,11 +477,19 @@
             <ProgressBar
                 android:id="@+id/progressbar_back"
                 style="?android:attr/progressBarStyleHorizontal"
+<<<<<<< HEAD
+                android:layout_width="93.16dp"
+                android:layout_height="92.98dp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="117dp"
+                android:layout_marginTop="414dp"
+=======
                 android:layout_width="94dp"
                 android:layout_height="94dp"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="117dp"
                 android:layout_marginTop="418dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:indeterminate="false"
                 android:progressDrawable="@drawable/icon_home_progressbar_back"
                 app:layout_constraintStart_toStartOf="parent"
@@ -329,6 +498,17 @@
             <ProgressBar
                 android:id="@+id/progressbar_front"
                 style="?android:attr/progressBarStyleHorizontal"
+<<<<<<< HEAD
+                android:layout_width="93.16dp"
+                android:layout_height="92.98dp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="117dp"
+                android:layout_marginTop="414dp"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/icon_home_progressbar_front"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+=======
                 android:layout_width="94dp"
                 android:layout_height="94dp"
                 android:layout_centerInParent="true"
@@ -338,22 +518,33 @@
                 app:layout_constraintEnd_toEndOf="@+id/view_progressbar_outline"
                 app:layout_constraintStart_toStartOf="@+id/view_progressbar_outline"
                 app:layout_constraintTop_toTopOf="@+id/view_progressbar_outline" />
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
 
             <TextView
                 android:id="@+id/text_progessbar_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
+                android:layout_marginStart="144dp"
+                android:layout_marginTop="446.89dp"
+=======
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="22.99dp"
                 android:text="86%"
                 android:textColor="#685621"
                 android:textFontWeight="600"
                 android:textSize="19dp"
+<<<<<<< HEAD
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+=======
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="@+id/progressbar_back"
                 app:layout_constraintEnd_toEndOf="@+id/progressbar_back"
                 app:layout_constraintStart_toStartOf="@+id/progressbar_back"
                 app:layout_constraintTop_toTopOf="@+id/progressbar_back" />
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
 
             <TextView
                 android:id="@+id/text_progessbar_goal"
@@ -363,12 +554,19 @@
                 android:layout_marginTop="532.38dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="15.73dp"
+<<<<<<< HEAD
+=======
                 android:lineSpacingExtra="-3dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:text="목표 7회 중 6회 달성!\n아주 잘하고 있어요. 댕댕이와 함께 행복한 일주일이네요!"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textFontWeight="800"
                 android:textSize="13dp"
+<<<<<<< HEAD
+                android:lineSpacingExtra="-3dp"
+=======
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -403,13 +601,20 @@
                 android:layout_height="88dp"
                 android:layout_marginLeft="63.01dp"
                 android:layout_marginTop="76.77dp"
+<<<<<<< HEAD
+=======
                 android:background="@drawable/style_home_gray_circle"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="13.31dp"
                 android:text="동네예약"
                 android:textColor="#000000"
                 android:textFontWeight="600"
                 android:textSize="11dp"
+<<<<<<< HEAD
+                android:background="@drawable/style_home_gray_circle"
+=======
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/view_home_line" />
 
@@ -419,13 +624,20 @@
                 android:layout_height="88dp"
                 android:layout_marginLeft="176.01dp"
                 android:layout_marginTop="76.77dp"
+<<<<<<< HEAD
+=======
                 android:background="@drawable/style_home_gray_circle"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="13.31dp"
                 android:text="펖마켓"
                 android:textColor="#000000"
                 android:textFontWeight="600"
                 android:textSize="11dp"
+<<<<<<< HEAD
+                android:background="@drawable/style_home_gray_circle"
+=======
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/view_home_line" />
 
@@ -436,6 +648,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_market" />
 
+<<<<<<< HEAD
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+=======
             <LinearLayout
                 android:id="@+id/rootLinearLayout"
                 android:layout_width="match_parent"
@@ -451,4 +671,5 @@
     </ScrollView>
 
 
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
 </androidx.constraintlayout.widget.ConstraintLayout>

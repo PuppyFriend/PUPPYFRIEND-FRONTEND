@@ -2,9 +2,10 @@ package com.example.puppyfriend_frontend.View.FirstLogin
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.puppyfriend_frontend.databinding.ActivityInfoBinding
+import android.os.Build
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
@@ -14,13 +15,8 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.view.get
 import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.databinding.ActivityInfoBinding
 import java.time.LocalDate
-import java.util.Date
-import kotlin.math.roundToInt
 
 class InfoActivity : AppCompatActivity() {
 
@@ -29,22 +25,33 @@ class InfoActivity : AppCompatActivity() {
     companion object {
         private const val INFO_ACTIVITY_REQUEST_CODE = 123
     }
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityInfoBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+//        viewBinding.btnArrow.setOnClickListener {
+//            val puppyName = viewBinding.editPuppyName.text.toString()
+//            val intent = Intent(this, HomeActivity::class.java)
+//            intent.putExtra("puppy_name", puppyName)
+//            startActivity(intent)
+//        }
 
+        viewBinding.btnArrow.setOnClickListener {
+            val puppyName = viewBinding.editPuppyName.text.toString()
+            val intent = Intent(this, MoreInfoActivity::class.java)
+            intent.putExtra("puppy_name", puppyName)
+            startActivity(intent)
+        }
         processList()
         postData()
-
     }
 
     override fun onBackPressed() {
         setResult(Activity.RESULT_OK)
         super.onBackPressed()
     }
+}
 
     private fun dipToPixels(dipValue: Float): Float {
         return TypedValue.applyDimension(
@@ -175,4 +182,3 @@ class InfoActivity : AppCompatActivity() {
 
 
 }
-
