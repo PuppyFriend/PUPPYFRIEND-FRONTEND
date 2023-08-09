@@ -36,5 +36,7 @@ class AroundActivity : AppCompatActivity() {
     }
     fun initView(){
 
+
+        
     }
 }
