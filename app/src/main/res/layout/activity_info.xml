@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="360dp"
+    android:layout_height="740dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:background="#ffffff">
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+
+    <TextView
+        android:id="@+id/text_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="97dp"
+        android:fontFamily="@font/inter_bold"
+        android:lineHeight="24.2dp"
+        android:text="보호자님과 퍼피의\n이야기를 들려주세요!"
+        android:textColor="#000000"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_nickname"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/style_info_box_border"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:text="보호자 닉네임 : "
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_describe" />
+
+    <TextView
+        android:id="@+id/text_puppyName"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/style_info_box_border"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:text="퍼피 이름 : "
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_nickname" />
+
+    <TextView
+        android:id="@+id/text_birth"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/style_info_box_border"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:text="생년월일 : "
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_puppyName" />
+
+    <TextView
+        android:id="@+id/text_year"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        android:text="년"
+        app:layout_constraintStart_toEndOf="@+id/edit_year"
+        app:layout_constraintTop_toTopOf="@+id/text_birth" />
+
+    <TextView
+        android:id="@+id/text_month"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        android:text="월"
+        app:layout_constraintStart_toEndOf="@+id/edit_month"
+        app:layout_constraintTop_toTopOf="@+id/text_birth" />
+
+    <TextView
+        android:id="@+id/text_day"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        android:text="일"
+        app:layout_constraintStart_toEndOf="@+id/edit_day"
+        app:layout_constraintTop_toTopOf="@+id/text_birth" />
+
+    <EditText
+        android:id="@+id/edit_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        android:singleLine="true"
+        android:maxLength="20"
+        android:imeOptions="actionSend"
+        app:layout_constraintBottom_toBottomOf="@+id/text_nickname"
+        app:layout_constraintStart_toStartOf="@+id/text_nickname"
+        app:layout_constraintTop_toTopOf="@+id/text_nickname" />
+
+    <EditText
+        android:id="@+id/edit_puppyName"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        android:singleLine="true"
+        android:maxLength="20"
+        app:layout_constraintBottom_toBottomOf="@+id/text_puppyName"
+        app:layout_constraintStart_toStartOf="@+id/text_puppyName"
+        app:layout_constraintTop_toTopOf="@+id/text_puppyName" />
+
+    <EditText
+        android:id="@+id/edit_year"
+        android:layout_width="40dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        android:maxLength="4"
+        android:singleLine="true"
+        android:digits="0123456789"
+        app:layout_constraintStart_toStartOf="@+id/text_birth"
+        app:layout_constraintTop_toTopOf="@+id/text_birth" />
+
+    <EditText
+        android:id="@+id/edit_month"
+        android:layout_width="20dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        android:maxLength="2"
+        android:singleLine="true"
+        android:digits="0123456789"
+        app:layout_constraintStart_toEndOf="@+id/text_year"
+        app:layout_constraintTop_toTopOf="@+id/text_birth" />
+
+    <EditText
+        android:id="@+id/edit_day"
+        android:layout_width="20dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/inter"
+        android:lineHeight="22dp"
+        android:textColor="#c4c4c4"
+        android:textSize="16dp"
+        android:maxLength="2"
+        android:singleLine="true"
+        android:digits="0123456789"
+        app:layout_constraintStart_toEndOf="@+id/text_month"
+        app:layout_constraintTop_toTopOf="@+id/text_birth" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_arrow"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_below="@+id/text_birth"
+        android:background="#f4b0bd"
+        android:drawableBottom="@drawable/img_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
