@@ -2,6 +2,520 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="375dp"
+    android:layout_height="812dp"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/text_explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="97dp"
+        android:fontFamily="@font/inter_bold"
+        android:lineHeight="24.2dp"
+        android:text="조금 더 알려주시면\n퍼프를 찾기 쉬워져요!"
+        android:textColor="#000000"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="@font/roboto_bold"
+        android:lineHeight="23.44dp"
+        android:text="종"
+        android:textColor="#000000"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_size"
+        app:layout_constraintEnd_toStartOf="@+id/text_age"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_explanation" />
+
+
+    <Switch
+        android:id="@+id/switch_dog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="15dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintBottom_toTopOf="@+id/switch_cat"
+        app:layout_constraintEnd_toStartOf="@+id/text_dog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_species"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/switch_cat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="13dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_dog"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/switch_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="13dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_cat"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <TextView
+        android:id="@+id/text_dog"
+        android:layout_width="62dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="개/강아지"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_cat"
+        app:layout_constraintStart_toEndOf="@+id/switch_dog"
+        app:layout_constraintTop_toBottomOf="@+id/text_species" />
+
+    <TextView
+        android:id="@+id/text_cat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="고양이"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_cat"
+        app:layout_constraintTop_toBottomOf="@+id/text_dog" />
+
+    <TextView
+        android:id="@+id/text_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="다른 종"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_other"
+        app:layout_constraintTop_toBottomOf="@+id/text_cat" />
+
+    <TextView
+        android:id="@+id/text_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="138dp"
+        android:fontFamily="@font/roboto_bold"
+        android:lineHeight="23.44dp"
+        android:text="나이"
+        android:textColor="#000000"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_species"
+        app:layout_constraintTop_toBottomOf="@+id/text_explanation" />
+
+    <Switch
+        android:id="@+id/switch_five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="11dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintBottom_toTopOf="@+id/switch_ten"
+        app:layout_constraintStart_toEndOf="@+id/text_dog"
+        app:layout_constraintTop_toBottomOf="@+id/text_age"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/switch_ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="12dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintStart_toEndOf="@+id/text_cat"
+        app:layout_constraintTop_toBottomOf="@+id/switch_five"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/switch_tenOver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="12dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintStart_toEndOf="@+id/text_other"
+        app:layout_constraintTop_toBottomOf="@+id/switch_ten"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/text_five"
+        android:layout_width="62dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="5살 이하"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_ten"
+        app:layout_constraintStart_toEndOf="@+id/switch_five"
+        app:layout_constraintTop_toBottomOf="@+id/text_age" />
+
+    <TextView
+        android:id="@+id/text_ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="5살~10살"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_ten"
+        app:layout_constraintTop_toBottomOf="@+id/text_five" />
+
+    <TextView
+        android:id="@+id/text_tenOver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="10살 이상"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_tenOver"
+        app:layout_constraintTop_toBottomOf="@+id/text_ten" />
+
+    <TextView
+        android:id="@+id/text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="9dp"
+        android:fontFamily="@font/roboto_bold"
+        android:lineHeight="23.44dp"
+        android:text="크기"
+        android:textColor="#000000"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/switch_big"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_species" />
+
+    <Switch
+        android:id="@+id/switch_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="13dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintBottom_toTopOf="@+id/switch_middle"
+        app:layout_constraintEnd_toStartOf="@+id/text_big"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_size"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <Switch
+        android:id="@+id/switch_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintBottom_toTopOf="@+id/switch_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_big"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <Switch
+        android:id="@+id/switch_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="13dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_middle"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <TextView
+        android:id="@+id/text_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="13dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="대형견"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_middle"
+        app:layout_constraintStart_toEndOf="@+id/switch_big"
+        app:layout_constraintTop_toBottomOf="@+id/text_size" />
+
+    <TextView
+        android:id="@+id/text_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="13dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="중형견"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_small"
+        app:layout_constraintStart_toEndOf="@+id/switch_middle"
+        app:layout_constraintTop_toBottomOf="@+id/text_big" />
+
+    <TextView
+        android:id="@+id/text_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="소형견"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_small"
+        app:layout_constraintTop_toBottomOf="@+id/text_middle" />
+
+    <TextView
+        android:id="@+id/text_personal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="62dp"
+        android:fontFamily="@font/roboto_bold"
+        android:lineHeight="23.44dp"
+        android:text="성격"
+        android:textColor="#000000"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/text_size"
+        app:layout_constraintTop_toBottomOf="@+id/switch_tenOver" />
+
+
+    <Switch
+        android:id="@+id/switch_calm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="123dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_shy"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <Switch
+        android:id="@+id/switch_lazy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="123dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_friendLike"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <Switch
+        android:id="@+id/switch_friendLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="123dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_calm"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <Switch
+        android:id="@+id/switch_shy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="123dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_activity"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <Switch
+        android:id="@+id/switch_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="123dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_peopleLike"
+        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+
+    <Switch
+        android:id="@+id/switch_peopleLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="123dp"
+        android:thumb="@drawable/style_switch_thumb"
+        android:track="@drawable/style_switch_track"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_personal"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/text_calm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="53dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:lineHeight="17.58dp"
+        android:text="차분해요"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switch_peopleLike"
+        app:layout_constraintTop_toBottomOf="@+id/text_personal" />
+
+    <TextView
+        android:id="@+id/text_lazy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="53dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="게을러요"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switch_activity"
+        app:layout_constraintTop_toBottomOf="@+id/text_calm" />
+
+    <TextView
+        android:id="@+id/text_shy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="낯 가려요"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_shy"
+        app:layout_constraintTop_toBottomOf="@+id/text_lazy" />
+
+    <TextView
+        android:id="@+id/text_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="활동적이에요"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_calm"
+        app:layout_constraintTop_toBottomOf="@+id/text_shy" />
+
+    <TextView
+        android:id="@+id/text_peopleLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="사람 좋아해요"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_friendLike"
+        app:layout_constraintTop_toBottomOf="@+id/text_activity" />
+
+    <TextView
+        android:id="@+id/text_friendLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto"
+        android:lineHeight="17.58dp"
+        android:text="친구 좋아해요"
+        android:textColor="#000000"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/switch_lazy"
+        app:layout_constraintTop_toBottomOf="@+id/text_peopleLike" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="375dp"
+        android:layout_height="65dp"
+=======
     android:layout_width="360dp"
     android:layout_height="740dp"
     android:layout_marginLeft="16dp"
@@ -12,6 +526,7 @@
         android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:layout_height="58dp"
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
         android:background="#f4b0bd"
         android:fontFamily="@font/inter"
         android:lineHeight="30.26dp"
@@ -20,6 +535,10 @@
         android:textColor="#000000"
         android:textFontWeight="400"
         android:textSize="25dp"
+<<<<<<< HEAD
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
         android:layout_marginTop="636.42dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -515,6 +1034,4 @@
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

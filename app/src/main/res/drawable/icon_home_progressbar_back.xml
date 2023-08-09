@@ -8,6 +8,10 @@
             android:pivotY="50%"
             android:toDegrees="270" >
             <shape
+<<<<<<< HEAD
+                android:innerRadius="30dp"
+=======
+>>>>>>> 8c0fc74528260a506cf709e6417e307a8cbe4ea3
                 android:useLevel="true"
                 android:shape="ring"
                 android:thickness="15dp" >
