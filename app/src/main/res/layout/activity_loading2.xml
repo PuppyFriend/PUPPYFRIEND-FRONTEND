@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Loading.Loading2Activity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/img_ellipse_yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="121dp"
+            android:background="@drawable/icon_loading2_ellipse"/>
+
+        <ImageView
+            android:id="@+id/img_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_loading2_woman"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/img_ellipse_yellow"
+            android:layout_marginTop="164dp"
+            android:layout_marginStart="49.27dp"
+            />
+
+        <ImageView
+            android:id="@+id/img_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_loading2_man"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/img_ellipse_yellow"
+            android:layout_marginTop="152dp"
+            android:layout_marginStart="116.92dp"
+            />
+
+        <ImageView
+            android:id="@+id/img_puppy_left_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/img_ellipse_yellow"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="315.21dp"
+            android:layout_marginStart="53.27dp"
+            android:background="@drawable/img_loading2_puppy_left_shadow"/>
+
+        <ImageView
+            android:id="@+id/img_puppy_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/img_ellipse_yellow"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="248dp"
+            android:layout_marginStart="47.92dp"
+            android:background="@drawable/img_loading2_puppy_left"/>
+
+        <ImageView
+            android:id="@+id/img_puppy_right_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/img_ellipse_yellow"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="312.63dp"
+            android:layout_marginStart="124.92dp"
+            android:background="@drawable/img_loading2_puppy_right_shadow"/>
+
+        <ImageView
+            android:id="@+id/img_puppy_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/img_ellipse_yellow"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="267dp"
+            android:layout_marginStart="126.45dp"
+            android:background="@drawable/img_loading2_puppy_right"/>
+
+        <TextView
+            android:id="@+id/txt_notification1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="퍼프마마,파파에게\n믿고 맡겨요"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter_700"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="384.6dp"
+            android:layout_marginStart="63dp"/>
+
+        <TextView
+            android:id="@+id/txt_notification2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. 펫 전문가에게 맡길 수 있어요\n\n2. 퍼프마마, 파파의 일지를 보고\n    돌봄 제안을 할 수 있어요"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/inter_400"
+            app:layout_constraintStart_toStartOf="@id/txt_notification1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="457.1dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/style_loading2"
+        android:drawableTop="@drawable/icon_loading_right_arrow"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

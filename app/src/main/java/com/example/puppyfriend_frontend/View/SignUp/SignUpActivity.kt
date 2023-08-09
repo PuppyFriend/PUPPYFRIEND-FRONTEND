@@ -1,5 +1,6 @@
 package com.example.puppyfriend_frontend.View.SignUp
 
+import android.content.Intent
 import android.graphics.Outline
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -20,7 +21,18 @@ class SignUpActivity: AppCompatActivity() {
         viewBinding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        initView()
+        viewBinding.btnNext.setOnClickListener {
+            val intent = Intent(this, SignUpPhoneActivity::class.java)
+            startActivity(intent)
+        }
+
+        initActionBar()
+//        initView()
+    }
+
+    fun initActionBar(){
+        viewBinding.actionbar.appbarPageNameLeftTv.text = "회원가입"
+        viewBinding.actionbar.appbarBackBtn.setOnClickListener { onBackPressed() }
     }
 
     fun initView(){

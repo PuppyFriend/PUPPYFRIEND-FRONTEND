@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.puppyfriend_frontend">
+    <!-- 인터넷 권한 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +17,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PUPPYFRIENDFRONTEND"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <activity
+            android:name=".View.Walk.WalkActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="${kakaoApi}"/>
+        <activity
+            android:name=".View.Chatting.ChattingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".View.Around.AroundsearchActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".View.Around.AroundActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -38,6 +69,16 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <!-- 첫 화면 로딩 페이지 -->
+        <activity android:name=".View.Loading.Loading1Activity" />
+        <activity android:name=".View.Loading.Loading2Activity" />
+        <activity android:name=".View.Loading.Loading3Activity" />
+        <activity android:name=".View.Loading.Loading4Activity" /> <!-- 로그인 페이지 -->
+        <activity android:name=".View.Login.LoginActivity" /> <!-- 회원가입 페이지 -->
+        <activity android:name=".View.SignUp.SignUpActivity" />
+        <activity android:name=".View.SignUp.SignUpPhoneActivity" />
+        <activity android:name=".View.SignUp.SignUpAgreeActivity" />
+        <activity android:name=".View.SignUp.SignUpLocationActivity" />
     </application>
 
 </manifest>
