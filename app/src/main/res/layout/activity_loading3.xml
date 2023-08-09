@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Loading.Loading3Activity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="121dp"
+            android:background="@drawable/img_loading3_chat"/>
+        <TextView
+            android:id="@+id/txt_notification1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="공통 관심사로\n대화하고 고민 나눠요"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter_700"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="384.16dp"
+            android:layout_marginStart="63.49dp"/>
+
+
+        <TextView
+            android:id="@+id/txt_notification2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. 커뮤니티에서 전국구/동네별\n    퍼프들 이야기를 엿볼 수 있어요\n\n2. 집단지성의 힘! 함께 고민 나워요"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/inter_400"
+            app:layout_constraintStart_toStartOf="@id/txt_notification1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="457.1dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/style_loading3"
+        android:drawableTop="@drawable/icon_loading_right_arrow"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
