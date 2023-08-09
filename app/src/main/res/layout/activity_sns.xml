@@ -1,492 +1,384 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
     android:layout_height="740dp"
     android:layout_gravity="center"
-    android:background="#ffffff"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#ffffff">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sns_posting"
+        android:layout_width="50dp"
+        android:layout_height="52.29dp"
+        android:layout_marginLeft="155.48dp"
+        android:layout_marginTop="562.02dp"
+        android:background="@drawable/img_sns_posting_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:id="@+id/toggle_hiddenView"
-                android:layout_width="wrap_content"
-                android:layout_height="160dp"
-                android:layout_marginTop="303dp"
-                android:background="@drawable/style_sns_hashtag_border"
-                android:visibility="gone"
-                android:elevation="10dp"
-                android:translationZ="-8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        <ScrollView
-            android:id="@+id/scroll_sns"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <ScrollView
+        android:id="@+id/scroll_sns"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <View
+                android:id="@+id/view_sns_line"
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:layout_marginTop="192.74dp"
+                android:background="#a8a8a8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="300.17dp"
+                android:background="@drawable/style_sns_hashtag_border"
+                android:elevation="10dp"
+                android:translationZ="-8dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TableLayout
+                    android:id="@+id/tableLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="192.74dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <TableLayout
-                        android:id="@+id/tableLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="192.74dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                    <TableRow>
 
-                        <TableRow>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
+                            <ImageView
+                                android:id="@+id/img_sns_profile1"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="34dp"
+                                android:layout_marginTop="107.92dp"
+                                android:background="@drawable/img_sns_profile"
+                                android:gravity="center"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/text_sns_profile_name1"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-                                <ImageView
-                                    android:id="@+id/img_sns_profile1"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginLeft="34dp"
-                                    android:layout_marginTop="107.92dp"
-                                    android:background="@drawable/img_sns_profile"
-                                    android:gravity="center"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:id="@+id/text_sns_profile_name1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="52dp"
-                                    android:layout_marginTop="160.92dp"
-                                    android:fontFamily="@font/inter_semibold"
-                                    android:lineHeight="10.89dp"
-                                    android:text="ME"
-                                    android:textColor="#565656"
-                                    android:textFontWeight="600"
-                                    android:textSize="9dp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="52dp"
+                                android:layout_marginTop="160.92dp"
+                                android:fontFamily="@font/inter_semibold"
+                                android:lineHeight="10.89dp"
+                                android:text="ME"
+                                android:textColor="#565656"
+                                android:textFontWeight="600"
+                                android:textSize="9dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
 
-                                <ImageView
-                                    android:id="@+id/img_sns_profile2"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginLeft="103.71dp"
-                                    android:layout_marginTop="107.92dp"
-                                    android:background="@drawable/img_sns_profile"
-                                    android:gravity="center"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                            <ImageView
+                                android:id="@+id/img_sns_profile2"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="103.71dp"
+                                android:layout_marginTop="107.92dp"
+                                android:background="@drawable/img_sns_profile"
+                                android:gravity="center"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                                <TextView
-                                    android:id="@+id/text_sns_profile_name2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="120dp"
-                                    android:layout_marginTop="160.92dp"
-                                    android:fontFamily="@font/inter_semibold"
-                                    android:lineHeight="10.89dp"
-                                    android:text="만두"
-                                    android:textColor="#565656"
-                                    android:textFontWeight="600"
-                                    android:textSize="9dp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                            <TextView
+                                android:id="@+id/text_sns_profile_name2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="120dp"
+                                android:layout_marginTop="160.92dp"
+                                android:fontFamily="@font/inter_semibold"
+                                android:lineHeight="10.89dp"
+                                android:text="만두"
+                                android:textColor="#565656"
+                                android:textFontWeight="600"
+                                android:textSize="9dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                                <ImageView
-                                    android:id="@+id/img_sns_profile3"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginLeft="173.93dp"
-                                    android:layout_marginTop="107.92dp"
-                                    android:background="@drawable/img_sns_profile"
-                                    android:gravity="center"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                            <ImageView
+                                android:id="@+id/img_sns_profile3"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="173.93dp"
+                                android:layout_marginTop="107.92dp"
+                                android:background="@drawable/img_sns_profile"
+                                android:gravity="center"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                                <TextView
-                                    android:id="@+id/text_sns_profile_name3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="191dp"
-                                    android:layout_marginTop="160.92dp"
-                                    android:fontFamily="@font/inter_semibold"
-                                    android:lineHeight="10.89dp"
-                                    android:text="댕이"
-                                    android:textColor="#565656"
-                                    android:textFontWeight="600"
-                                    android:textSize="9dp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                            <TextView
+                                android:id="@+id/text_sns_profile_name3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="191dp"
+                                android:layout_marginTop="160.92dp"
+                                android:fontFamily="@font/inter_semibold"
+                                android:lineHeight="10.89dp"
+                                android:text="댕이"
+                                android:textColor="#565656"
+                                android:textFontWeight="600"
+                                android:textSize="9dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                                <ImageView
-                                    android:id="@+id/img_sns_profile4"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginLeft="244dp"
-                                    android:layout_marginTop="107.92dp"
-                                    android:background="@drawable/img_sns_profile"
-                                    android:gravity="center"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                            <ImageView
+                                android:id="@+id/img_sns_profile4"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="244dp"
+                                android:layout_marginTop="107.92dp"
+                                android:background="@drawable/img_sns_profile"
+                                android:gravity="center"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                                <TextView
-                                    android:id="@+id/text_sns_profile_name4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="262dp"
-                                    android:layout_marginTop="160.92dp"
-                                    android:fontFamily="@font/inter_semibold"
-                                    android:lineHeight="10.89dp"
-                                    android:text="민둥"
-                                    android:textColor="#565656"
-                                    android:textFontWeight="600"
-                                    android:textSize="9dp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                            <TextView
+                                android:id="@+id/text_sns_profile_name4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="262dp"
+                                android:layout_marginTop="160.92dp"
+                                android:fontFamily="@font/inter_semibold"
+                                android:lineHeight="10.89dp"
+                                android:text="민둥"
+                                android:textColor="#565656"
+                                android:textFontWeight="600"
+                                android:textSize="9dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </TableRow>
-                    </TableLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </TableRow>
+                </TableLayout>
 
-                    <View
-                        android:id="@+id/view_sns_line"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1px"
-                        android:layout_marginTop="192.74dp"
-                        android:background="#a8a8a8"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/text_personName_puppyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13.87dp"
+                    android:layout_marginTop="205.39dp"
+                    android:fontFamily="@font/inter_extrabold"
+                    android:lineHeight="24.2dp"
+                    android:text="리타&amp;댕댕"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textFontWeight="800"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/text_personName_puppyName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="13.87dp"
-                        android:layout_marginTop="205.39dp"
-                        android:fontFamily="@font/inter_extrabold"
-                        android:lineHeight="24.2dp"
-                        android:text="리타&amp;댕댕"
-                        android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textFontWeight="800"
-                        android:textSize="20dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/img_sns_main_profile"
+                    android:layout_width="57.81dp"
+                    android:layout_height="58.97dp"
+                    android:layout_marginLeft="25.22dp"
+                    android:layout_marginTop="241.2dp"
+                    android:background="@drawable/img_dog_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_sns_main_profile_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="103.71dp"
+                    android:layout_marginTop="241.7dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:text="골든리트리버 - 2세(26개월) - 여아"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_follower_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="107.84dp"
+                    android:layout_marginTop="262.72dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:lineHeight="24.2dp"
+                    android:text="10"
+                    android:textColor="#000000"
+                    android:textFontWeight="700"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_follwer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
+                    android:layout_marginLeft="105.84dp"
+                    android:layout_marginTop="287.72dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="center"
+                    android:lineHeight="12.1dp"
+                    android:text="팔로워"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_following_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="162.84dp"
+                    android:layout_marginTop="262.72dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:lineHeight="24.2dp"
+                    android:text="20"
+                    android:textColor="#000000"
+                    android:textFontWeight="700"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
+                    android:layout_marginLeft="161.84dp"
+                    android:layout_marginTop="287.72dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:text="팔로잉"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/togglebtn_sns_triangle"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="288.5dp"
+                    android:layout_marginTop="271.22dp"
+                    android:background="@drawable/selector_sns_togglebtn"
+                    android:textOff=" "
+                    android:textOn=" "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.25dp"
+                    android:layout_marginTop="330.08dp"
+                    android:fontFamily="@font/inter_extrabold"
+                    android:lineHeight="18.15dp"
+                    android:text="게시물"
+                    android:textColor="#000000"
+                    android:textFontWeight="800"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/framelayout_sns_post"
+                    android:layout_width="247.54dp"
+                    android:layout_height="211.61dp"
+                    android:layout_marginLeft="40.23dp"
+                    android:layout_marginTop="366.59dp"
+                    android:background="@drawable/style_sns_post_border"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/img_sns_main_profile"
-                        android:layout_width="57.81dp"
-                        android:layout_height="58.97dp"
-                        android:layout_marginLeft="23.1dp"
-                        android:layout_marginTop="241.7dp"
-                        android:background="@drawable/img_dog_profile"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_sns_main_profile_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="103.71dp"
-                        android:layout_marginTop="241.7dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:lineHeight="12.1dp"
-                        android:text="골든리트리버 - 2세(26개월) - 여아"
-                        android:textAlignment="center"
-                        android:textColor="#565656"
-                        android:textFontWeight="600"
-                        android:textSize="10dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_follower_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="105.71dp"
-                        android:layout_marginTop="263.22dp"
-                        android:fontFamily="@font/inter_bold"
-                        android:lineHeight="24.2dp"
-                        android:text="10"
-                        android:textColor="#000000"
-                        android:textFontWeight="700"
-                        android:textSize="20dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_follwer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="103.71dp"
-                        android:layout_marginTop="288.22dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:lineHeight="12.1dp"
-                        android:text="팔로워"
-                        android:textAlignment="center"
-                        android:textColor="#565656"
-                        android:textFontWeight="600"
-                        android:textSize="10dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_following_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="160.71dp"
-                        android:layout_marginTop="263.22dp"
-                        android:fontFamily="@font/inter_bold"
-                        android:lineHeight="24.2dp"
-                        android:text="20"
-                        android:textColor="#000000"
-                        android:textFontWeight="700"
-                        android:textSize="20dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_following"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="160.71dp"
-                        android:layout_marginTop="288.22dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:lineHeight="12.1dp"
-                        android:text="팔로잉"
-                        android:textAlignment="center"
-                        android:textColor="#565656"
-                        android:textFontWeight="600"
-                        android:textSize="10dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ToggleButton
-                        android:id="@+id/togglebtn_sns_triangle"
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_marginStart="288.5dp"
-                        android:layout_marginTop="271.22dp"
-                        android:background="@drawable/selector_sns_togglebtn"
-                        android:textOff=" "
-                        android:textOn=" "
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_post"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20.25dp"
-                        android:layout_marginTop="330.08dp"
-                        android:fontFamily="@font/inter_extrabold"
-                        android:lineHeight="18.15dp"
-                        android:text="게시물"
-                        android:textColor="#000000"
-                        android:textFontWeight="800"
-                        android:textSize="15dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/framelayout_sns_post"
-                        android:layout_width="247.54dp"
-                        android:layout_height="211.61dp"
-                        android:layout_marginLeft="40.23dp"
-                        android:layout_marginTop="366.59dp"
-                        android:background="@drawable/style_sns_post_border"
-                        android:gravity="center"
-                        android:padding="1dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:id="@+id/img_sns_post"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/style_sns_post_border"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_sns_post" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/text_sns_post"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="40.23dp"
-                        android:layout_marginTop="588.55dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:lineHeight="16.94dp"
-                        android:text="오늘 한강에서 오랜만에 산책했다 "
-                        android:textColor="#565656"
-                        android:textFontWeight="600"
-                        android:textSize="14dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_sns_post_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="40.08dp"
-                        android:layout_marginTop="613.5dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:lineHeight="13.31dp"
-                        android:text="5월 20일"
-                        android:textColor="#565656"
-                        android:textFontWeight="600"
-                        android:textSize="11dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="328dp"
+                        android:id="@+id/img_sns_post"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="27.91dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_sns_post_date">
+                        android:background="@drawable/style_sns_post_border"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_sns_post" />
 
-                        <TableLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="184dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                </LinearLayout>
 
-                            <TableRow>
+                <TextView
+                    android:id="@+id/text_sns_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40.23dp"
+                    android:layout_marginTop="588.55dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="16.94dp"
+                    android:text="오늘 한강에서 오랜만에 산책했다 "
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/text_sns_post_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40.08dp"
+                    android:layout_marginTop="613.5dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="13.31dp"
+                    android:text="5월 20일"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="11dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                                    <View
-                                        android:id="@+id/view_blue_memo"
-                                        android:layout_width="144dp"
-                                        android:layout_height="83dp"
-                                        android:background="#CCD3F5FF"
-                                        android:layout_marginLeft="20.93dp"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_posting_list"
+                    android:layout_width="288dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20.93dp"
+                    android:layout_marginTop="18.91dp"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_sns_post_date"
+                    app:spanCount="2" />
 
-                                    <TextView
-                                        android:id="@+id/text_blue_memo_date"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/inter_semibold"
-                                        android:lineHeight="10.89dp"
-                                        android:text="5월 19일"
-                                        android:textColor="#565656"
-                                        android:textFontWeight="600"
-                                        android:textSize="9dp"
-                                        android:layout_marginLeft="28.93dp"
-                                        android:layout_marginTop="5dp"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
-
-                                    <LinearLayout
-                                        android:id="@+id/layout_blue_memo_img"
-                                        android:layout_width="42dp"
-                                        android:layout_height="36dp"
-                                        android:layout_marginLeft="28.93dp"
-                                        android:layout_marginTop="24dp"
-                                        android:background="@drawable/style_sns_posts_img_border"
-                                        android:gravity="center"
-                                        android:padding="1dp"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent">
-
-                                        <ImageView
-                                            android:id="@+id/img_blue_memo"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:background="@drawable/style_sns_posts_img_border"
-                                            android:scaleType="centerCrop"
-                                            android:src="@drawable/img_sns_post" />
-
-                                    </LinearLayout>
-
-                                    <TextView
-                                        android:id="@+id/text_blue_memo_comment"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/inter_semibold"
-                                        android:lineHeight="9.89dp"
-                                        android:text="오늘은 왜이리 밥을 안먹냐.."
-                                        android:textColor="#565656"
-                                        android:textFontWeight="600"
-                                        android:textSize="8dp"
-                                        android:layout_marginLeft="28.93dp"
-                                        android:layout_marginTop="65dp"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                                    <View
-                                        android:layout_width="144dp"
-                                        android:layout_height="83dp"
-                                        android:layout_marginLeft="163.96dp"
-                                        android:background="#E4F9EB"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
-
-                                    <TextView
-                                        android:id="@+id/text_green_memo_date"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/inter_semibold"
-                                        android:lineHeight="10.89dp"
-                                        android:text="5월 17일"
-                                        android:textColor="#565656"
-                                        android:textFontWeight="600"
-                                        android:textSize="9dp"
-                                        android:layout_marginLeft="28.93dp"
-                                        android:layout_marginTop="5dp"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
-
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </TableRow>
-
-                            <TableRow>
-
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="7dp">
-
-                                    <View
-                                        android:layout_width="164dp"
-                                        android:layout_height="76dp"
-                                        android:background="#FFCEB9"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
-
-                                    <View
-                                        android:layout_width="164dp"
-                                        android:layout_height="76dp"
-                                        android:layout_marginLeft="163.96dp"
-                                        android:background="#CCFCF8C4"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
-
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </TableRow>
-                        </TableLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout_hashtag"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_hashtag_background"
+        android:layout_width="78dp"
+        android:layout_height="17dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/img_sns_hashtag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_hashtag"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/inter_semibold"
+        android:gravity="center"
+        android:lineHeight="10.89dp"
+        android:text="# 소심해요"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_hashtag_background"
+        app:layout_constraintEnd_toEndOf="@+id/img_hashtag_background"
+        app:layout_constraintStart_toStartOf="@+id/img_hashtag_background"
+        app:layout_constraintTop_toTopOf="@+id/img_hashtag_background" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,32 +1,36 @@
 package com.example.puppyfriend_frontend.View.Sns
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
-import android.media.Image
-import android.net.Uri
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.View.Sns.adapter.PhotosAdapter
+import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Photo
+import com.example.puppyfriend_frontend.View.Sns.model.Posting
+import com.example.puppyfriend_frontend.View.Sns.model.SharedViewModel
 import com.example.puppyfriend_frontend.databinding.ActivityCreatepostBinding
 
-
-
-class CreatePostActivity:AppCompatActivity() {
+class CreatePostActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityCreatepostBinding
     private lateinit var photosAdapter: PhotosAdapter
+    private lateinit var postingAdapter: PostingAdapter
+    private lateinit var viewModel: SharedViewModel
+    private val posts = mutableListOf<Posting>()
 
     companion object {
         private const val READ_EXTERNAL_STORAGE_PERMISSION_REQUEST_CODE = 1
@@ -42,22 +46,9 @@ class CreatePostActivity:AppCompatActivity() {
 
     private var lastCheckedButton: View? = null
 
-//    var PICK_IMAGE_FROM_ALBUM = 0
-//    var storage: FirebaseStorage? = null
-//    var photoUri: Uri? = null
-
     private val GALLERY = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding = ActivityCreatepostBinding.inflate(layoutInflater)
-        setContentView(viewBinding.root)
-
-        viewBinding.btnSnsPostingRegister.setOnClickListener {
-            val intent: Intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.setType("image/*")
-            startActivityForResult(intent, GALLERY)
-        }
-
         viewBinding = ActivityCreatepostBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
@@ -85,15 +76,13 @@ class CreatePostActivity:AppCompatActivity() {
             toggleCheckVisibility(it)
             viewBinding.viewContentBackground.setBackgroundColor(Color.parseColor("#FBE0E4"))
         }
-        
-        // 카테고리_질문 클릭 시 색변화
-        viewBinding.imgCategoryQuestion.setOnClickListener{
+
+        viewBinding.imgCategoryQuestion.setOnClickListener {
             viewBinding.imgCategoryQuestion.isSelected = !viewBinding.imgCategoryQuestion.isSelected
             viewBinding.imgCategoryWorry.isSelected = false
         }
 
-        // 카테고리_고민 클릭 시 색변화
-        viewBinding.imgCategoryWorry.setOnClickListener{
+        viewBinding.imgCategoryWorry.setOnClickListener {
             viewBinding.imgCategoryWorry.isSelected = !viewBinding.imgCategoryWorry.isSelected
             viewBinding.imgCategoryQuestion.isSelected = false
         }
@@ -103,9 +92,57 @@ class CreatePostActivity:AppCompatActivity() {
         } else {
             requestPermission()
         }
+        clickCancelBtn()
     }
 
-    // 다른 버튼을 클릭 시 기존 체크 이미지 삭제하는 함수
+    private fun registerPost() {
+
+//        viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
+//
+
+        viewBinding.btnSnsPostingRegister.setOnClickListener {
+            val date = "3월 8일"
+            val image = selectedPhoto.url
+            val content = viewBinding.editContent.text.toString()
+            val backgroundColor = viewBinding.viewContentBackground.background
+            val contentBackgroundColor = (backgroundColor as? ColorDrawable)?.color ?: Color.WHITE
+
+            val intent = Intent()
+            intent.putExtra("date", date)
+            intent.putExtra("image", image)
+            intent.putExtra("content", content)
+            intent.putExtra("backgroundColor", contentBackgroundColor)
+
+            // Set the result and finish the activity
+            setResult(RESULT_OK, intent)
+            finish()
+        }
+    }
+
+
+//        // 데이터 생성 및 ViewModel에 저장
+//        val posting = Posting(date, R.drawable.style_around_image, content, contentBackgroundColor)
+//
+//        viewModel.addPosting(posting)
+//
+//        viewModel.postings.observe(this) { updatedPostings ->
+//            for (posting in updatedPostings) {
+//                Log.d("CreatePostActivity", "Posting Date: ${posting.date}")
+//                Log.d("CreatePostActivity", "Posting Image URL: ${posting.image}")
+//                Log.d("CreatePostActivity", "Posting Content: ${posting.content}")
+//                Log.d(
+//                    "CreatePostActivity",
+//                    "Posting Background Color: ${posting.contentBackgroundColor}"
+//                )
+//            }
+//
+//            finish()
+//            // postings LiveData가 업데이트되면 액티비티를 종료하고 SnsActivity를 시작
+//            val intent = Intent(this, SnsActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//
+
     private fun toggleCheckVisibility(clickedView: View) {
         val clickedCheckId = colorCheckIds[clickedView.id] ?: return
 
@@ -122,7 +159,6 @@ class CreatePostActivity:AppCompatActivity() {
             if (clickedCheckView.visibility == View.VISIBLE) clickedView else null
     }
 
-    // 갤러리 연동 및 권한 허용
     private fun checkPermission(): Boolean {
         return ContextCompat.checkSelfPermission(
             this,
@@ -138,10 +174,19 @@ class CreatePostActivity:AppCompatActivity() {
         )
     }
 
+    private lateinit var selectedPhoto: Photo
     private fun showPhotos() {
         val photosList = getPhotosList()
-        photosAdapter = PhotosAdapter(photosList)
-        val recyclerView: RecyclerView = viewBinding.recyclerViewPhotos
+        photosAdapter = PhotosAdapter(photosList,
+            onPhotoClickListener = { clickedPhoto ->
+                selectedPhoto = clickedPhoto
+                registerPost()
+            },
+            onIconClickListener = {
+                Toast.makeText(this, "New Icon Clicked!", Toast.LENGTH_SHORT).show()
+            }
+        )
+        val recyclerView: RecyclerView = viewBinding.recyclerViewGallery
         recyclerView.layoutManager = GridLayoutManager(this, 5)
         recyclerView.adapter = photosAdapter
     }
@@ -176,55 +221,17 @@ class CreatePostActivity:AppCompatActivity() {
         return photosList
     }
 
-        //    private fun openGallery() {
-//        storage = FirebaseStorage.getInstance()
-//
-//        var photoPickerIntent = Intent(Intent.ACTION_PICK)
-//        photoPickerIntent.type="image/*"
-//        startActivityForResult(photoPickerIntent, PICK_IMAGE_FROM_ALBUM)
-//
-//        viewBinding.btnSnsPostingRegister.setOnClickListener {
-//            contentUpload()
-//        }
-//    }
-//
-//        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (requestCode == RESULT_OK)
-//            if (resultCode == GALLERY) {
-//                var ImageData: Uri? = data?.data
-//                Toast.makeText(this, ImageData.toString(), Toast.LENGTH_SHORT).show()
-//                try {
-//                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, ImageData)
-//                    viewBinding.imgSnsPosting.setImageBitmap(bitmap)
-//                } catch (e: Exception) {
-//                    e.printStackTrace()
-//                }
-//            }
+    private fun clickCancelBtn() {
+        viewBinding.btnSnsPostingCancel.setOnClickListener {
+            val intent = Intent(this, SnsActivity::class.java)
+            startActivity(intent)
         }
-//    }
+    }
 
-
-//
-//    private fun contentUpload() {
-//        var timestamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-//        var imageFileName = "IMAGE_" + timestamp + "_.png"
-//
-//        var storageRef = storage?.reference?.child("images")?.child(imageFileName)
-//
-//        storageRef?.putFile(photoUri!!)?.addOnSuccessListener {
-//            val uploadStatusMessage = "Upload Status: Success"
-//            Toast.makeText(this, uploadStatusMessage, Toast.LENGTH_LONG).show()
-//
-//            val intent = Intent(this, AddPhotoActivity::class.java)
-//            intent.putExtra("upload_status", uploadStatusMessage)
-//            startActivity(intent)
-//        }?.addOnFailureListener{
-//            val uploadStatusMessage = "Upload Status: Failed"
-//            Toast.makeText(this, uploadStatusMessage, Toast.LENGTH_LONG).show()
-//
-//            val intent = Intent(this, AddPhotoActivity::class.java)
-//            intent.putExtra("upload_status", uploadStatusMessage)
-//            startActivity(intent)
-//        }
-//    }
+    private fun clickRegisterBtn() {
+        viewBinding.btnSnsPostingRegister.setOnClickListener {
+            val intent = Intent(this, SnsActivity::class.java)
+            startActivityForResult(intent, 100) // Use any re
+        }
+    }
+}
