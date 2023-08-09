@@ -26,10 +26,10 @@
                 android:id="@+id/text_mypuppy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="115.85dp"
+                android:layout_marginStart="25.55dp"
+                android:layout_marginTop="115dp"
                 android:fontFamily="@font/inter_semibold"
-                android:lineHeight="12.1dp"
+                android:lineHeight="15.73dp"
                 android:text="my puppy"
                 android:textColor="#000000"
                 android:textFontWeight="600"
@@ -38,24 +38,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!-- name broder -->
-            <TextView
-                android:id="@+id/text_nameBroder"
-                android:layout_width="91dp"
-                android:layout_height="21dp"
-                android:layout_marginStart="19.79dp"
-                android:layout_marginTop="141.84dp"
-                android:background="@drawable/style_home_box_border"
-                android:fontFamily="@font/roboto_bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- name text -->
             <TextView
                 android:id="@+id/text_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="136dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="138.24dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="24.2dp"
                 android:maxLength="20"
@@ -67,21 +57,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/text_info_broder"
-                android:layout_width="175dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="170dp"
-                android:background="@drawable/style_home_box_border"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/text_info"
-                android:layout_width="167dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="171dp"
+                android:layout_marginStart="25.21dp"
+                android:layout_marginTop="169.73dp"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:text="puppy breed- age(month)- gender"
@@ -95,14 +75,13 @@
             <ImageView
                 android:id="@+id/img_dog"
                 android:layout_width="71.97dp"
-                android:layout_height="73.23dp"
-                android:layout_marginStart="225dp"
-                android:layout_marginTop="116dp"
+                android:layout_height="74dp"
+                android:layout_marginStart="230.55dp"
+                android:layout_marginTop="115dp"
                 android:background="@drawable/img_dog_profile"
                 android:clickable="true"
                 android:focusable="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_real_circle_dog"
                 android:transitionName="imgTrans"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -112,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="220dp"
+                android:layout_marginTop="219.76dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="18.15dp"
                 android:text="이번주 산책 리뷰"
@@ -122,12 +101,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ToggleButton
+                android:id="@+id/togglebtn_home_triangle_review"
+                android:layout_width="9.53dp"
+                android:layout_height="8.25dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="228dp"
+                android:background="@drawable/icon_triangle_togglebtn_off"
+                android:textOff=" "
+                android:textOn=" "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/text_review_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="245dp"
+                android:layout_marginTop="244.76dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="15.73dp"
                 android:lineSpacingExtra="-3dp"
@@ -157,8 +148,8 @@
             <ToggleButton
                 android:id="@+id/togglebtn_home_triangle"
                 android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="297dp"
+                android:layout_height="9dp"
+                android:layout_marginStart="294dp"
                 android:layout_marginTop="280dp"
                 android:background="@drawable/icon_triangle_togglebtn_off"
                 android:textOff=" "
@@ -170,8 +161,8 @@
                 android:id="@+id/btn_monday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="294dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="295dp"
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -188,8 +179,8 @@
                 android:id="@+id/btn_tuesday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="53dp"
-                android:layout_marginTop="294dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="295dp"
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -206,8 +197,8 @@
                 android:id="@+id/btn_wednesday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="98dp"
-                android:layout_marginTop="294dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="295dp"
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -225,7 +216,7 @@
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:layout_marginStart="145dp"
-                android:layout_marginTop="294dp"
+                android:layout_marginTop="295dp"
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -242,8 +233,8 @@
                 android:id="@+id/btn_friday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="192dp"
-                android:layout_marginTop="294dp"
+                android:layout_marginStart="190dp"
+                android:layout_marginTop="295dp"
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -261,8 +252,8 @@
                 android:id="@+id/btn_saturday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="237dp"
-                android:layout_marginTop="294dp"
+                android:layout_marginStart="235dp"
+                android:layout_marginTop="295dp"
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -279,8 +270,8 @@
                 android:id="@+id/btn_sunday"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="283dp"
-                android:layout_marginTop="294dp"
+                android:layout_marginStart="280dp"
+                android:layout_marginTop="295dp"
                 android:background="@drawable/selector_home_btn"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
@@ -297,10 +288,10 @@
                 android:id="@+id/text_goal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="19dp"
-                android:layout_marginTop="379dp"
+                android:layout_marginStart="19.38dp"
+                android:layout_marginTop="379.32dp"
                 android:fontFamily="@font/inter_extrabold"
-                android:lineHeight="15.73dp"
+                android:lineHeight="18.15dp"
                 android:text="목표 산책 달성도"
                 android:textColor="#000000"
                 android:textFontWeight="800"
@@ -310,12 +301,12 @@
 
             <View
                 android:id="@+id/view_progressbar_outline"
-                android:layout_width="105.05dp"
-                android:layout_height="105.05dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginBottom="1dp"
+                android:layout_width="106dp"
+                android:layout_height="106dp"
+                android:layout_marginStart="2px"
+                android:layout_marginTop="2px"
+                android:layout_marginEnd="2px"
+                android:layout_marginBottom="2px"
                 android:background="@drawable/style_progressbar_outline"
                 app:layout_constraintBottom_toBottomOf="@+id/progressbar_back"
                 app:layout_constraintEnd_toEndOf="@+id/progressbar_back"
@@ -325,11 +316,11 @@
             <ProgressBar
                 android:id="@+id/progressbar_back"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="93.16dp"
-                android:layout_height="92.98dp"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="117dp"
-                android:layout_marginTop="414dp"
+                android:layout_marginTop="418dp"
                 android:indeterminate="false"
                 android:progressDrawable="@drawable/icon_home_progressbar_back"
                 app:layout_constraintStart_toStartOf="parent"
@@ -338,30 +329,31 @@
             <ProgressBar
                 android:id="@+id/progressbar_front"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="93.16dp"
-                android:layout_height="92.98dp"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
                 android:layout_centerInParent="true"
-                android:layout_marginStart="117dp"
-                android:layout_marginTop="414dp"
                 android:indeterminate="false"
                 android:progressDrawable="@drawable/icon_home_progressbar_front"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@+id/view_progressbar_outline"
+                app:layout_constraintEnd_toEndOf="@+id/view_progressbar_outline"
+                app:layout_constraintStart_toStartOf="@+id/view_progressbar_outline"
+                app:layout_constraintTop_toTopOf="@+id/view_progressbar_outline" />
 
             <TextView
                 android:id="@+id/text_progessbar_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="144dp"
-                android:layout_marginTop="446.89dp"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="22.99dp"
                 android:text="86%"
                 android:textColor="#685621"
                 android:textFontWeight="600"
                 android:textSize="19dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="@+id/progressbar_back"
+                app:layout_constraintEnd_toEndOf="@+id/progressbar_back"
+                app:layout_constraintStart_toStartOf="@+id/progressbar_back"
+                app:layout_constraintTop_toTopOf="@+id/progressbar_back" />
 
             <TextView
                 android:id="@+id/text_progessbar_goal"
@@ -444,10 +436,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_market" />
 
+            <LinearLayout
+                android:id="@+id/rootLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

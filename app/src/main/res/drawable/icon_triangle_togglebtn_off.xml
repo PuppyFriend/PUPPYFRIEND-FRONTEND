@@ -6,8 +6,7 @@
     android:viewportHeight="27.0">
     <group
         android:pivotX="16"
-        android:pivotY="13.5"
-        android:rotation="180">
+        android:pivotY="13.5">
 
         <path
             android:fillColor="#000000"
