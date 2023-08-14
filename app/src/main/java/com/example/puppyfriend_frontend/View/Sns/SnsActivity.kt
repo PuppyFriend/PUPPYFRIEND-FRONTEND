@@ -2,25 +2,21 @@ package com.example.puppyfriend_frontend.View.Sns
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.View.Home.HomeActivity
 import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
+import com.example.puppyfriend_frontend.View.Sns.adapter.StoryAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
-import com.example.puppyfriend_frontend.View.Sns.model.SharedViewModel
+import com.example.puppyfriend_frontend.View.Sns.model.Story
 import com.example.puppyfriend_frontend.databinding.ActivitySnsBinding
-import java.time.LocalDate
 
 class SnsActivity: AppCompatActivity() {
     private lateinit var viewBinding: ActivitySnsBinding
@@ -31,6 +27,10 @@ class SnsActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = ActivitySnsBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+
+        // 스토리 리사이클러뷰 가로 처리
+        viewBinding.recyclerViewStory.layoutManager = LinearLayoutManager(this).also { it.orientation = LinearLayoutManager.HORIZONTAL }
+        setupRecyclerView()
 
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView_posting_list)
 
@@ -140,6 +140,22 @@ class SnsActivity: AppCompatActivity() {
 //                viewModel.addPosting(newPosting)
 //            }
 //        }
+
+    private fun setupRecyclerView() {
+        val storyList = createStoryList()
+
+        val storyRecyclerView = viewBinding.recyclerViewStory
+
+        storyRecyclerView.layoutManager = LinearLayoutManager(this)
+        storyRecyclerView.adapter = StoryAdapter(storyList)
+    }
+
+    private fun createStoryList(): List<Story> {
+        val storyList = mutableListOf<Story>()
+        storyList.add(Story(R.drawable.img_sns_post, "만두"))
+        // ... 추가적인 Character를 만들고 리스트에 추가하십시오
+        return storyList
+    }
 
     private fun clickToCreatePost() {
         viewBinding.btnSnsPosting.setOnClickListener {

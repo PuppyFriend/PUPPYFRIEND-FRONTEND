@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="360dp"
-    android:layout_height="740dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="#ffffff">
 
@@ -25,8 +25,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -54,23 +54,24 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
                 android:layout_marginLeft="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TableLayout
-                    android:id="@+id/tableLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="192.74dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+<!--                <TableLayout-->
+<!--                    android:id="@+id/tableLayout"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="192.74dp"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
 
-                    <TableRow>
+<!--                    <TableRow>-->
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+<!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content">-->
 
                             <ImageView
                                 android:id="@+id/img_sns_profile1"
@@ -99,87 +100,96 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
 
-                            <ImageView
-                                android:id="@+id/img_sns_profile2"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="103.71dp"
-                                android:layout_marginTop="107.92dp"
-                                android:background="@drawable/img_sns_profile"
-                                android:gravity="center"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <ImageView-->
+<!--                                android:id="@+id/img_sns_profile2"-->
+<!--                                android:layout_width="50dp"-->
+<!--                                android:layout_height="50dp"-->
+<!--                                android:layout_marginLeft="103.71dp"-->
+<!--                                android:layout_marginTop="107.92dp"-->
+<!--                                android:background="@drawable/img_sns_profile"-->
+<!--                                android:gravity="center"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
-                            <TextView
-                                android:id="@+id/text_sns_profile_name2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="120dp"
-                                android:layout_marginTop="160.92dp"
-                                android:fontFamily="@font/inter_semibold"
-                                android:lineHeight="10.89dp"
-                                android:text="만두"
-                                android:textColor="#565656"
-                                android:textFontWeight="600"
-                                android:textSize="9dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <TextView-->
+<!--                                android:id="@+id/text_sns_profile_name2"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="120dp"-->
+<!--                                android:layout_marginTop="160.92dp"-->
+<!--                                android:fontFamily="@font/inter_semibold"-->
+<!--                                android:lineHeight="10.89dp"-->
+<!--                                android:text="만두"-->
+<!--                                android:textColor="#565656"-->
+<!--                                android:textFontWeight="600"-->
+<!--                                android:textSize="9dp"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
-                            <ImageView
-                                android:id="@+id/img_sns_profile3"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="173.93dp"
-                                android:layout_marginTop="107.92dp"
-                                android:background="@drawable/img_sns_profile"
-                                android:gravity="center"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <ImageView-->
+<!--                                android:id="@+id/img_sns_profile3"-->
+<!--                                android:layout_width="50dp"-->
+<!--                                android:layout_height="50dp"-->
+<!--                                android:layout_marginLeft="173.93dp"-->
+<!--                                android:layout_marginTop="107.92dp"-->
+<!--                                android:background="@drawable/img_sns_profile"-->
+<!--                                android:gravity="center"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
-                            <TextView
-                                android:id="@+id/text_sns_profile_name3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="191dp"
-                                android:layout_marginTop="160.92dp"
-                                android:fontFamily="@font/inter_semibold"
-                                android:lineHeight="10.89dp"
-                                android:text="댕이"
-                                android:textColor="#565656"
-                                android:textFontWeight="600"
-                                android:textSize="9dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <TextView-->
+<!--                                android:id="@+id/text_sns_profile_name3"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="191dp"-->
+<!--                                android:layout_marginTop="160.92dp"-->
+<!--                                android:fontFamily="@font/inter_semibold"-->
+<!--                                android:lineHeight="10.89dp"-->
+<!--                                android:text="댕이"-->
+<!--                                android:textColor="#565656"-->
+<!--                                android:textFontWeight="600"-->
+<!--                                android:textSize="9dp"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
-                            <ImageView
-                                android:id="@+id/img_sns_profile4"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="244dp"
-                                android:layout_marginTop="107.92dp"
-                                android:background="@drawable/img_sns_profile"
-                                android:gravity="center"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <ImageView-->
+<!--                                android:id="@+id/img_sns_profile4"-->
+<!--                                android:layout_width="50dp"-->
+<!--                                android:layout_height="50dp"-->
+<!--                                android:layout_marginLeft="244dp"-->
+<!--                                android:layout_marginTop="107.92dp"-->
+<!--                                android:background="@drawable/img_sns_profile"-->
+<!--                                android:gravity="center"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
-                            <TextView
-                                android:id="@+id/text_sns_profile_name4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="262dp"
-                                android:layout_marginTop="160.92dp"
-                                android:fontFamily="@font/inter_semibold"
-                                android:lineHeight="10.89dp"
-                                android:text="민둥"
-                                android:textColor="#565656"
-                                android:textFontWeight="600"
-                                android:textSize="9dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <TextView-->
+<!--                                android:id="@+id/text_sns_profile_name4"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="262dp"-->
+<!--                                android:layout_marginTop="160.92dp"-->
+<!--                                android:fontFamily="@font/inter_semibold"-->
+<!--                                android:lineHeight="10.89dp"-->
+<!--                                android:text="민둥"-->
+<!--                                android:textColor="#565656"-->
+<!--                                android:textFontWeight="600"-->
+<!--                                android:textSize="9dp"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </TableRow>
-                </TableLayout>
+<!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--                    </TableRow>-->
+<!--                </TableLayout>-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginLeft="99.97dp"
+                    android:layout_marginTop="105dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_personName_puppyName"
@@ -328,7 +338,7 @@
                     <ImageView
                         android:id="@+id/img_sns_post"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="211dp"
                         android:background="@drawable/style_sns_post_border"
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_sns_post" />
