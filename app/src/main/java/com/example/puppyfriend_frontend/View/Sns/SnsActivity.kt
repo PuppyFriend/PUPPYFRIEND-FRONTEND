@@ -2,25 +2,18 @@ package com.example.puppyfriend_frontend.View.Sns
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.View.Home.HomeActivity
 import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
-import com.example.puppyfriend_frontend.View.Sns.model.SharedViewModel
 import com.example.puppyfriend_frontend.databinding.ActivitySnsBinding
-import java.time.LocalDate
 
 class SnsActivity: AppCompatActivity() {
     private lateinit var viewBinding: ActivitySnsBinding
@@ -110,36 +103,9 @@ class SnsActivity: AppCompatActivity() {
             viewBinding.fragmentContainer.visibility = visibility
         }
 
-        // recyclerView 설정
-//        setupRecyclerView()
         clickToCreatePost()
     }
 
-    // recylcerView에 데이터 넣기
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    private fun setupRecyclerView() {
-//        viewModel.postings.observe(this, Observer { postings ->
-//            val adapter = PostingAdapter(postings)
-//            viewBinding.recyclerViewPostingList.layoutManager = GridLayoutManager(this, 2)
-//            viewBinding.recyclerViewPostingList.adapter = adapter
-//        })
-//    }
-//
-//
-//
-//    private val createPostActivityResultLauncher =
-//        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-//            if (result.resultCode == RESULT_OK) {
-//                val data = result.data
-//                val date = data?.getStringExtra("date") ?: ""
-//                val content = data?.getStringExtra("content") ?: ""
-//                val backgroundColor = data?.getIntExtra("backgroundColor", Color.WHITE) ?: Color.WHITE
-//
-//                val newPosting = Posting(date, R.drawable.style_around_image, content, backgroundColor)
-//
-//                viewModel.addPosting(newPosting)
-//            }
-//        }
 
     private fun clickToCreatePost() {
         viewBinding.btnSnsPosting.setOnClickListener {

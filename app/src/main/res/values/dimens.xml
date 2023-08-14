@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="calendar_height">35dp</dimen> <!-- 예시로 300dp로 설정 -->
+    <dimen name="other_height">180dp</dimen>
+</resources>
