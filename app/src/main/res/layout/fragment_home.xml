@@ -72,45 +72,19 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <LinearLayout
-                android:id="@+id/layout_dog_profile"
+            <ImageView
+                android:id="@+id/img_dog"
                 android:layout_width="71.97dp"
                 android:layout_height="74dp"
                 android:layout_marginStart="230.55dp"
                 android:layout_marginTop="115dp"
-                android:background="@drawable/style_home_profile"
-                android:gravity="center"
-                android:padding="1dp"
+                android:background="@drawable/img_dog_profile"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:transitionName="imgTrans"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/img_dog_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/style_home_profile"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:scaleType="centerCrop"
-                    android:transitionName="imgTrans"
-                    android:src="@drawable/img_real_dog" />
-
-            </LinearLayout>
-
-<!--            <ImageView-->
-<!--                android:id="@+id/img_dog"-->
-<!--                android:layout_width="71.97dp"-->
-<!--                android:layout_height="74dp"-->
-<!--                android:layout_marginStart="230.55dp"-->
-<!--                android:layout_marginTop="115dp"-->
-<!--                android:background="@drawable/img_dog_profile"-->
-<!--                android:clickable="true"-->
-<!--                android:focusable="true"-->
-<!--                android:scaleType="centerCrop"-->
-<!--                android:transitionName="imgTrans"-->
-<!--                android:src="@drawable/img_real_dog"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_review"
@@ -164,8 +138,8 @@
                 android:layout_width="10dp"
                 android:layout_height="9dp"
                 android:layout_marginStart="294dp"
-                android:layout_marginTop="295dp"
-                android:background="@drawable/selector_sns_togglebtn"
+                android:layout_marginTop="280dp"
+                android:background="@drawable/icon_triangle_togglebtn_off"
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintStart_toStartOf="parent"
@@ -175,47 +149,21 @@
                 android:id="@+id/gridlayout_review1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="310dp"
+                android:layout_marginTop="295dp"
                 android:columnCount="7"
                 android:rowCount="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/img_review"
+                <ImageButton
+                    android:id="@+id/imagebtn_review"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
                     android:background="@drawable/selector_home_btn"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:stateListAnimator="@null"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </GridLayout>
-
-            <GridLayout
-                android:layout_width="308dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:columnCount="7"
-                android:rowCount="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/btn_monday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:layout_marginTop="322.4dp"
-                    android:fontFamily="@font/inter_semibold"
-                    android:lineHeight="12.1dp"
-                    android:layout_marginLeft="14dp"
-                    android:stateListAnimator="@null"
-                    android:text="월"
                     android:textAlignment="center"
                     android:textColor="#565656"
                     android:textFontWeight="600"
@@ -223,111 +171,127 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/btn_tuesday"
-                    android:layout_row="0"
-                    android:layout_column="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
-                    android:fontFamily="@font/inter_semibold"
-                    android:lineHeight="12.1dp"
-                    android:stateListAnimator="@null"
-                    android:text="화"
-                    android:textAlignment="center"
-                    android:textColor="#565656"
-                    android:textFontWeight="600"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toEndOf="@+id/btn_monday"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/btn_wednesday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
-                    android:fontFamily="@font/inter_semibold"
-                    android:lineHeight="12.1dp"
-                    android:stateListAnimator="@null"
-                    android:text="수"
-                    android:textAlignment="center"
-                    android:textColor="#565656"
-                    android:textFontWeight="600"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toEndOf="@+id/btn_tuesday"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/btn_thursday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
-                    android:fontFamily="@font/inter_semibold"
-                    android:lineHeight="12.1dp"
-                    android:stateListAnimator="@null"
-                    android:text="목"
-                    android:textAlignment="center"
-                    android:textColor="#565656"
-                    android:textFontWeight="600"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toEndOf="@+id/btn_wednesday"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/btn_friday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
-                    android:fontFamily="@font/inter_semibold"
-                    android:lineHeight="12.1dp"
-                    android:stateListAnimator="@null"
-                    android:text="금"
-                    android:textAlignment="center"
-                    android:textColor="#565656"
-                    android:textFontWeight="600"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toEndOf="@+id/btn_thursday"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <TextView
-                    android:id="@+id/btn_saturday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
-                    android:fontFamily="@font/inter_semibold"
-                    android:lineHeight="12.1dp"
-                    android:stateListAnimator="@null"
-                    android:text="토"
-                    android:textAlignment="center"
-                    android:textColor="#565656"
-                    android:textFontWeight="600"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toEndOf="@+id/btn_friday"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/btn_sunday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
-                    android:fontFamily="@font/inter_semibold"
-                    android:lineHeight="12.1dp"
-                    android:stateListAnimator="@null"
-                    android:text="일"
-                    android:textAlignment="center"
-                    android:textColor="#565656"
-                    android:textFontWeight="600"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toEndOf="@+id/btn_saturday"
-                    app:layout_constraintTop_toTopOf="parent" />
             </GridLayout>
+
+
+            <!--            <TextView-->
+            <!--                    android:id="@+id/btn_monday"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="295dp"-->
+            <!--                    android:fontFamily="@font/inter_semibold"-->
+            <!--                    android:lineHeight="12.1dp"-->
+            <!--                    android:stateListAnimator="@null"-->
+            <!--                    android:text="월"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="#565656"-->
+            <!--                    android:textFontWeight="600"-->
+            <!--                    android:textSize="10dp"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/btn_tuesday"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="7dp"-->
+            <!--                    android:layout_marginTop="295dp"-->
+            <!--                    android:fontFamily="@font/inter_semibold"-->
+            <!--                    android:lineHeight="12.1dp"-->
+            <!--                    android:stateListAnimator="@null"-->
+            <!--                    android:text="화"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="#565656"-->
+            <!--                    android:textFontWeight="600"-->
+            <!--                    android:textSize="10dp"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/btn_monday"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/btn_wednesday"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="7dp"-->
+            <!--                    android:layout_marginTop="295dp"-->
+            <!--                    android:fontFamily="@font/inter_semibold"-->
+            <!--                    android:lineHeight="12.1dp"-->
+            <!--                    android:stateListAnimator="@null"-->
+            <!--                    android:text="수"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="#565656"-->
+            <!--                    android:textFontWeight="600"-->
+            <!--                    android:textSize="10dp"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/btn_tuesday"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/btn_thursday"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="7dp"-->
+            <!--                    android:layout_marginTop="295dp"-->
+            <!--                    android:fontFamily="@font/inter_semibold"-->
+            <!--                    android:lineHeight="12.1dp"-->
+            <!--                    android:stateListAnimator="@null"-->
+            <!--                    android:text="목"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="#565656"-->
+            <!--                    android:textFontWeight="600"-->
+            <!--                    android:textSize="10dp"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/btn_wednesday"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/btn_friday"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="7dp"-->
+            <!--                    android:layout_marginTop="295dp"-->
+            <!--                    android:fontFamily="@font/inter_semibold"-->
+            <!--                    android:lineHeight="12.1dp"-->
+            <!--                    android:stateListAnimator="@null"-->
+            <!--                    android:text="금"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="#565656"-->
+            <!--                    android:textFontWeight="600"-->
+            <!--                    android:textSize="10dp"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/btn_thursday"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/btn_saturday"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="7dp"-->
+            <!--                    android:layout_marginTop="295dp"-->
+            <!--                    android:fontFamily="@font/inter_semibold"-->
+            <!--                    android:lineHeight="12.1dp"-->
+            <!--                    android:stateListAnimator="@null"-->
+            <!--                    android:text="토"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="#565656"-->
+            <!--                    android:textFontWeight="600"-->
+            <!--                    android:textSize="10dp"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/btn_friday"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/btn_sunday"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="7dp"-->
+            <!--                    android:layout_marginTop="295dp"-->
+            <!--                    android:fontFamily="@font/inter_semibold"-->
+            <!--                    android:lineHeight="12.1dp"-->
+            <!--                    android:stateListAnimator="@null"-->
+            <!--                    android:text="일"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="#565656"-->
+            <!--                    android:textFontWeight="600"-->
+            <!--                    android:textSize="10dp"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/btn_saturday"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
             <GridLayout
                 android:id="@+id/gridlayout_review2"
@@ -341,8 +305,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/gridlayout_review1">
 
-                <ImageView
-                    android:id="@+id/img_walking_review"
+                <ImageButton
+                    android:id="@+id/btn_walking_review"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowSpan="1"
