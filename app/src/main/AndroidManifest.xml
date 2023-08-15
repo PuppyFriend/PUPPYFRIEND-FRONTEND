@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.puppyfriend_frontend">
     <!-- 인터넷 권한 설정 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -110,7 +114,14 @@
         <activity android:name=".View.Loading.Loading3Activity" />
         <activity android:name=".View.Loading.Loading4Activity" /> <!-- 로그인 페이지 -->
         <activity android:name=".View.Login.LoginActivity" /> <!-- 회원가입 페이지 -->
-        <activity android:name=".View.SignUp.SignUpActivity" />
+<!--        <activity android:name=".View.SignUp.SignUpActivity" />-->
+        <activity
+            android:name=".View.SignUp.SignUpActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity android:name=".View.SignUp.SignUpPhoneActivity" />
         <activity android:name=".View.SignUp.SignUpAgreeActivity" />
         <activity android:name=".View.SignUp.SignUpLocationActivity" />
