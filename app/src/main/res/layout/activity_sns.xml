@@ -73,32 +73,6 @@
 <!--                            android:layout_width="wrap_content"-->
 <!--                            android:layout_height="wrap_content">-->
 
-                            <ImageView
-                                android:id="@+id/img_sns_profile1"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="34dp"
-                                android:layout_marginTop="107.92dp"
-                                android:background="@drawable/img_sns_profile"
-                                android:gravity="center"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/text_sns_profile_name1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="52dp"
-                                android:layout_marginTop="160.92dp"
-                                android:fontFamily="@font/inter_semibold"
-                                android:lineHeight="10.89dp"
-                                android:text="ME"
-                                android:textColor="#565656"
-                                android:textFontWeight="600"
-                                android:textSize="9dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
 
 <!--                            <ImageView-->
 <!--                                android:id="@+id/img_sns_profile2"-->
@@ -185,9 +159,12 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView_story"
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginLeft="99.97dp"
-                    android:layout_marginTop="105dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="107.92dp"
+                    android:orientation="horizontal"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -334,7 +311,7 @@
                     android:padding="1dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
-
+                    
                     <ImageView
                         android:id="@+id/img_sns_post"
                         android:layout_width="match_parent"
@@ -381,7 +358,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20.93dp"
                     android:layout_marginTop="18.91dp"
-                    android:clipToPadding="false"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_sns_post_date"

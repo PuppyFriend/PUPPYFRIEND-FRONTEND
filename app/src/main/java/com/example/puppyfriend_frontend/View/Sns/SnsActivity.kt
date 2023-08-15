@@ -2,9 +2,9 @@ package com.example.puppyfriend_frontend.View.Sns
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -28,55 +28,17 @@ class SnsActivity: AppCompatActivity() {
         viewBinding = ActivitySnsBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        // 스토리 리사이클러뷰 가로 처리
-        viewBinding.recyclerViewStory.layoutManager = LinearLayoutManager(this).also { it.orientation = LinearLayoutManager.HORIZONTAL }
         setupRecyclerView()
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView_posting_list)
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.sns_story_width) // 간격 값을 리소스로부터 가져옴
+        viewBinding.recyclerViewStory.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                super.getItemOffsets(outRect, view, parent, state)
 
-        // Check if the data is received from the previous activity
-        if (intent != null && intent.hasExtra("date") && intent.hasExtra("image") && intent.hasExtra("content") && intent.hasExtra("backgroundColor")) {
-            val date = intent.getStringExtra("date")
-            val image = intent.getStringExtra("image")
-            val content = intent.getStringExtra("content")
-            val backgroundColor = intent.getIntExtra("backgroundColor", Color.WHITE)
-
-            // Now you have the data, you can use it to populate the RecyclerView using an adapter
-            val dataList = mutableListOf<Posting>()
-            dataList.add(Posting(date!!, image!!, content!!, backgroundColor))
-            // Add more items to dataList if you have multiple items to display
-
-            val adapter = PostingAdapter(dataList)
-            recyclerView.layoutManager = GridLayoutManager(this, 2)
-            recyclerView.adapter = adapter
-
-            val recyclerView: RecyclerView = findViewById(R.id.recyclerView_posting_list)
-
-            // Check if the data is received from the previous activity
-            if (intent != null && intent.hasExtra("date") && intent.hasExtra("image") && intent.hasExtra("content") && intent.hasExtra("backgroundColor")) {
-                val date = intent.getStringExtra("date")
-                val image = intent.getStringExtra("image")
-                val content = intent.getStringExtra("content")
-                val contentBackgroundColor = intent.getIntExtra("backgroundColor", Color.WHITE)
-
-                // Now you have the data, you can use it to populate the RecyclerView using an adapter
-                val dataList = mutableListOf<Posting>()
-                dataList.add(Posting(date!!, image!!, content!!, contentBackgroundColor))
-                // Add more items to dataList if you have multiple items to display
-
-                val adapter = PostingAdapter(dataList)
-                recyclerView.layoutManager = GridLayoutManager(this, 2)
-                recyclerView.adapter = adapter
-
-                // Log the information stored in dataList
-                for (posting in dataList) {
-                    Log.d("SnsActivity", "Date: ${posting.date}")
-                    Log.d("SnsActivity", "Image: ${posting.image}")
-                    Log.d("SnsActivity", "Content: ${posting.content}")
-                    Log.d("SnsActivity", "BackgroundColor: ${posting.contentBackgroundColor}")
-                }
+                // 첫 번째 아이템이 아닌 경우 상하좌우 간격을 설정
+                    outRect.right = spacingInPixels
             }
-        }
+        })
 
 
         // 이미지를 배경에 맞게 자른다.(게시글 이미지 둥근선 구현)
@@ -110,51 +72,44 @@ class SnsActivity: AppCompatActivity() {
             viewBinding.fragmentContainer.visibility = visibility
         }
 
-        // recyclerView 설정
-//        setupRecyclerView()
         clickToCreatePost()
     }
 
-    // recylcerView에 데이터 넣기
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    private fun setupRecyclerView() {
-//        viewModel.postings.observe(this, Observer { postings ->
-//            val adapter = PostingAdapter(postings)
-//            viewBinding.recyclerViewPostingList.layoutManager = GridLayoutManager(this, 2)
-//            viewBinding.recyclerViewPostingList.adapter = adapter
-//        })
-//    }
-//
-//
-//
-//    private val createPostActivityResultLauncher =
-//        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-//            if (result.resultCode == RESULT_OK) {
-//                val data = result.data
-//                val date = data?.getStringExtra("date") ?: ""
-//                val content = data?.getStringExtra("content") ?: ""
-//                val backgroundColor = data?.getIntExtra("backgroundColor", Color.WHITE) ?: Color.WHITE
-//
-//                val newPosting = Posting(date, R.drawable.style_around_image, content, backgroundColor)
-//
-//                viewModel.addPosting(newPosting)
-//            }
-//        }
 
     private fun setupRecyclerView() {
         val storyList = createStoryList()
+        val postingList = createPostingList()
 
         val storyRecyclerView = viewBinding.recyclerViewStory
+        val postingRecyclerView = viewBinding.recyclerViewPostingList
 
-        storyRecyclerView.layoutManager = LinearLayoutManager(this)
+        storyRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         storyRecyclerView.adapter = StoryAdapter(storyList)
+
+        postingRecyclerView.layoutManager = GridLayoutManager(this, 2)
+        postingRecyclerView.adapter = PostingAdapter(postingList,
+            postingRecyclerView.layoutManager as GridLayoutManager
+        )
     }
 
     private fun createStoryList(): List<Story> {
         val storyList = mutableListOf<Story>()
         storyList.add(Story(R.drawable.img_sns_post, "만두"))
+        storyList.add(Story(R.drawable.img_dog_2, "댕이"))
+        storyList.add(Story(R.drawable.img_sns_post, "만두"))
+        storyList.add(Story(R.drawable.img_dog_2, "댕이"))
         // ... 추가적인 Character를 만들고 리스트에 추가하십시오
         return storyList
+    }
+
+    private fun createPostingList(): MutableList<Posting> {
+        val postingList = mutableListOf<Posting>()
+        postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"오늘은 왜이리 밥을 안먹냐", Color.parseColor("#D3F5FF")))
+        postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"배고파", Color.parseColor("#FCF9D0")))
+        postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"슬프다", Color.parseColor("#E4F9EB")))
+        postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"고마워", Color.parseColor("#FBE0E4")))
+
+        return postingList
     }
 
     private fun clickToCreatePost() {

@@ -5,20 +5,20 @@ import android.os.Parcelable
 
 data class Posting(
     val date: String = "weer",
-    val image: String,
+    val image: Int,
     val content: String = "WEr",
     val contentBackgroundColor: Int = 1
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
-        parcel.readString() ?: "",
+        parcel.readInt(),
         parcel.readString() ?: "",
         parcel.readInt()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(date)
-        parcel.writeString(image)
+        parcel.writeInt(image)
         parcel.writeString(content)
         parcel.writeInt(contentBackgroundColor)
     }
