@@ -11,6 +11,7 @@
 
     <color name="gray">#EEEEEE</color>
     <color name="nothing">#00000000</color>
+    <color name="textBox_gray">#C4C4C4</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

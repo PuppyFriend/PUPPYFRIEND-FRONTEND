@@ -13,14 +13,14 @@ class LoginActivity: AppCompatActivity() {
         viewBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        viewBinding.btnSignupEmail.setOnClickListener{
+        viewBinding.btnSignUp.setOnClickListener{
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
 
-//        viewBinding.btnLoginEmail.setOnClickListener{
-//            val intent = Intent(this, SignUpActivity::class.java)
-//            startActivity(intent)
-//        }
+        viewBinding.btnLoginId.setOnClickListener{
+            val intent = Intent(this, LoginSelfActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

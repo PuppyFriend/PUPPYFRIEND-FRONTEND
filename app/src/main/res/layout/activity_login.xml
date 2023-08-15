@@ -90,27 +90,16 @@
         android:layout_marginTop="560dp"/>
 
     <TextView
-        android:id="@+id/btn_login_email"
+        android:id="@+id/btn_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/border_line"
-        android:layout_marginTop="583dp"
-        android:text="이메일로 로그인"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/btn_signup_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="@id/border_line"
         android:layout_marginTop="583dp"
-        android:text="이메일로 회원가입"
+        android:text="회원가입"
         android:textColor="@color/black"
-        android:textSize="15sp"/>
-
+        android:textSize="15sp" />
 
 
 
