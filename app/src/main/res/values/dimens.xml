@@ -2,4 +2,7 @@
 <resources>
     <dimen name="calendar_height">35dp</dimen> <!-- 예시로 300dp로 설정 -->
     <dimen name="other_height">180dp</dimen>
+    <dimen name="sns_story_width">27dp</dimen>
+    <dimen name="dialog_offset_x">50dp</dimen>
+    <dimen name="dialog_offset_y">60dp</dimen>
 </resources>
