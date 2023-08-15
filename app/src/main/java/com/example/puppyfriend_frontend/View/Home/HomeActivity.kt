@@ -198,9 +198,6 @@ class HomeActivity : AppCompatActivity() {
                     .alpha(1.0f)
                     .duration = 1000
             }
-//            isCalendarVisible = !isCalendarVisible
-//            toggleCalendarVisibility(isCalendarVisible)
-//            viewBinding.gridlayoutReview2.visibility = if (isCalendarVisible) View.VISIBLE else View.GONE
 
         }
     }
@@ -379,33 +376,6 @@ class HomeActivity : AppCompatActivity() {
                 }
                 .start()
         }
-    }
-
-    private fun animateAppearance(view: View) {
-        view.alpha = 0f
-        view.scaleX = 0f
-        view.scaleY = 0f
-
-        view.animate()
-            .alpha(1f)
-            .scaleX(1f)
-            .scaleY(1f)
-            .setDuration(100)
-            .start()
-
-        view.visibility = View.VISIBLE
-    }
-
-    private fun animateDisappearance(view: View) {
-        view.animate()
-            .alpha(0f)
-            .scaleX(0f)
-            .scaleY(0f)
-            .setDuration(100)
-            .withEndAction {
-                view.visibility = View.GONE
-            }
-            .start()
     }
 
 }
