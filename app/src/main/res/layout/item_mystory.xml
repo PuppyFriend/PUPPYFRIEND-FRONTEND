@@ -24,14 +24,6 @@
 
     </LinearLayout>
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/img_sns_profile"-->
-    <!--        android:layout_width="50dp"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:background="@drawable/img_sns_profile"-->
-    <!--        android:gravity="center"-->
-    <!--        android:src="@drawable/img_sns_post"-->
-    <!--        android:scaleType="centerCrop" />-->
 
     <TextView
         android:id="@+id/text_sns_my_story_name"
