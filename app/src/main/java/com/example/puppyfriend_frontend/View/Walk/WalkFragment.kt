@@ -6,6 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.puppyfriend_frontend.R
+import com.example.puppyfriend_frontend.WalkFilterFragment
+import com.example.puppyfriend_frontend.WalkNeighborFragment
+import com.example.puppyfriend_frontend.databinding.FragmentWalkBinding
+import net.daum.mf.map.api.MapView
+
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -17,6 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class WalkFragment : Fragment() {
+    private lateinit var viewBinding:FragmentWalkBinding
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -29,10 +35,21 @@ class WalkFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_walk, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewBinding = FragmentWalkBinding.inflate(layoutInflater)
+        val mapView = MapView(context)
+        viewBinding.clKakaoMapView.addView(mapView)
+        val fragmentManager=parentFragmentManager
+        val filterFragment= WalkFilterFragment()
+        val neighborFragment= WalkNeighborFragment()
+        viewBinding.btnTestFilter.setOnClickListener {
+            fragmentManager.beginTransaction().replace(viewBinding.frame.id, filterFragment!!).commit()
+        }
+        viewBinding.btnTestNeighbor.setOnClickListener {
+            fragmentManager.beginTransaction().replace(viewBinding.frame.id, neighborFragment!!).commit()
+        }
+
+        return viewBinding.root
     }
 
     companion object {
