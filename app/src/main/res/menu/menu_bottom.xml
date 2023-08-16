@@ -6,7 +6,7 @@
         android:title="홈" />
 
     <item
-        android:id="@+id/menu_around"
+        android:id="@+id/menu_walk"
         android:title="산책"
         android:icon="@drawable/icon_bottom_map" />
 
@@ -22,7 +22,7 @@
         android:icon="@drawable/icon_bottom_chatting" />
 
     <item
-        android:id="@+id/menu_look"
+        android:id="@+id/menu_around"
         android:title="둘러보기"
         android:icon="@drawable/icon_bottom_puppy" />
 </menu>
