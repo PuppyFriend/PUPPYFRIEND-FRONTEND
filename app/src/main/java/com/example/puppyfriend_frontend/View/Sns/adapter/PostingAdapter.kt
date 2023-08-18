@@ -53,12 +53,11 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
     private fun showCustomPopup(context: Context, x:Int, y:Int, posting: Posting) {
         val dialogBuilder = AlertDialog.Builder(context)
         val dialogView = LayoutInflater.from(context).inflate(R.layout.listitem_delete_popup, null)
-        val dialogViewSolo = LayoutInflater.from(context).inflate(R.layout.item_select_delete, null)
 
         dialogBuilder.setView(dialogView)
         val alertDialog = dialogBuilder.create()
 
-        alertDialog.setCanceledOnTouchOutside(true)    // 다이얼로그 영역 밖 클릭 시, 다이얼
+        alertDialog.setCanceledOnTouchOutside(true)    // 다이얼로그 영역 밖 클릭 시, 다이얼 삭제
         alertDialog.setCancelable(true)                 // 취소가 가능하도록 하는 코드
 
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -77,6 +76,7 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
 
         // 팝업 다이얼로그 내부의 뷰들을 초기화하고 설정합니다.
         val deleteButton = dialogView.findViewById<Button>(R.id.btn_delete)
+        val selectDeleteButton = dialogView.findViewById<Button>(R.id.btn_select_delete)
         deleteButton.setOnClickListener {
             val position = postingList.indexOf(posting) // 삭제할 아이템의 위치를 찾습니다.
             if (position != -1) {
@@ -96,6 +96,7 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
 
 
     }
+
 
     inner class PostingViewHolder(private val itemBinding: ItemPostingBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 
