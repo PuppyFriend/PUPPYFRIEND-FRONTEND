@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.View.Sns.OnPhotoClickListener
 import com.example.puppyfriend_frontend.View.Sns.model.Photo
 import com.example.puppyfriend_frontend.databinding.ItemPhotoBinding
 
@@ -26,7 +25,7 @@ class PhotosAdapter(
         return when (viewType) {
             VIEW_TYPE_ICON -> {
                 val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.item_icon, parent, false)
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_camera, parent, false)
                 IconViewHolder(view)
             }
             VIEW_TYPE_PHOTO -> {
@@ -40,7 +39,7 @@ class PhotosAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is IconViewHolder -> holder.bind()
+            is IconViewHolder -> holder.bind(onIconClickListener)
             is PhotoViewHolder -> holder.bind(photosList[position - 1]) // Subtract 1 to skip the icon
         }
     }
@@ -54,7 +53,7 @@ class PhotosAdapter(
     }
 
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind() {
+        fun bind(onIconClickListener: () -> Unit) {
             // Add click listener for the new icon
             itemView.setOnClickListener {
                 onIconClickListener.invoke()

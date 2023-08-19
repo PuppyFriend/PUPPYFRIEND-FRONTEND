@@ -4,7 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
@@ -28,12 +27,15 @@ class CreatePostActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityCreatepostBinding
     private lateinit var photosAdapter: PhotosAdapter
+    private val imageUris = ArrayList<Uri>()
     private lateinit var postingAdapter: PostingAdapter
     private lateinit var viewModel: SharedViewModel
     private val posts = mutableListOf<Posting>()
 
     companion object {
         private const val READ_EXTERNAL_STORAGE_PERMISSION_REQUEST_CODE = 1
+        private const val CAMERA_PERMISSION_REQUEST_CODE = 2
+        private const val CAMERA_REQUEST_CODE =3
     }
 
     private val colorCheckIds = mapOf(
@@ -95,29 +97,30 @@ class CreatePostActivity : AppCompatActivity() {
         clickCancelBtn()
     }
 
-    private fun registerPost() {
 
-//        viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
+//    private fun registerPost() {
 //
-
-        viewBinding.btnSnsPostingRegister.setOnClickListener {
-            val date = "3월 8일"
-            val image = selectedPhoto.url
-            val content = viewBinding.editContent.text.toString()
-            val backgroundColor = viewBinding.viewContentBackground.background
-            val contentBackgroundColor = (backgroundColor as? ColorDrawable)?.color ?: Color.WHITE
-
-            val intent = Intent()
-            intent.putExtra("date", date)
-            intent.putExtra("image", image)
-            intent.putExtra("content", content)
-            intent.putExtra("backgroundColor", contentBackgroundColor)
-
-            // Set the result and finish the activity
-            setResult(RESULT_OK, intent)
-            finish()
-        }
-    }
+////        viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
+////
+//
+//        viewBinding.btnSnsPostingRegister.setOnClickListener {
+//            val date = "3월 8일"
+//            val image = selectedPhoto.url
+//            val content = viewBinding.editContent.text.toString()
+//            val backgroundColor = viewBinding.viewContentBackground.background
+//            val contentBackgroundColor = (backgroundColor as? ColorDrawable)?.color ?: Color.WHITE
+//
+//            val intent = Intent()
+//            intent.putExtra("date", date)
+//            intent.putExtra("image", image)
+//            intent.putExtra("content", content)
+//            intent.putExtra("backgroundColor", contentBackgroundColor)
+//
+//            // Set the result and finish the activity
+//            setResult(RESULT_OK, intent)
+//            finish()
+//        }
+//    }
 
 
 //        // 데이터 생성 및 ViewModel에 저장
@@ -177,13 +180,14 @@ class CreatePostActivity : AppCompatActivity() {
     private lateinit var selectedPhoto: Photo
     private fun showPhotos() {
         val photosList = getPhotosList()
+        Log.d("ShowPhotos", "${photosList.size}")
         photosAdapter = PhotosAdapter(photosList,
             onPhotoClickListener = { clickedPhoto ->
                 selectedPhoto = clickedPhoto
-                registerPost()
+//                registerPost()
             },
             onIconClickListener = {
-                Toast.makeText(this, "New Icon Clicked!", Toast.LENGTH_SHORT).show()
+                openCameraForResult()
             }
         )
         val recyclerView: RecyclerView = viewBinding.recyclerViewGallery
@@ -234,4 +238,74 @@ class CreatePostActivity : AppCompatActivity() {
             startActivityForResult(intent, 100) // Use any re
         }
     }
+
+    private fun checkCameraPermission(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestCameraPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.CAMERA),
+            CAMERA_PERMISSION_REQUEST_CODE
+        )
+    }
+
+    private fun openCamera() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(intent, CAMERA_REQUEST_CODE)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            CAMERA_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    openCamera()
+                } else {
+                    Toast.makeText(this, "Camera permission denied.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            // ...
+        }
+    }
+
+    private fun saveImageToGallery(imageUri: Uri) {
+        val intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+        intent.data = imageUri
+        sendBroadcast(intent)
+        Toast.makeText(this, "Image saved to gallery.", Toast.LENGTH_SHORT).show()
+
+        Log.d("SaveImageToGallery", "Gallery updated") // 로그 추가
+
+        showPhotos()
+    }
+
+    private fun openCameraForResult() {
+        if (checkCameraPermission()) {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, CAMERA_REQUEST_CODE)
+        }else {
+            requestCameraPermission()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
+            val imageUri = data?.data
+            if (imageUri != null) {
+                saveImageToGallery(imageUri)
+                showPhotos() // 갤러리 업데이트
+            }
+        }
+    }
+
 }

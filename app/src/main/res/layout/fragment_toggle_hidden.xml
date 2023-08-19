@@ -15,7 +15,7 @@
             android:lineHeight="10.89dp"
             android:textColor="#000000"
             android:visibility="gone"
-            android:layout_marginLeft="32.34dp"
+            android:layout_marginLeft="48.34dp"
             android:layout_marginTop="18.42dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
             android:id="@+id/recyclerView_character"
             android:layout_width="260dp"
             android:layout_height="41dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="50.34dp"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="13dp"
             android:visibility="gone"
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="54dp"
-            android:layout_marginLeft="32.34dp"
+            android:layout_marginLeft="48.34dp"
             android:fontFamily="@font/inter_semibold"
             android:lineHeight="10.89dp"
             android:text="활동"
@@ -53,21 +53,12 @@
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:layout_marginLeft="34.34dp"
+            android:layout_marginLeft="50.34dp"
             app:spanCount="3"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_activity" />
 
-        <View
-            android:id="@+id/view_toggle_hidden"
-            android:layout_width="360dp"
-            android:layout_height="160dp"
-            android:background="@drawable/style_sns_hashtag_border"
-            android:visibility="gone"
-            android:layout_marginTop="300.17dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
 

@@ -2,12 +2,15 @@ package com.example.puppyfriend_frontend.View.Sns.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.puppyfriend_frontend.R
+import com.example.puppyfriend_frontend.View.Sns.OtherSnsFragment
 import com.example.puppyfriend_frontend.View.Sns.model.Story
 import com.example.puppyfriend_frontend.databinding.ItemMystoryBinding
 import com.example.puppyfriend_frontend.databinding.ItemStoryBinding
 
-class StoryAdapter(private val storyList: List<Story>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class StoryAdapter(private val storyList: List<Story>, private val fragmentManager: FragmentManager) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         private const val VIEW_TYPE_MY_STORY = 0
@@ -66,6 +69,14 @@ class StoryAdapter(private val storyList: List<Story>) : RecyclerView.Adapter<Re
             // Character 객체로부터 데이터를 가져와서 뷰에 설정
             itemBinding.textSnsStoryName.text = story.puppyName
             itemBinding.imgSnsStory.setImageResource(story.image)
+
+            // 아이템 클릭 이벤트 처리
+            itemBinding.root.setOnClickListener {
+                fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_1, OtherSnsFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
         }
     }
 

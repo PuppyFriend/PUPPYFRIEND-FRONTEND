@@ -21,6 +21,7 @@ import com.example.puppyfriend_frontend.databinding.FragmentSnsBinding
 class SnsFragment : Fragment(R.layout.fragment_sns) {
     private lateinit var binding: FragmentSnsBinding
     private lateinit var toggleHiddenFragment: ToggleHiddenFragment
+    private var isShadowApplied = false
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,6 +40,7 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
             }
         })
 
+        binding.fragmentContainer.bringToFront()
         // 이미지를 배경에 맞게 자른다.(게시글 이미지 둥근선 구현)
         binding.imgSnsPost.clipToOutline = true
 
@@ -64,13 +66,51 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
                 findViewById<View>(R.id.text_character).visibility = visibility
                 findViewById<View>(R.id.recyclerView_activity).visibility = visibility
                 findViewById<View>(R.id.text_activity).visibility = visibility
-                findViewById<View>(R.id.view_toggle_hidden).visibility = visibility
+//                findViewById<View>(R.id.view_toggle_hidden).visibility = visibility
             }
             binding.fragmentContainer.visibility = visibility
         }
 
         clickToCreatePost()
+//        showDialog()
+
     }
+
+//    private fun showToggleHidden(){
+//        val dialog = Dialog(requireContext(),android.R.style.Theme_Translucent_NoTitleBar_Fullscreen ) // 생성한 스타일 적용
+//        dialog.setContentView(R.layout.hidden_dialog) // 대화 상자 컨텐츠 설정
+//        // 다이얼로그 창 크기와 위치 설정
+//        val window = dialog.window
+//        val layoutParams = WindowManager.LayoutParams()
+//        layoutParams.copyFrom(window?.attributes)
+//
+//        // 화면 크기의 90%로 다이얼로그 크기 설정
+//        val dm = applicationContext.resources.displayMetrics
+//        val width = (dm.widthPixels * 0.9).toInt() // Display 사이즈의 90%
+//        val height = (dm.heightPixels * 0.9).toInt() // Display 사이즈의 90%
+//        layoutParams.width = width
+//        layoutParams.height = height
+//
+//        // 원하는 창 위치 설정 (예: 중앙에 위치)
+//        layoutParams.gravity = Gravity.CENTER
+//
+//        window?.attributes = layoutParams
+//
+//        dialog.setContentView(R.layout.custom_dialog)
+//
+//        // 다이얼로그 외부 영역 터치 무시
+//        dialog.setCanceledOnTouchOutside(false)
+//
+//        // Toggle 버튼 처리
+//        val toggleButton = dialog.findViewById<ToggleButton>(R.id.toggleButton)
+//        toggleButton.setOnCheckedChangeListener { _, isChecked ->
+//            if (isChecked) {
+//                dialog.dismiss() // 다이얼로그 종료
+//            }
+//        }
+//
+//        dialog.show()
+//    }
 
     private fun setupRecyclerView() {
         val storyList = createStoryList()
@@ -80,7 +120,7 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         val postingRecyclerView = binding.recyclerViewPostingList
 
         storyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        storyRecyclerView.adapter = StoryAdapter(storyList)
+        storyRecyclerView.adapter = StoryAdapter(storyList, requireActivity().supportFragmentManager )
 
         postingRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         postingRecyclerView.adapter = PostingAdapter(postingList,
@@ -114,4 +154,5 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
             startActivity(intent)
         }
     }
+
 }

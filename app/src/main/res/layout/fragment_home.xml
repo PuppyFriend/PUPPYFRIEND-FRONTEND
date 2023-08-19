@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25.55dp"
-                android:layout_marginTop="115dp"
+                android:layout_marginTop="23dp"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="15.73dp"
                 android:text="my puppy"
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="138.24dp"
+                android:layout_marginTop="39.24dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="24.2dp"
                 android:maxLength="20"
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25.21dp"
-                android:layout_marginTop="169.73dp"
+                android:layout_marginTop="71.73dp"
                 android:fontFamily="@font/inter_semibold"
                 android:lineHeight="12.1dp"
                 android:text="puppy breed- age(month)- gender"
@@ -77,7 +77,7 @@
                 android:layout_width="71.97dp"
                 android:layout_height="74dp"
                 android:layout_marginStart="230.55dp"
-                android:layout_marginTop="115dp"
+                android:layout_marginTop="17dp"
                 android:background="@drawable/style_home_profile"
                 android:gravity="center"
                 android:padding="1dp"
@@ -117,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="219.76dp"
+                android:layout_marginTop="121.76dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="18.15dp"
                 android:text="이번주 산책 리뷰"
@@ -132,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="244.76dp"
+                android:layout_marginTop="146.76dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="15.73dp"
                 android:lineSpacingExtra="-3dp"
@@ -164,7 +164,7 @@
                 android:layout_width="10dp"
                 android:layout_height="9dp"
                 android:layout_marginStart="294dp"
-                android:layout_marginTop="295dp"
+                android:layout_marginTop="197dp"
                 android:background="@drawable/selector_sns_togglebtn"
                 android:textOff=" "
                 android:textOn=" "
@@ -175,7 +175,7 @@
                 android:id="@+id/gridlayout_review1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="310dp"
+                android:layout_marginTop="212dp"
                 android:columnCount="7"
                 android:rowCount="1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -210,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:layout_row="0"
                     android:layout_column="0"
-                    android:layout_marginTop="322.4dp"
+                    android:layout_marginTop="224.4dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:layout_marginLeft="14dp"
@@ -230,7 +230,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
+                    android:layout_marginTop="224.4dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:stateListAnimator="@null"
@@ -247,7 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
+                    android:layout_marginTop="224.4dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:stateListAnimator="@null"
@@ -264,7 +264,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
+                    android:layout_marginTop="224.4dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:stateListAnimator="@null"
@@ -281,7 +281,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
+                    android:layout_marginTop="224.4dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:stateListAnimator="@null"
@@ -299,7 +299,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
+                    android:layout_marginTop="224.4dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:stateListAnimator="@null"
@@ -316,7 +316,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
-                    android:layout_marginTop="322.4dp"
+                    android:layout_marginTop="224.4dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:stateListAnimator="@null"
@@ -366,7 +366,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19.38dp"
-                android:layout_marginTop="379.32dp"
+                android:layout_marginTop="281.32dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="18.15dp"
                 android:text="목표 산책 달성도"
@@ -397,7 +397,7 @@
                 android:layout_height="94dp"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="117dp"
-                android:layout_marginTop="418dp"
+                android:layout_marginTop="320dp"
                 android:indeterminate="false"
                 android:progressDrawable="@drawable/icon_home_progressbar_back"
                 app:layout_constraintStart_toStartOf="parent"
@@ -437,7 +437,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
-                android:layout_marginTop="532.38dp"
+                android:layout_marginTop="434.38dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:lineHeight="15.73dp"
                 android:lineSpacingExtra="-3dp"
@@ -449,62 +449,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!--            <View-->
-            <!--                android:id="@+id/view_home_line"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="1px"-->
-            <!--                android:layout_marginTop="41.24dp"-->
-            <!--                android:background="#a8a8a8"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toBottomOf="@+id/text_progessbar_goal" />-->
-
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_community"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginLeft="19.38dp"-->
-            <!--                android:layout_marginTop="29dp"-->
-            <!--                android:fontFamily="@font/inter_extrabold"-->
-            <!--                android:lineHeight="18.15dp"-->
-            <!--                android:text="커뮤니티"-->
-            <!--                android:textColor="#000000"-->
-            <!--                android:textFontWeight="800"-->
-            <!--                android:textSize="15dp"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="@+id/view_home_line" />-->
-
-            <!--            <androidx.appcompat.widget.AppCompatButton-->
-            <!--                android:id="@+id/btn_reservation"-->
-            <!--                android:layout_width="88dp"-->
-            <!--                android:layout_height="88dp"-->
-            <!--                android:layout_marginLeft="63.01dp"-->
-            <!--                android:layout_marginTop="76.77dp"-->
-            <!--                android:background="@drawable/style_home_gray_circle"-->
-            <!--                android:fontFamily="@font/inter_semibold"-->
-            <!--                android:lineHeight="13.31dp"-->
-            <!--                android:text="동네예약"-->
-            <!--                android:textColor="#000000"-->
-            <!--                android:textFontWeight="600"-->
-            <!--                android:textSize="11dp"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="@+id/view_home_line" />-->
-
-            <!--            <androidx.appcompat.widget.AppCompatButton-->
-            <!--                android:id="@+id/btn_market"-->
-            <!--                android:layout_width="88dp"-->
-            <!--                android:layout_height="88dp"-->
-            <!--                android:layout_marginLeft="176.01dp"-->
-            <!--                android:layout_marginTop="76.77dp"-->
-            <!--                android:background="@drawable/style_home_gray_circle"-->
-            <!--                android:fontFamily="@font/inter_semibold"-->
-            <!--                android:lineHeight="13.31dp"-->
-            <!--                android:text="펖마켓"-->
-            <!--                android:textColor="#000000"-->
-            <!--                android:textFontWeight="600"-->
-            <!--                android:textSize="11dp"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="@+id/view_home_line" />-->
 
             <View
                 android:id="@+id/view_blank"
@@ -512,14 +456,6 @@
                 android:layout_height="200dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_progessbar_goal" />
-
-            <LinearLayout
-                android:id="@+id/rootLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

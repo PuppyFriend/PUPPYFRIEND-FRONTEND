@@ -66,7 +66,6 @@ class SnsActivity: AppCompatActivity() {
                 findViewById<View>(R.id.text_character).visibility = visibility
                 findViewById<View>(R.id.recyclerView_activity).visibility = visibility
                 findViewById<View>(R.id.text_activity).visibility = visibility
-                findViewById<View>(R.id.view_toggle_hidden).visibility = visibility
 
             }
             viewBinding.fragmentContainer.visibility = visibility
@@ -84,7 +83,7 @@ class SnsActivity: AppCompatActivity() {
         val postingRecyclerView = viewBinding.recyclerViewPostingList
 
         storyRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        storyRecyclerView.adapter = StoryAdapter(storyList)
+        storyRecyclerView.adapter = StoryAdapter(storyList, supportFragmentManager)
 
         postingRecyclerView.layoutManager = GridLayoutManager(this, 2)
         postingRecyclerView.adapter = PostingAdapter(postingList,

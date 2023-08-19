@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/fragment_container_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,7 +21,7 @@
         android:layout_width="50dp"
         android:layout_height="52.29dp"
         android:layout_marginLeft="155.48dp"
-        android:layout_marginTop="562.02dp"
+        android:layout_marginTop="464.02dp"
         android:background="@drawable/img_sns_posting_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +43,7 @@
                 android:id="@+id/view_sns_line"
                 android:layout_width="wrap_content"
                 android:layout_height="1px"
-                android:layout_marginTop="192.74dp"
+                android:layout_marginTop="94.74dp"
                 android:background="#a8a8a8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,10 +52,8 @@
                 android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="300.17dp"
-                android:background="@drawable/style_sns_hashtag_border"
-                android:elevation="10dp"
-                android:translationZ="-8dp"
+                android:layout_marginTop="202.17dp"
+                android:background="@drawable/style_sns_toggle_hiddensheet"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -55,8 +62,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -161,9 +168,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="22dp"
-                    android:layout_marginTop="107.92dp"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="9.92dp"
                     android:clipToPadding="false"
+                    android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -173,7 +180,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="13.87dp"
-                    android:layout_marginTop="205.39dp"
+                    android:layout_marginTop="107.39dp"
                     android:fontFamily="@font/inter_extrabold"
                     android:lineHeight="24.2dp"
                     android:text="리타&amp;댕댕"
@@ -189,7 +196,7 @@
                     android:layout_width="57.81dp"
                     android:layout_height="58.97dp"
                     android:layout_marginLeft="25.22dp"
-                    android:layout_marginTop="241.2dp"
+                    android:layout_marginTop="143.2dp"
                     android:background="@drawable/img_dog_profile"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -199,7 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="103.71dp"
-                    android:layout_marginTop="241.7dp"
+                    android:layout_marginTop="143.7dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:text="골든리트리버 - 2세(26개월) - 여아"
@@ -215,7 +222,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="107.84dp"
-                    android:layout_marginTop="262.72dp"
+                    android:layout_marginTop="164.72dp"
                     android:fontFamily="@font/inter_bold"
                     android:lineHeight="24.2dp"
                     android:text="10"
@@ -230,7 +237,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="13dp"
                     android:layout_marginLeft="105.84dp"
-                    android:layout_marginTop="287.72dp"
+                    android:layout_marginTop="189.72dp"
                     android:fontFamily="@font/inter_semibold"
                     android:gravity="center"
                     android:lineHeight="12.1dp"
@@ -247,7 +254,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="162.84dp"
-                    android:layout_marginTop="262.72dp"
+                    android:layout_marginTop="164.72dp"
                     android:fontFamily="@font/inter_bold"
                     android:lineHeight="24.2dp"
                     android:text="20"
@@ -262,7 +269,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="13dp"
                     android:layout_marginLeft="161.84dp"
-                    android:layout_marginTop="287.72dp"
+                    android:layout_marginTop="189.72dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="12.1dp"
                     android:text="팔로잉"
@@ -278,7 +285,7 @@
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_marginStart="288.5dp"
-                    android:layout_marginTop="271.22dp"
+                    android:layout_marginTop="173.22dp"
                     android:background="@drawable/selector_sns_togglebtn"
                     android:textOff=" "
                     android:textOn=" "
@@ -290,7 +297,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20.25dp"
-                    android:layout_marginTop="330.08dp"
+                    android:layout_marginTop="232.08dp"
                     android:fontFamily="@font/inter_extrabold"
                     android:lineHeight="18.15dp"
                     android:text="게시물"
@@ -305,7 +312,7 @@
                     android:layout_width="247.54dp"
                     android:layout_height="211.61dp"
                     android:layout_marginLeft="40.23dp"
-                    android:layout_marginTop="366.59dp"
+                    android:layout_marginTop="268.59dp"
                     android:background="@drawable/style_sns_post_border"
                     android:gravity="center"
                     android:padding="1dp"
@@ -327,7 +334,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40.23dp"
-                    android:layout_marginTop="588.55dp"
+                    android:layout_marginTop="490.55dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="16.94dp"
                     android:text="오늘 한강에서 오랜만에 산책했다 "
@@ -342,7 +349,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40.08dp"
-                    android:layout_marginTop="613.5dp"
+                    android:layout_marginTop="515.5dp"
                     android:fontFamily="@font/inter_semibold"
                     android:lineHeight="13.31dp"
                     android:text="5월 20일"
@@ -363,8 +370,29 @@
                     app:layout_constraintTop_toBottomOf="@+id/text_sns_post_date"
                     app:spanCount="2" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_select_delete_solo"
+                    android:layout_width="85.72dp"
+                    android:layout_height="17.51dp"
+                    android:layout_marginStart="224dp"
+                    android:background="@drawable/style_sns_select_delete_solo"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="10.89dp"
+                    android:text="선택 삭제"
+                    android:textColor="#D63228"
+                    android:textFontWeight="600"
+                    android:textSize="9dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/recyclerView_posting_list"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

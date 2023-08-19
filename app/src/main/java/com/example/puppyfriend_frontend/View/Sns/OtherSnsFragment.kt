@@ -24,6 +24,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class OtherSnsFragment : Fragment() {
     private lateinit var viewBinding: FragmentOtherSnsBinding
+    private lateinit var toggleHiddenFragment: ToggleHiddenFragment
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +35,30 @@ class OtherSnsFragment : Fragment() {
         viewBinding.btnFollowing.setOnClickListener{
             viewBinding.btnFollowing.isSelected = viewBinding.btnFollowing.isSelected != true
         }
+        viewBinding.btnSettingXBack.setOnClickListener {
+            parentFragmentManager.beginTransaction().remove(this).commit()
+        }
+
+        toggleHiddenFragment = ToggleHiddenFragment()
+        childFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, toggleHiddenFragment)
+            .commit()
+
+        // 토클 클릭에 view hidden
+         viewBinding.togglebtnSnsTriangle.setOnCheckedChangeListener { _, isChecked ->
+            val toggleFragmentView = toggleHiddenFragment.view
+            val visibility = if (isChecked) View.VISIBLE else View.GONE
+
+            toggleFragmentView?.apply {
+                findViewById<View>(R.id.recyclerView_character).visibility = visibility
+                findViewById<View>(R.id.text_character).visibility = visibility
+                findViewById<View>(R.id.recyclerView_activity).visibility = visibility
+                findViewById<View>(R.id.text_activity).visibility = visibility
+//                findViewById<View>(R.id.view_toggle_hidden).visibility = visibility
+            }
+            viewBinding.fragmentContainer.visibility = visibility
+        }
+
         setupRecyclerView()
         return viewBinding.root
     }

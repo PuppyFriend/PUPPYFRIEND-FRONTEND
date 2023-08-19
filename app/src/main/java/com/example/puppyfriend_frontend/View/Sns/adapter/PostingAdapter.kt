@@ -4,8 +4,8 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Button
@@ -16,13 +16,15 @@ import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.databinding.ItemPostingBinding
 
 class PostingAdapter(private val postingList: MutableList<Posting>, private val  layoutManager: GridLayoutManager) : RecyclerView.Adapter<PostingAdapter.PostingViewHolder>() {
-
+    private val  selectedDeleteItems = HashSet<Posting>()
+    private var selected = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostingViewHolder {
         val itemBinding = ItemPostingBinding.inflate(LayoutInflater.from(parent.context),parent, false)
 
         itemBinding.imgBlueMemo.clipToOutline = true
 
-        return PostingViewHolder(itemBinding)
+        val spanCount = layoutManager.spanCount
+        return PostingViewHolder(itemBinding, spanCount)
     }
 
     override fun onBindViewHolder(holder: PostingViewHolder, position: Int) {
@@ -34,10 +36,10 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
             holder.itemView.getLocationOnScreen(location)
 
             val spanCount = layoutManager.spanCount // 이미 설정된 GridLayoutManager를 사용
-            val spanIndex = (it.layoutParams as GridLayoutManager.LayoutParams).spanIndex
+            val spanIndex = position % spanCount
             val spanSize = (it.layoutParams as GridLayoutManager.LayoutParams).spanSize
 
-            val x = location[0] + (spanSize - spanIndex) * holder.itemView.width / spanCount
+            val x = location[0] + spanIndex * holder.itemView.width
             val y = location[1]
 
             showCustomPopup(holder.itemView.context, x, y, posting)
@@ -68,7 +70,6 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
         val layoutParams = WindowManager.LayoutParams()
 
         layoutParams.copyFrom(alertDialog.window?.attributes)
-        layoutParams.gravity = Gravity.TOP or Gravity.START
         layoutParams.x = x - marginLeft
         layoutParams.y = y - marginTop
 
@@ -76,7 +77,6 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
 
         // 팝업 다이얼로그 내부의 뷰들을 초기화하고 설정합니다.
         val deleteButton = dialogView.findViewById<Button>(R.id.btn_delete)
-        val selectDeleteButton = dialogView.findViewById<Button>(R.id.btn_select_delete)
         deleteButton.setOnClickListener {
             val position = postingList.indexOf(posting) // 삭제할 아이템의 위치를 찾습니다.
             if (position != -1) {
@@ -86,11 +86,7 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
 
             alertDialog.dismiss() // 다이얼로그를 닫습니다.
         }
-//        val selectDeleteButton = dialogView.findViewById<Button>(R.id.btn_select_delete)
-//        val selectDeleteSolo = dialogViewSolo.findViewById<Button>(R.id.btn_select_delete_solo)
-//        selectDeleteButton.setOnClickListener{
-//            selectDeleteSolo.visibility = View.VISIBLE
-//        }
+
 
         alertDialog.show()
 
@@ -98,8 +94,8 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
     }
 
 
-    inner class PostingViewHolder(private val itemBinding: ItemPostingBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 
+    inner class PostingViewHolder(private val itemBinding: ItemPostingBinding, private val spanCount: Int) : RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(posting: Posting) {
             // Posting 객체로부터 데이터를 가져와서 뷰에 설정
             itemBinding.textBlueMemoDate.text = posting.date     // local date를 string으로 변환
@@ -108,7 +104,29 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
 
             val backgroundColor = ColorDrawable(posting.contentBackgroundColor)
             itemBinding.viewBlueMemo.background = backgroundColor
+
+            updateCircleButton(posting)
+
+            itemBinding.viewSelectDeleteCircleBtn.setOnClickListener {
+                toggleCircleSelection(posting)
+            }
         }
+
+        private fun updateCircleButton(posting: Posting) {
+            val isSelected = selectedDeleteItems.contains(posting)
+            itemBinding.viewSelectDeleteCircleBtn.visibility = if (selected || isSelected) View.VISIBLE else View.GONE
+            itemBinding.viewSelectDeleteCheck.visibility = if (isSelected) View.VISIBLE else View.GONE
+        }
+
+        private fun toggleCircleSelection(posting: Posting) {
+            if (selectedDeleteItems.contains(posting)) {
+                selectedDeleteItems.remove(posting)
+            } else {
+                selectedDeleteItems.add(posting)
+            }
+            notifyDataSetChanged()
+        }
+
     }
 
 }
