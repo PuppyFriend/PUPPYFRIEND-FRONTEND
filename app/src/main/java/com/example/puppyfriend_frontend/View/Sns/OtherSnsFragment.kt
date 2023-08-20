@@ -59,6 +59,8 @@ class OtherSnsFragment : Fragment() {
             viewBinding.fragmentContainer.visibility = visibility
         }
 
+        viewBinding.fragmentContainer.bringToFront()
+
         setupRecyclerView()
         return viewBinding.root
     }
@@ -69,7 +71,7 @@ class OtherSnsFragment : Fragment() {
         val postingRecyclerView = viewBinding.recyclerViewPostingList
 
         postingRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        postingRecyclerView.adapter = PostingAdapter(postingList,
+        postingRecyclerView.adapter = PostingAdapter(requireContext(),postingList,
             postingRecyclerView.layoutManager as GridLayoutManager
         )
     }

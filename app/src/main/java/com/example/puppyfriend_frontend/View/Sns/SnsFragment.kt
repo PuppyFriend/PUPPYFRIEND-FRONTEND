@@ -3,19 +3,25 @@ package com.example.puppyfriend_frontend.View.Sns
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.view.WindowManager
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
+import com.example.puppyfriend_frontend.View.DeleteDialogFragment
 import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
 import com.example.puppyfriend_frontend.View.Sns.adapter.StoryAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.View.Sns.model.Story
+import com.example.puppyfriend_frontend.databinding.DialogPostingBigImgBinding
 import com.example.puppyfriend_frontend.databinding.FragmentSnsBinding
 
 class SnsFragment : Fragment(R.layout.fragment_sns) {
@@ -44,6 +50,9 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         // 이미지를 배경에 맞게 자른다.(게시글 이미지 둥근선 구현)
         binding.imgSnsPost.clipToOutline = true
 
+        binding.imgSnsPost.setOnClickListener {
+            postingImageZoom1()
+        }
         // 토글버튼 클릭시 유지
         binding.togglebtnSnsTriangle.setOnClickListener{
             binding.togglebtnSnsTriangle.isSelected = binding.togglebtnSnsTriangle.isSelected != true
@@ -123,7 +132,7 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         storyRecyclerView.adapter = StoryAdapter(storyList, requireActivity().supportFragmentManager )
 
         postingRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        postingRecyclerView.adapter = PostingAdapter(postingList,
+        postingRecyclerView.adapter = PostingAdapter(requireContext(), postingList,
             postingRecyclerView.layoutManager as GridLayoutManager
         )
     }
@@ -140,7 +149,7 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
 
     private fun createPostingList(): MutableList<Posting> {
         val postingList = mutableListOf<Posting>()
-        postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"오늘은 왜이리 밥을 안먹냐", Color.parseColor("#D3F5FF")))
+        postingList.add(Posting("8월 14일",R.drawable.kakao,"오늘은 왜이리 밥을 안먹냐", Color.parseColor("#D3F5FF")))
         postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"배고파", Color.parseColor("#FCF9D0")))
         postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"슬프다", Color.parseColor("#E4F9EB")))
         postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"고마워", Color.parseColor("#FBE0E4")))
@@ -153,6 +162,35 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
             val intent = Intent(requireContext(), CreatePostActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun postingImageZoom1() {
+        val profileViewBinding = DialogPostingBigImgBinding.inflate(layoutInflater)
+        val profile = AlertDialog.Builder(requireContext()).create()
+        profile.setView(profileViewBinding.root)
+
+        profileViewBinding.imgSnsPost.clipToOutline = true
+
+        // 다이얼로그 배경 투명 처리
+        profile.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        // 다이얼로그 크기 및 위치 설정
+        val layoutParams = WindowManager.LayoutParams().apply {
+            copyFrom(profile.window?.attributes)
+            width = WindowManager.LayoutParams.MATCH_PARENT
+            height = WindowManager.LayoutParams.WRAP_CONTENT
+            gravity = Gravity.CENTER
+        }
+        profile.window?.attributes = layoutParams
+
+        profile.show()
+
+        profile.setCanceledOnTouchOutside(true)
+        profile.setCancelable(true)
+    }
+    fun showDeleteDialogFragment() {
+        val dialogFragment = DeleteDialogFragment()
+        dialogFragment.show(requireActivity().supportFragmentManager, "DeleteDialogFragment")
     }
 
 }

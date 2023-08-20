@@ -509,7 +509,7 @@
             <View
                 android:id="@+id/view_blank"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
+                android:layout_height="100dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_progessbar_goal" />
 

@@ -18,7 +18,7 @@
         android:textColor="#D63228"
         android:textFontWeight="600"
         android:textSize="9dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

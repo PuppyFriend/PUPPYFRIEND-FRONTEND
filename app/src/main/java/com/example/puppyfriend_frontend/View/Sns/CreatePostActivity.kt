@@ -17,21 +17,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.View.Sns.adapter.PhotosAdapter
-import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Photo
-import com.example.puppyfriend_frontend.View.Sns.model.Posting
-import com.example.puppyfriend_frontend.View.Sns.model.SharedViewModel
 import com.example.puppyfriend_frontend.databinding.ActivityCreatepostBinding
 
 class CreatePostActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityCreatepostBinding
     private lateinit var photosAdapter: PhotosAdapter
-    private val imageUris = ArrayList<Uri>()
-    private lateinit var postingAdapter: PostingAdapter
-    private lateinit var viewModel: SharedViewModel
-    private val posts = mutableListOf<Posting>()
-
     companion object {
         private const val READ_EXTERNAL_STORAGE_PERMISSION_REQUEST_CODE = 1
         private const val CAMERA_PERMISSION_REQUEST_CODE = 2
@@ -144,7 +136,8 @@ class CreatePostActivity : AppCompatActivity() {
 //            val intent = Intent(this, SnsActivity::class.java)
 //            startActivity(intent)
 //            finish()
-//
+
+//}
 
     private fun toggleCheckVisibility(clickedView: View) {
         val clickedCheckId = colorCheckIds[clickedView.id] ?: return
@@ -180,22 +173,25 @@ class CreatePostActivity : AppCompatActivity() {
     private lateinit var selectedPhoto: Photo
     private fun showPhotos() {
         val photosList = getPhotosList()
-        Log.d("ShowPhotos", "${photosList.size}")
+
         photosAdapter = PhotosAdapter(photosList,
-            onPhotoClickListener = { clickedPhoto ->
-                selectedPhoto = clickedPhoto
-//                registerPost()
-            },
             onIconClickListener = {
                 openCameraForResult()
+                // 이미지 클릭 시 tv_text 내용 변경
+            },
+            onPhotoClickListener = {
+                viewBinding.textImageInPost.text = "게시물 내 이미지 1/1"
             }
+
         )
-        val recyclerView: RecyclerView = viewBinding.recyclerViewGallery
+        val recyclerView: RecyclerView = viewBinding.recyclerviewGallery
         recyclerView.layoutManager = GridLayoutManager(this, 5)
         recyclerView.adapter = photosAdapter
+
+
     }
 
-    private fun getPhotosList(): List<Photo> {
+    private fun getPhotosList(): MutableList<Photo> {
         val photosList = mutableListOf<Photo>()
 
         val projection = arrayOf(
@@ -218,7 +214,9 @@ class CreatePostActivity : AppCompatActivity() {
             while (cursor.moveToNext()) {
                 val id = cursor.getLong(idColumn)
                 val data = cursor.getString(dataColumn)
-                photosList.add(Photo(id, data))
+                val photo = Photo(id, data)
+                photosList.add(photo)
+                Log.d("PhotoInfo", "Image URL: ${photo.url}")
             }
         }
 

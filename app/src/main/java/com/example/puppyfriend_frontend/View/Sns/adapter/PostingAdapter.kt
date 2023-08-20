@@ -4,6 +4,8 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,18 +15,22 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
+import com.example.puppyfriend_frontend.databinding.DialogPostingSmallImgBinding
 import com.example.puppyfriend_frontend.databinding.ItemPostingBinding
 
-class PostingAdapter(private val postingList: MutableList<Posting>, private val  layoutManager: GridLayoutManager) : RecyclerView.Adapter<PostingAdapter.PostingViewHolder>() {
+class PostingAdapter(private val context: Context,
+                     private val postingList: MutableList<Posting>,
+                     private val  layoutManager: GridLayoutManager)
+: RecyclerView.Adapter<PostingAdapter.PostingViewHolder>() {
     private val  selectedDeleteItems = HashSet<Posting>()
-    private var selected = false
+    private var isSelectMode = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostingViewHolder {
         val itemBinding = ItemPostingBinding.inflate(LayoutInflater.from(parent.context),parent, false)
 
         itemBinding.imgBlueMemo.clipToOutline = true
 
         val spanCount = layoutManager.spanCount
-        return PostingViewHolder(itemBinding, spanCount)
+        return PostingViewHolder(itemBinding)
     }
 
     override fun onBindViewHolder(holder: PostingViewHolder, position: Int) {
@@ -32,18 +38,7 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
         holder.bind(posting)
 
         holder.itemView.setOnLongClickListener {
-            val location = IntArray(2)
-            holder.itemView.getLocationOnScreen(location)
-
-            val spanCount = layoutManager.spanCount // 이미 설정된 GridLayoutManager를 사용
-            val spanIndex = position % spanCount
-            val spanSize = (it.layoutParams as GridLayoutManager.LayoutParams).spanSize
-
-            val x = location[0] + spanIndex * holder.itemView.width
-            val y = location[1]
-
-            showCustomPopup(holder.itemView.context, x, y, posting)
-
+            showCustomPopup(holder.itemView.context, it, posting)
             true
         }
     }
@@ -52,9 +47,10 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
         return postingList.size
     }
 
-    private fun showCustomPopup(context: Context, x:Int, y:Int, posting: Posting) {
+    private fun showCustomPopup(context: Context, anchorView: View, posting: Posting) {
         val dialogBuilder = AlertDialog.Builder(context)
         val dialogView = LayoutInflater.from(context).inflate(R.layout.listitem_delete_popup, null)
+        val itemBinding = LayoutInflater.from(context).inflate(R.layout.item_select_delete, null)
 
         dialogBuilder.setView(dialogView)
         val alertDialog = dialogBuilder.create()
@@ -65,37 +61,46 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
         alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         alertDialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
 
-        val marginTop = context.resources.getDimensionPixelSize(R.dimen.dialog_offset_y)
+        val deleteButton = dialogView.findViewById<Button>(R.id.btn_delete)
+        deleteButton.setOnClickListener {
+            val position = postingList.indexOf(posting)
+            if (position != -1) {
+                postingList.removeAt(position)
+                notifyItemRemoved(position)
+            }
+
+            alertDialog.dismiss()
+        }
+        val selectDeleteButton = dialogView.findViewById<Button>(R.id.btn_select_delete)
+        val selectDeleteSolo = itemBinding.findViewById<Button>(R.id.btn_select_delete_solo)
+        selectDeleteButton.setOnClickListener {
+            isSelectMode = !isSelectMode
+            alertDialog.dismiss()
+            notifyDataSetChanged() // Update the UI
+
+            selectDeleteSolo.visibility = View.VISIBLE
+
+        }
+
+        // 팝업 다이얼로그의 위치를 anchorView 아래에 띄우도록 설정합니다.
+        val location = IntArray(2)
+        // 다이얼로그의 위치를 클릭한 아이템 바로 위에 표시
         val marginLeft = context.resources.getDimensionPixelSize(R.dimen.dialog_offset_x)
+        val marginTop = context.resources.getDimensionPixelSize(R.dimen.dialog_offset_y)
+        anchorView.getLocationOnScreen(location)
+        Log.d("ItemClick", "Clicked item location: (${location[0]}, ${location[1]})")
         val layoutParams = WindowManager.LayoutParams()
 
         layoutParams.copyFrom(alertDialog.window?.attributes)
-        layoutParams.x = x - marginLeft
-        layoutParams.y = y - marginTop
+        layoutParams.x = location[0]
+        layoutParams.y = location[1] + anchorView.height
 
         alertDialog.window?.attributes = layoutParams
 
-        // 팝업 다이얼로그 내부의 뷰들을 초기화하고 설정합니다.
-        val deleteButton = dialogView.findViewById<Button>(R.id.btn_delete)
-        deleteButton.setOnClickListener {
-            val position = postingList.indexOf(posting) // 삭제할 아이템의 위치를 찾습니다.
-            if (position != -1) {
-                postingList.removeAt(position) // postingList에서 아이템을 제거합니다.(MutableList는 변경 가능한 리스트(list는 불가능))
-                notifyItemRemoved(position) // 어댑터에 아이템 삭제를 알립니다.
-            }
-
-            alertDialog.dismiss() // 다이얼로그를 닫습니다.
-        }
-
-
         alertDialog.show()
-
-
     }
 
-
-
-    inner class PostingViewHolder(private val itemBinding: ItemPostingBinding, private val spanCount: Int) : RecyclerView.ViewHolder(itemBinding.root) {
+    inner class PostingViewHolder(private val itemBinding: ItemPostingBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(posting: Posting) {
             // Posting 객체로부터 데이터를 가져와서 뷰에 설정
             itemBinding.textBlueMemoDate.text = posting.date     // local date를 string으로 변환
@@ -105,26 +110,41 @@ class PostingAdapter(private val postingList: MutableList<Posting>, private val 
             val backgroundColor = ColorDrawable(posting.contentBackgroundColor)
             itemBinding.viewBlueMemo.background = backgroundColor
 
-            updateCircleButton(posting)
-
-            itemBinding.viewSelectDeleteCircleBtn.setOnClickListener {
-                toggleCircleSelection(posting)
+            itemBinding.imgBlueMemo.setOnClickListener {
+                postingImageZoom2(context)
             }
-        }
 
-        private fun updateCircleButton(posting: Posting) {
-            val isSelected = selectedDeleteItems.contains(posting)
-            itemBinding.viewSelectDeleteCircleBtn.visibility = if (selected || isSelected) View.VISIBLE else View.GONE
-            itemBinding.viewSelectDeleteCheck.visibility = if (isSelected) View.VISIBLE else View.GONE
-        }
-
-        private fun toggleCircleSelection(posting: Posting) {
-            if (selectedDeleteItems.contains(posting)) {
-                selectedDeleteItems.remove(posting)
+            if (isSelectMode) {
+                itemBinding.viewSelectDeleteCircleBtn.visibility = View.VISIBLE
             } else {
-                selectedDeleteItems.add(posting)
+                itemBinding.viewSelectDeleteCircleBtn.visibility = View.GONE
             }
-            notifyDataSetChanged()
+
+        }
+
+        private fun postingImageZoom2(context: Context) {
+            val profileViewBinding = DialogPostingSmallImgBinding.inflate(LayoutInflater.from(context))
+            val profile = AlertDialog.Builder(context).create()
+            profile.setView(profileViewBinding.root)
+
+            profileViewBinding.imgBlueMemo.clipToOutline = true
+
+            // 다이얼로그 배경 투명 처리
+            profile.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            // 다이얼로그 크기 및 위치 설정
+            val layoutParams = WindowManager.LayoutParams().apply {
+                copyFrom(profile.window?.attributes)
+                width = WindowManager.LayoutParams.MATCH_PARENT
+                height = WindowManager.LayoutParams.WRAP_CONTENT
+                gravity = Gravity.CENTER
+            }
+            profile.window?.attributes = layoutParams
+
+            profile.show()
+
+            profile.setCanceledOnTouchOutside(true)
+            profile.setCancelable(true)
         }
 
     }

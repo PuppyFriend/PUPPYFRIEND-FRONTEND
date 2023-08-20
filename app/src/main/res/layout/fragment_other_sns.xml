@@ -24,10 +24,8 @@
                 android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="300.17dp"
-                android:background="@drawable/style_sns_hashtag_border"
-                android:elevation="10dp"
-                android:translationZ="-8dp"
+                android:layout_marginTop="115.17dp"
+                android:background="@drawable/style_sns_toggle_hiddensheet"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -280,16 +278,6 @@
                     android:background="@drawable/selector_sns_togglebtn"
                     android:textOff=" "
                     android:textOn=" "
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <FrameLayout
-                    android:id="@+id/fragment_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_marginTop="202.17dp"
-                    android:background="@drawable/style_sns_toggle_hiddensheet"
-                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

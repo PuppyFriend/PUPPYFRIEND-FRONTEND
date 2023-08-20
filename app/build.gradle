@@ -65,6 +65,7 @@ dependencies {
     implementation "androidx.camera:camera-view:1.0.0-alpha32"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     //kakao api
     implementation fileTree(include: ['*.jar'], dir: 'libs')

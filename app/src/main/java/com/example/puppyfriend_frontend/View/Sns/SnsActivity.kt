@@ -86,7 +86,7 @@ class SnsActivity: AppCompatActivity() {
         storyRecyclerView.adapter = StoryAdapter(storyList, supportFragmentManager)
 
         postingRecyclerView.layoutManager = GridLayoutManager(this, 2)
-        postingRecyclerView.adapter = PostingAdapter(postingList,
+        postingRecyclerView.adapter = PostingAdapter(this,postingList,
             postingRecyclerView.layoutManager as GridLayoutManager
         )
     }

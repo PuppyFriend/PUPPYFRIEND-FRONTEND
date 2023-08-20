@@ -293,16 +293,15 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_gallery"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:layout_marginTop="490dp"
+            android:id="@+id/recyclerview_gallery"
+            android:layout_width="314dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="9dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_image_in_post"
             app:spanCount="5" />
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_sns_posting_register"
@@ -313,8 +312,6 @@
             android:background="@drawable/img_sns_posting_register_btn"
             android:fontFamily="@font/inter_semibold"
             android:lineHeight="18.15dp"
-            android:onClick="openGallery"
-            android:stateListAnimator="@null"
             android:text="등록하기"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -332,7 +329,6 @@
             android:background="@drawable/img_sns_posting_cancel"
             android:fontFamily="@font/inter_semibold"
             android:lineHeight="18.15dp"
-            android:stateListAnimator="@null"
             android:text="취소"
             android:textAlignment="center"
             android:textColor="@color/black"
