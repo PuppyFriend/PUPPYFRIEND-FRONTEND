@@ -3,7 +3,6 @@ package com.example.puppyfriend_frontend.View.FirstLogin
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
@@ -13,14 +12,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.view.get
+import androidx.appcompat.app.AppCompatActivity
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.databinding.ActivityInfoBinding
 import java.time.LocalDate
-import java.util.Date
-import kotlin.math.roundToInt
 
 class InfoActivity : AppCompatActivity() {
 
@@ -148,29 +145,36 @@ class InfoActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun postData() {
         viewBinding.btnArrow.setOnClickListener {
-            val intent = Intent(this, MoreInfoActivity::class.java)
             val puppyName = viewBinding.editPuppyName.text.toString()
             val puppySpecies = viewBinding.editPuppySpecies.text.toString()
-
             val puppyYear = viewBinding.editYear.text.toString()
-            val puppyAge = (LocalDate.now().year - puppyYear.toInt()).toString()
 
-            val puppyMonth = (selectedMonthText?.toInt()?.plus(puppyAge.toInt() * 12)).toString()
+            if (puppyName.isEmpty() || puppySpecies.isEmpty() || puppyYear.isEmpty()) {
+                Toast.makeText(this, "모든 필드를 입력하세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val currentYear = LocalDate.now().year
+            val puppyAge = if (puppyYear.toIntOrNull() != null) currentYear - puppyYear.toInt() else null
+            val puppyMonth = if (selectedMonthText != null && puppyAge != null) (puppyAge * 12 + selectedMonthText!!.toInt()).toString() else null
 
             val puppyGender = selectedGenderText
+            val puppyGoal = selectedGoalText?.filter { it.isDigit() } ?: ""
 
+            if (puppyAge == null || puppyMonth.isNullOrEmpty() || puppyGender.isNullOrEmpty() || puppyGoal.isEmpty()) {
+                Toast.makeText(this, "입력값을 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            val puppyGoal = selectedGoalText!!.filter { it.isDigit() }
-
+            val intent = Intent(this, MoreInfoActivity::class.java)
             intent.putExtra("puppy_name", puppyName)
             intent.putExtra("puppy_species", puppySpecies)
-            intent.putExtra("puppy_age", puppyAge)
+            intent.putExtra("puppy_age", puppyAge.toString())
             intent.putExtra("puppy_month", puppyMonth)
             intent.putExtra("puppy_gender", puppyGender)
             intent.putExtra("puppy_goal", puppyGoal)
             startActivity(intent)
         }
-
     }
 
 

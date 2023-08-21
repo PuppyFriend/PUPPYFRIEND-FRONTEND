@@ -1,7 +1,9 @@
 package com.example.puppyfriend_frontend.View.Home
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.icu.lang.UCharacter
@@ -24,13 +26,17 @@ import java.util.*
 import kotlin.math.roundToInt
 
 class HomeFragment : Fragment() {
-
     private lateinit var viewBinding: FragmentHomeBinding
+    private lateinit var sharedPreferences: SharedPreferences
 
     private var isZoomed = false             // 홈 프로필 사진 클릭 boolean 값
     private var showDialogFlag: Boolean = true
     private var isCalendarVisible = false
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -110,16 +116,22 @@ class HomeFragment : Fragment() {
 
         walkingReview()
 
-//        if (showDialogFlag) {
-//            showDialog()
-//        }
-    }
+        val hasShownDialog = sharedPreferences.getBoolean("hasShownDialog", false)
 
+        if (!hasShownDialog) {
+            showDialog()
+
+            val editor = sharedPreferences.edit()
+            editor.putBoolean("hasShownDialog", true)
+            editor.apply()
+        }
+
+        showDialog()
+    }
     private fun showDialog(){
         val dialogViewBinding = CustomDialogBinding.inflate(layoutInflater) // customa_dialog.xml 레이아웃 사용
         val dialog= androidx.appcompat.app.AlertDialog.Builder(requireContext()).create()
         dialog.setView(dialogViewBinding.root)
-
 
         // dialog 배경 투명 처리
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -128,7 +140,7 @@ class HomeFragment : Fragment() {
         dialog.window?.setLayout(
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT)
-        dialog.setCanceledOnTouchOutside(true)    // 다이얼로그 영역 밖 클릭 시, 다이얼 로그 삭제 금지
+        dialog.setCanceledOnTouchOutside(false)    // 다이얼로그 영역 밖 클릭 시, 다이얼 로그 삭제 금지
         dialog.setCancelable(true)                 // 취소가 가능하도록 하는 코드
 
 

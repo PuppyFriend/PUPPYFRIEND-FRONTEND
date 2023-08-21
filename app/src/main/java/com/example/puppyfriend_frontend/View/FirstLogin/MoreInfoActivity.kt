@@ -3,7 +3,7 @@ package com.example.puppyfriend_frontend.View.FirstLogin
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.puppyfriend_frontend.View.Home.HomeActivity
+import com.example.puppyfriend_frontend.View.MainActivity
 import com.example.puppyfriend_frontend.databinding.ActivityMoreinfoBinding
 
 class MoreInfoActivity: AppCompatActivity() {
@@ -22,7 +22,7 @@ class MoreInfoActivity: AppCompatActivity() {
             val receivedPuppyGender = intent.getStringExtra("puppy_gender")
             val receivedPuppyGoal = intent.getStringExtra("puppy_goal")
 
-            val intentToHome = Intent(this, HomeActivity::class.java)
+            val intentToHome = Intent(this, MainActivity::class.java)
             intentToHome.putExtra("puppy_name", receivedPuppyName)
             intentToHome.putExtra("puppy_species", receivedPuppySpecies)
             intentToHome.putExtra("puppy_age", receivedPuppyAge)
@@ -30,6 +30,7 @@ class MoreInfoActivity: AppCompatActivity() {
             intentToHome.putExtra("puppy_gender", receivedPuppyGender)
             intentToHome.putExtra("puppy_goal", receivedPuppyGoal)
             startActivity(intentToHome)
+
         }
 
     }

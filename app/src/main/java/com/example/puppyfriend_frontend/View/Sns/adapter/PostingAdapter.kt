@@ -76,9 +76,9 @@ class PostingAdapter(private val context: Context,
         selectDeleteButton.setOnClickListener {
             isSelectMode = !isSelectMode
             alertDialog.dismiss()
-            notifyDataSetChanged() // Update the UI
 
             selectDeleteSolo.visibility = View.VISIBLE
+            notifyDataSetChanged() // Update the UI
 
         }
 

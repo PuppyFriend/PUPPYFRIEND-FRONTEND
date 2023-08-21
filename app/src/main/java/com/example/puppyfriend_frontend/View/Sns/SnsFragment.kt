@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.View.DeleteDialogFragment
 import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
 import com.example.puppyfriend_frontend.View.Sns.adapter.StoryAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
@@ -187,10 +186,6 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
 
         profile.setCanceledOnTouchOutside(true)
         profile.setCancelable(true)
-    }
-    fun showDeleteDialogFragment() {
-        val dialogFragment = DeleteDialogFragment()
-        dialogFragment.show(requireActivity().supportFragmentManager, "DeleteDialogFragment")
     }
 
 }
