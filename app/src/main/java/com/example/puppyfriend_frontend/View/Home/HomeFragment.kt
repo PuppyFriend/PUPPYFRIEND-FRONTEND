@@ -15,6 +15,7 @@ import android.widget.GridLayout
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.View.FirstLogin.InfoActivity
@@ -35,13 +36,17 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         viewBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        if (arguments != null && arguments?.containsKey("showDialog") == true) {
+            // 다이얼로그를 표시하는 코드 추가
+            showDialog()
+        }
         return viewBinding.root
     }
 
@@ -116,17 +121,16 @@ class HomeFragment : Fragment() {
 
         walkingReview()
 
-        val hasShownDialog = sharedPreferences.getBoolean("hasShownDialog", false)
+//        val hasShownDialog = sharedPreferences.getBoolean("hasShownDialog", false)
+//
+//        if (!hasShownDialog) {
+//            showDialog()
+//
+//            val editor = sharedPreferences.edit()
+//            editor.putBoolean("hasShownDialog", true)
+//            editor.apply()
+//        }
 
-        if (!hasShownDialog) {
-            showDialog()
-
-            val editor = sharedPreferences.edit()
-            editor.putBoolean("hasShownDialog", true)
-            editor.apply()
-        }
-
-        showDialog()
     }
     private fun showDialog(){
         val dialogViewBinding = CustomDialogBinding.inflate(layoutInflater) // customa_dialog.xml 레이아웃 사용
@@ -146,11 +150,24 @@ class HomeFragment : Fragment() {
 
         dialogViewBinding.btnStartInfo.setOnClickListener {
             // 버튼 클릭 시 처리할 로직 작성
+            dialog.dismiss()
             val intent = Intent(requireActivity(), InfoActivity::class.java)
             startActivity(intent)
         }
 
         dialog.show()
+    }
+
+    private fun isDialogShownBefore(): Boolean {
+        val sharedPreferences = requireContext().getSharedPreferences("dialog_prefs", Context.MODE_PRIVATE)
+        return sharedPreferences.getBoolean("dialog_shown", false)
+    }
+
+    private fun markDialogAsShown() {
+        val sharedPreferences = requireContext().getSharedPreferences("dialog_prefs", Context.MODE_PRIVATE)
+        sharedPreferences.edit {
+            putBoolean("dialog_shown", true)
+        }
     }
 
     private fun homeProfileZoom() {

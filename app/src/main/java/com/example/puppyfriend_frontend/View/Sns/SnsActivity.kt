@@ -8,12 +8,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
-import com.example.puppyfriend_frontend.View.Sns.adapter.StoryAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.View.Sns.model.Story
 import com.example.puppyfriend_frontend.databinding.ActivitySnsBinding
@@ -28,7 +24,7 @@ class SnsActivity: AppCompatActivity() {
         viewBinding = ActivitySnsBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        setupRecyclerView()
+//        setupRecyclerView()
 
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.sns_story_width) // 간격 값을 리소스로부터 가져옴
         viewBinding.recyclerViewStory.addItemDecoration(object : RecyclerView.ItemDecoration() {
@@ -75,21 +71,21 @@ class SnsActivity: AppCompatActivity() {
     }
 
 
-    private fun setupRecyclerView() {
-        val storyList = createStoryList()
-        val postingList = createPostingList()
-
-        val storyRecyclerView = viewBinding.recyclerViewStory
-        val postingRecyclerView = viewBinding.recyclerViewPostingList
-
-        storyRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        storyRecyclerView.adapter = StoryAdapter(storyList, supportFragmentManager)
-
-        postingRecyclerView.layoutManager = GridLayoutManager(this, 2)
-        postingRecyclerView.adapter = PostingAdapter(this,postingList,
-            postingRecyclerView.layoutManager as GridLayoutManager
-        )
-    }
+//    private fun setupRecyclerView() {
+//        val storyList = createStoryList()
+//        val postingList = createPostingList()
+//
+//        val storyRecyclerView = viewBinding.recyclerViewStory
+//        val postingRecyclerView = viewBinding.recyclerViewPostingList
+//
+//        storyRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        storyRecyclerView.adapter = StoryAdapter(storyList, supportFragmentManager)
+//
+//        postingRecyclerView.layoutManager = GridLayoutManager(this, 2)
+//        postingRecyclerView.adapter = PostingAdapter(this,postingList,
+//            postingRecyclerView.layoutManager as GridLayoutManager
+//        )
+//    }
 
     private fun createStoryList(): List<Story> {
         val storyList = mutableListOf<Story>()

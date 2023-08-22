@@ -29,11 +29,14 @@ class MoreInfoActivity: AppCompatActivity() {
             intentToHome.putExtra("puppy_month", receivedPuppyMonth)
             intentToHome.putExtra("puppy_gender", receivedPuppyGender)
             intentToHome.putExtra("puppy_goal", receivedPuppyGoal)
+
+            intentToHome.putExtra("showDialog", true)
             startActivity(intentToHome)
 
         }
 
     }
+
 
 
 

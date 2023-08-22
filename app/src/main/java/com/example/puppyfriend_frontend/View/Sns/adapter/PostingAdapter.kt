@@ -18,9 +18,13 @@ import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.databinding.DialogPostingSmallImgBinding
 import com.example.puppyfriend_frontend.databinding.ItemPostingBinding
 
+interface SelectDeleteListener {
+    fun onSoloDeleteClicked()
+}
 class PostingAdapter(private val context: Context,
                      private val postingList: MutableList<Posting>,
-                     private val  layoutManager: GridLayoutManager)
+                     private val  layoutManager: GridLayoutManager,
+                        private val selectDeleteListener: SelectDeleteListener)
 : RecyclerView.Adapter<PostingAdapter.PostingViewHolder>() {
     private val  selectedDeleteItems = HashSet<Posting>()
     private var isSelectMode = false
@@ -50,7 +54,6 @@ class PostingAdapter(private val context: Context,
     private fun showCustomPopup(context: Context, anchorView: View, posting: Posting) {
         val dialogBuilder = AlertDialog.Builder(context)
         val dialogView = LayoutInflater.from(context).inflate(R.layout.listitem_delete_popup, null)
-        val itemBinding = LayoutInflater.from(context).inflate(R.layout.item_select_delete, null)
 
         dialogBuilder.setView(dialogView)
         val alertDialog = dialogBuilder.create()
@@ -72,13 +75,12 @@ class PostingAdapter(private val context: Context,
             alertDialog.dismiss()
         }
         val selectDeleteButton = dialogView.findViewById<Button>(R.id.btn_select_delete)
-        val selectDeleteSolo = itemBinding.findViewById<Button>(R.id.btn_select_delete_solo)
         selectDeleteButton.setOnClickListener {
             isSelectMode = !isSelectMode
             alertDialog.dismiss()
-
-            selectDeleteSolo.visibility = View.VISIBLE
             notifyDataSetChanged() // Update the UI
+
+            selectDeleteListener.onSoloDeleteClicked()
 
         }
 
@@ -100,6 +102,10 @@ class PostingAdapter(private val context: Context,
         alertDialog.show()
     }
 
+    fun getPostingList(): MutableList<Posting> {
+        return postingList
+    }
+
     inner class PostingViewHolder(private val itemBinding: ItemPostingBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(posting: Posting) {
             // Posting 객체로부터 데이터를 가져와서 뷰에 설정
@@ -119,7 +125,26 @@ class PostingAdapter(private val context: Context,
             } else {
                 itemBinding.viewSelectDeleteCircleBtn.visibility = View.GONE
             }
+            
+            if (postingList.contains(posting)) {
+                itemBinding.viewSelectDeleteCheck.visibility = if (posting.isChecked) View.VISIBLE else View.GONE
+            } else {
+                itemBinding.viewSelectDeleteCheck.visibility = View.GONE
+            }
 
+            itemBinding.viewSelectDeleteCircleBtn.setOnClickListener {
+                if (posting.isChecked) {
+                    itemBinding.viewSelectDeleteCheck.visibility = View.GONE
+                    posting.isChecked = false
+                    selectedDeleteItems.remove(posting)
+                } else {
+                    itemBinding.viewSelectDeleteCheck.visibility = View.VISIBLE
+                    posting.isChecked = true
+                    selectedDeleteItems.add(posting)
+                }
+                notifyDataSetChanged()
+                itemBinding.viewSelectDeleteCheck.visibility = if (posting.isChecked) View.VISIBLE else View.GONE
+            }
         }
 
         private fun postingImageZoom2(context: Context) {

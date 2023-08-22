@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.databinding.FragmentOtherSnsBinding
 
@@ -61,20 +59,20 @@ class OtherSnsFragment : Fragment() {
 
         viewBinding.fragmentContainer.bringToFront()
 
-        setupRecyclerView()
+//        setupRecyclerView()
         return viewBinding.root
     }
 
-    private fun setupRecyclerView() {
-        val postingList = createPostingList()
-
-        val postingRecyclerView = viewBinding.recyclerViewPostingList
-
-        postingRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        postingRecyclerView.adapter = PostingAdapter(requireContext(),postingList,
-            postingRecyclerView.layoutManager as GridLayoutManager
-        )
-    }
+//    private fun setupRecyclerView() {
+//        val postingList = createPostingList()
+//
+//        val postingRecyclerView = viewBinding.recyclerViewPostingList
+//
+//        postingRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+//        postingRecyclerView.adapter = PostingAdapter(requireContext(),postingList,
+//            postingRecyclerView.layoutManager as GridLayoutManager)
+//        )
+//    }
 
     private fun createPostingList(): MutableList<Posting> {
         val postingList = mutableListOf<Posting>()

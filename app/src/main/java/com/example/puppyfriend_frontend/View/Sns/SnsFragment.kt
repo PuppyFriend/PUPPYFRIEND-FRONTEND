@@ -1,6 +1,5 @@
 package com.example.puppyfriend_frontend.View.Sns
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
@@ -17,14 +16,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
+import com.example.puppyfriend_frontend.View.Sns.adapter.SelectDeleteListener
 import com.example.puppyfriend_frontend.View.Sns.adapter.StoryAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.View.Sns.model.Story
 import com.example.puppyfriend_frontend.databinding.DialogPostingBigImgBinding
 import com.example.puppyfriend_frontend.databinding.FragmentSnsBinding
 
-class SnsFragment : Fragment(R.layout.fragment_sns) {
+class SnsFragment : Fragment(R.layout.fragment_sns), SelectDeleteListener {
     private lateinit var binding: FragmentSnsBinding
+    private lateinit var postingAdapter: PostingAdapter
     private lateinit var toggleHiddenFragment: ToggleHiddenFragment
     private var isShadowApplied = false
 
@@ -84,6 +85,7 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
 
     }
 
+
 //    private fun showToggleHidden(){
 //        val dialog = Dialog(requireContext(),android.R.style.Theme_Translucent_NoTitleBar_Fullscreen ) // 생성한 스타일 적용
 //        dialog.setContentView(R.layout.hidden_dialog) // 대화 상자 컨텐츠 설정
@@ -120,6 +122,28 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
 //        dialog.show()
 //    }
 
+    override fun onSoloDeleteClicked() {
+        binding.btnSelectDeleteSolo.visibility = View.VISIBLE
+        binding.btnSelectDeleteSolo.setOnClickListener {
+            val postingList = postingAdapter.getPostingList()
+
+            val selectedItems = mutableListOf<Posting>()
+            for (posting in postingList) {
+                if (posting.isChecked) {
+                    selectedItems.add(posting)
+                }
+            }
+
+            postingList.removeAll(selectedItems)
+            postingAdapter.notifyDataSetChanged()
+
+            for(posting in selectedItems) {
+                posting.isChecked = false
+            }
+        }
+
+    }
+
     private fun setupRecyclerView() {
         val storyList = createStoryList()
         val postingList = createPostingList()
@@ -130,10 +154,17 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         storyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         storyRecyclerView.adapter = StoryAdapter(storyList, requireActivity().supportFragmentManager )
 
-        postingRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        postingRecyclerView.adapter = PostingAdapter(requireContext(), postingList,
-            postingRecyclerView.layoutManager as GridLayoutManager
+        // adapter 초기화
+        val layoutManager = GridLayoutManager(requireContext(), 2)
+        postingRecyclerView.layoutManager = layoutManager
+
+        postingAdapter = PostingAdapter(
+            requireContext(),
+            postingList,
+            layoutManager,
+            this
         )
+        postingRecyclerView.adapter = postingAdapter
     }
 
     private fun createStoryList(): List<Story> {
@@ -158,8 +189,11 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
 
     private fun clickToCreatePost() {
         binding.btnSnsPosting.setOnClickListener {
-            val intent = Intent(requireContext(), CreatePostActivity::class.java)
-            startActivity(intent)
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(binding.fragmentContainer1.id, CreatePostFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 
@@ -187,5 +221,4 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         profile.setCanceledOnTouchOutside(true)
         profile.setCancelable(true)
     }
-
 }
