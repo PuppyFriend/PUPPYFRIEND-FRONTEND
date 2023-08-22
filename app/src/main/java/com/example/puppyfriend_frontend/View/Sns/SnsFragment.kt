@@ -1,5 +1,6 @@
 package com.example.puppyfriend_frontend.View.Sns
 
+import android.app.Dialog
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
@@ -16,18 +17,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
-import com.example.puppyfriend_frontend.View.Sns.adapter.SelectDeleteListener
 import com.example.puppyfriend_frontend.View.Sns.adapter.StoryAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.View.Sns.model.Story
 import com.example.puppyfriend_frontend.databinding.DialogPostingBigImgBinding
 import com.example.puppyfriend_frontend.databinding.FragmentSnsBinding
+import com.example.puppyfriend_frontend.databinding.ListitemDeletePopupBinding
 
-class SnsFragment : Fragment(R.layout.fragment_sns), SelectDeleteListener {
+class SnsFragment : Fragment(R.layout.fragment_sns) {
     private lateinit var binding: FragmentSnsBinding
+    private lateinit var dialogBinding: ListitemDeletePopupBinding
     private lateinit var postingAdapter: PostingAdapter
     private lateinit var toggleHiddenFragment: ToggleHiddenFragment
-    private var isShadowApplied = false
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,54 +76,14 @@ class SnsFragment : Fragment(R.layout.fragment_sns), SelectDeleteListener {
                 findViewById<View>(R.id.text_character).visibility = visibility
                 findViewById<View>(R.id.recyclerView_activity).visibility = visibility
                 findViewById<View>(R.id.text_activity).visibility = visibility
-//                findViewById<View>(R.id.view_toggle_hidden).visibility = visibility
             }
             binding.fragmentContainer.visibility = visibility
         }
 
         clickToCreatePost()
-//        showDialog()
-
     }
 
-
-//    private fun showToggleHidden(){
-//        val dialog = Dialog(requireContext(),android.R.style.Theme_Translucent_NoTitleBar_Fullscreen ) // 생성한 스타일 적용
-//        dialog.setContentView(R.layout.hidden_dialog) // 대화 상자 컨텐츠 설정
-//        // 다이얼로그 창 크기와 위치 설정
-//        val window = dialog.window
-//        val layoutParams = WindowManager.LayoutParams()
-//        layoutParams.copyFrom(window?.attributes)
-//
-//        // 화면 크기의 90%로 다이얼로그 크기 설정
-//        val dm = applicationContext.resources.displayMetrics
-//        val width = (dm.widthPixels * 0.9).toInt() // Display 사이즈의 90%
-//        val height = (dm.heightPixels * 0.9).toInt() // Display 사이즈의 90%
-//        layoutParams.width = width
-//        layoutParams.height = height
-//
-//        // 원하는 창 위치 설정 (예: 중앙에 위치)
-//        layoutParams.gravity = Gravity.CENTER
-//
-//        window?.attributes = layoutParams
-//
-//        dialog.setContentView(R.layout.custom_dialog)
-//
-//        // 다이얼로그 외부 영역 터치 무시
-//        dialog.setCanceledOnTouchOutside(false)
-//
-//        // Toggle 버튼 처리
-//        val toggleButton = dialog.findViewById<ToggleButton>(R.id.toggleButton)
-//        toggleButton.setOnCheckedChangeListener { _, isChecked ->
-//            if (isChecked) {
-//                dialog.dismiss() // 다이얼로그 종료
-//            }
-//        }
-//
-//        dialog.show()
-//    }
-
-    override fun onSoloDeleteClicked() {
+    private fun onSoloDeleteClicked() {
         binding.btnSelectDeleteSolo.visibility = View.VISIBLE
         binding.btnSelectDeleteSolo.setOnClickListener {
             val postingList = postingAdapter.getPostingList()
@@ -136,10 +97,6 @@ class SnsFragment : Fragment(R.layout.fragment_sns), SelectDeleteListener {
 
             postingList.removeAll(selectedItems)
             postingAdapter.notifyDataSetChanged()
-
-            for(posting in selectedItems) {
-                posting.isChecked = false
-            }
         }
 
     }
@@ -162,7 +119,7 @@ class SnsFragment : Fragment(R.layout.fragment_sns), SelectDeleteListener {
             requireContext(),
             postingList,
             layoutManager,
-            this
+            this,
         )
         postingRecyclerView.adapter = postingAdapter
     }
@@ -186,6 +143,55 @@ class SnsFragment : Fragment(R.layout.fragment_sns), SelectDeleteListener {
 
         return postingList
     }
+
+    private fun showDeleteDialog(position: Int) {
+        val deleteDialog = Dialog(requireContext())
+        dialogBinding = ListitemDeletePopupBinding.inflate(layoutInflater)
+        deleteDialog.setContentView(dialogBinding.root)
+
+        // 클릭한 아이템의 위치를 기반으로 다이얼로그를 표시
+        val postingRecyclerView = binding.recyclerViewPostingList
+        val itemView = postingRecyclerView.findViewHolderForAdapterPosition(position)?.itemView
+        if (itemView != null) {
+            val location = IntArray(2)
+            itemView.getLocationInWindow(location)
+            val x = location[0]
+            val y = location[1]
+            deleteDialog.window?.setGravity(Gravity.TOP or Gravity.START)
+            deleteDialog.window?.attributes = deleteDialog.window?.attributes?.apply {
+                this.x = x
+                this.y = y
+            }
+        }
+
+        deleteDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        deleteDialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+
+        // 'btn_delete' 버튼 클릭 리스너 설정
+        dialogBinding.btnDelete.setOnClickListener {
+            // 클릭한 아이템에 대한 작업 수행
+            val deletedPosting = postingAdapter.getPostingList()[position]
+            postingAdapter.removePosting(position)
+
+            deleteDialog.dismiss()
+        }
+
+        // 'btn_select_delete' 버튼 클릭 리스너 설정
+        dialogBinding.btnSelectDelete.setOnClickListener {
+            // 선택 모드 작업 수행
+            binding.btnSelectDeleteSolo.visibility = View.VISIBLE
+            postingAdapter.toggleSelectMode()
+            postingAdapter.notifyDataSetChanged()
+
+            deleteDialog.dismiss()
+
+            onSoloDeleteClicked()
+        }
+
+        deleteDialog.show()
+    }
+
+
 
     private fun clickToCreatePost() {
         binding.btnSnsPosting.setOnClickListener {

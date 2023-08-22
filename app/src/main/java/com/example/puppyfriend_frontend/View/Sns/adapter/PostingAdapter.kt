@@ -4,27 +4,24 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.Button
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.puppyfriend_frontend.R
+import com.example.puppyfriend_frontend.View.Sns.SnsFragment
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.databinding.DialogPostingSmallImgBinding
 import com.example.puppyfriend_frontend.databinding.ItemPostingBinding
 
-interface SelectDeleteListener {
-    fun onSoloDeleteClicked()
-}
-class PostingAdapter(private val context: Context,
-                     private val postingList: MutableList<Posting>,
-                     private val  layoutManager: GridLayoutManager,
-                        private val selectDeleteListener: SelectDeleteListener)
+class PostingAdapter(
+    private val context: Context,
+    private val postingList: MutableList<Posting>,
+    private val layoutManager: GridLayoutManager,
+    private val itemClickListener: SnsFragment
+)
 : RecyclerView.Adapter<PostingAdapter.PostingViewHolder>() {
     private val  selectedDeleteItems = HashSet<Posting>()
     private var isSelectMode = false
@@ -42,7 +39,7 @@ class PostingAdapter(private val context: Context,
         holder.bind(posting)
 
         holder.itemView.setOnLongClickListener {
-            showCustomPopup(holder.itemView.context, it, posting)
+            itemClickListener.invoke(position)
             true
         }
     }
@@ -51,59 +48,65 @@ class PostingAdapter(private val context: Context,
         return postingList.size
     }
 
-    private fun showCustomPopup(context: Context, anchorView: View, posting: Posting) {
-        val dialogBuilder = AlertDialog.Builder(context)
-        val dialogView = LayoutInflater.from(context).inflate(R.layout.listitem_delete_popup, null)
+//    private fun showCustomPopup(context: Context, anchorView: View, posting: Posting) {
+//        val deleteDialog = Dialog(context)
+//        dialogBinding = ListitemDeletePopupBinding.inflate(LayoutInflater.from(context))
+//        deleteDialog.setContentView(dialogBinding.root)
+//
+//        val postingRecyclerView = binding.recyclerViewPostingList
+//        val position = postingRecyclerView.getChildAdapterPosition(anchorView)
+//        val location = IntArray(2)
+//        anchorView.getLocationInWindow(location)
+//        val x = location[0]
+//        val y = location[1]
+//        deleteDialog.window?.setGravity(Gravity.TOP or Gravity.START)
+//        deleteDialog.window?.attributes = deleteDialog.window?.attributes?.apply {
+//            this.x = x
+//            this.y = y
+//        }
+//
+//        deleteDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//        deleteDialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+//
+//        deleteDialog.show()
+//
+//        val deleteButton = dialogBinding.btnDelete
+//        val selectDeleteButton = dialogBinding.btnSelectDelete
+//
+//        deleteButton.setOnClickListener {
+//            val position = postingList.indexOf(posting)
+//            if (position != -1) {
+//                postingList.removeAt(position)
+//                notifyItemRemoved(position)
+//            }
+//
+//            deleteDialog.dismiss()
+//        }
+//
+//        selectDeleteButton.setOnClickListener {
+//            isSelectMode = !isSelectMode
+//            deleteDialog.dismiss()
+//            notifyDataSetChanged() // Update the UI
+//
+//            selectDeleteListener.onSoloDeleteClicked()
+//        }
+//
+//        deleteDialog.setCanceledOnTouchOutside(true)
+//        deleteDialog.setCancelable(true)
+//    }
 
-        dialogBuilder.setView(dialogView)
-        val alertDialog = dialogBuilder.create()
-
-        alertDialog.setCanceledOnTouchOutside(true)    // 다이얼로그 영역 밖 클릭 시, 다이얼 삭제
-        alertDialog.setCancelable(true)                 // 취소가 가능하도록 하는 코드
-
-        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        alertDialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-
-        val deleteButton = dialogView.findViewById<Button>(R.id.btn_delete)
-        deleteButton.setOnClickListener {
-            val position = postingList.indexOf(posting)
-            if (position != -1) {
-                postingList.removeAt(position)
-                notifyItemRemoved(position)
-            }
-
-            alertDialog.dismiss()
-        }
-        val selectDeleteButton = dialogView.findViewById<Button>(R.id.btn_select_delete)
-        selectDeleteButton.setOnClickListener {
-            isSelectMode = !isSelectMode
-            alertDialog.dismiss()
-            notifyDataSetChanged() // Update the UI
-
-            selectDeleteListener.onSoloDeleteClicked()
-
-        }
-
-        // 팝업 다이얼로그의 위치를 anchorView 아래에 띄우도록 설정합니다.
-        val location = IntArray(2)
-        // 다이얼로그의 위치를 클릭한 아이템 바로 위에 표시
-        val marginLeft = context.resources.getDimensionPixelSize(R.dimen.dialog_offset_x)
-        val marginTop = context.resources.getDimensionPixelSize(R.dimen.dialog_offset_y)
-        anchorView.getLocationOnScreen(location)
-        Log.d("ItemClick", "Clicked item location: (${location[0]}, ${location[1]})")
-        val layoutParams = WindowManager.LayoutParams()
-
-        layoutParams.copyFrom(alertDialog.window?.attributes)
-        layoutParams.x = location[0]
-        layoutParams.y = location[1] + anchorView.height
-
-        alertDialog.window?.attributes = layoutParams
-
-        alertDialog.show()
-    }
 
     fun getPostingList(): MutableList<Posting> {
         return postingList
+    }
+
+    fun removePosting(position: Int) {
+        postingList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+    fun toggleSelectMode() {
+        isSelectMode = !isSelectMode
     }
 
     inner class PostingViewHolder(private val itemBinding: ItemPostingBinding) : RecyclerView.ViewHolder(itemBinding.root) {
@@ -125,7 +128,7 @@ class PostingAdapter(private val context: Context,
             } else {
                 itemBinding.viewSelectDeleteCircleBtn.visibility = View.GONE
             }
-            
+
             if (postingList.contains(posting)) {
                 itemBinding.viewSelectDeleteCheck.visibility = if (posting.isChecked) View.VISIBLE else View.GONE
             } else {
@@ -143,7 +146,6 @@ class PostingAdapter(private val context: Context,
                     selectedDeleteItems.add(posting)
                 }
                 notifyDataSetChanged()
-                itemBinding.viewSelectDeleteCheck.visibility = if (posting.isChecked) View.VISIBLE else View.GONE
             }
         }
 
