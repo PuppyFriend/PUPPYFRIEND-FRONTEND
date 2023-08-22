@@ -11,20 +11,19 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.puppyfriend_frontend.View.Sns.SnsFragment
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.databinding.DialogPostingSmallImgBinding
 import com.example.puppyfriend_frontend.databinding.ItemPostingBinding
 
-class PostingAdapter(
-    private val context: Context,
-    private val postingList: MutableList<Posting>,
-    private val layoutManager: GridLayoutManager,
-    private val itemClickListener: SnsFragment
+class PostingAdapter(private val context: Context,
+                     private val postingList: MutableList<Posting>,
+                     private val layoutManager: GridLayoutManager,
+                     private val itemClickListener: (position: Int) -> Unit
 )
 : RecyclerView.Adapter<PostingAdapter.PostingViewHolder>() {
     private val  selectedDeleteItems = HashSet<Posting>()
     private var isSelectMode = false
+    private var isClick = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostingViewHolder {
         val itemBinding = ItemPostingBinding.inflate(LayoutInflater.from(parent.context),parent, false)
 
@@ -40,6 +39,7 @@ class PostingAdapter(
 
         holder.itemView.setOnLongClickListener {
             itemClickListener.invoke(position)
+            isClick = true
             true
         }
     }

@@ -83,24 +83,6 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         clickToCreatePost()
     }
 
-    private fun onSoloDeleteClicked() {
-        binding.btnSelectDeleteSolo.visibility = View.VISIBLE
-        binding.btnSelectDeleteSolo.setOnClickListener {
-            val postingList = postingAdapter.getPostingList()
-
-            val selectedItems = mutableListOf<Posting>()
-            for (posting in postingList) {
-                if (posting.isChecked) {
-                    selectedItems.add(posting)
-                }
-            }
-
-            postingList.removeAll(selectedItems)
-            postingAdapter.notifyDataSetChanged()
-        }
-
-    }
-
     private fun setupRecyclerView() {
         val storyList = createStoryList()
         val postingList = createPostingList()
@@ -119,8 +101,9 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
             requireContext(),
             postingList,
             layoutManager,
-            this,
-        )
+        ) {position ->
+            showDeleteDialog(position)  // (->) 반환 타입을 명시적으로 지정
+        }
         postingRecyclerView.adapter = postingAdapter
     }
 
@@ -159,13 +142,16 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
             val y = location[1]
             deleteDialog.window?.setGravity(Gravity.TOP or Gravity.START)
             deleteDialog.window?.attributes = deleteDialog.window?.attributes?.apply {
-                this.x = x
-                this.y = y
+                this.x = x + 58
+                this.y = y - 58
             }
         }
 
         deleteDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         deleteDialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+
+        deleteDialog.setCanceledOnTouchOutside(true)
+        deleteDialog.setCancelable(true)
 
         // 'btn_delete' 버튼 클릭 리스너 설정
         dialogBinding.btnDelete.setOnClickListener {
@@ -179,16 +165,34 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         // 'btn_select_delete' 버튼 클릭 리스너 설정
         dialogBinding.btnSelectDelete.setOnClickListener {
             // 선택 모드 작업 수행
+            deleteDialog.dismiss()
+
             binding.btnSelectDeleteSolo.visibility = View.VISIBLE
             postingAdapter.toggleSelectMode()
             postingAdapter.notifyDataSetChanged()
-
-            deleteDialog.dismiss()
 
             onSoloDeleteClicked()
         }
 
         deleteDialog.show()
+    }
+
+    private fun onSoloDeleteClicked() {
+        binding.btnSelectDeleteSolo.setOnClickListener {
+            val postingList = postingAdapter.getPostingList()
+
+            val selectedItems = mutableListOf<Posting>()
+            for (posting in postingList) {
+                if (posting.isChecked) {
+                    selectedItems.add(posting)
+                }
+            }
+
+            postingList.removeAll(selectedItems)
+            postingAdapter.notifyDataSetChanged()
+        }
+
+
     }
 
 
