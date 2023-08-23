@@ -28,5 +28,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:labelVisibilityMode="unlabeled"
         android:background="#F6C0CA"
+        app:itemIconTint="@color/black"
         app:menu="@menu/menu_bottom"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
