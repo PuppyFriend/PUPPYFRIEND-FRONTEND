@@ -9,12 +9,21 @@ import com.example.puppyfriend_frontend.databinding.ActivitySignupAgreeBinding
 
 class SignUpAgreeActivity: AppCompatActivity() {
     lateinit var viewBinding: ActivitySignupAgreeBinding
+    var marketing : Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivitySignupAgreeBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
         initActionBar()
+
+        val name = intent.getStringExtra("name")
+        val nickname = intent.getStringExtra("nickname")
+        val uid = intent.getStringExtra("uid")
+        val password = intent.getStringExtra("password")
+        val gender = intent.getBooleanExtra("gender", false)
+        val birth = intent.getStringExtra("birth")
+        val email = intent.getStringExtra("email")
 
         viewBinding.btnAgreeAll.setOnClickListener {
             viewBinding.btnAgreeAll.isSelected = !viewBinding.btnAgreeAll.isSelected
@@ -69,19 +78,29 @@ class SignUpAgreeActivity: AppCompatActivity() {
             if(!viewBinding.btnAgreeThird.isSelected && viewBinding.btnAgreeAll.isSelected){
                 viewBinding.btnAgreeAll.isSelected = false
                 viewBinding.btnNext.setBackgroundColor((Color.parseColor("#C4C4C4")))
+                marketing = false
             }
 
             if(viewBinding.btnAgreeFirst.isSelected && viewBinding.btnAgreeSecond.isSelected && viewBinding.btnAgreeThird.isSelected) {
                 viewBinding.btnAgreeAll.isSelected = true
                 viewBinding.btnNext.setBackgroundColor((Color.parseColor("#F6C0CA")))
+                marketing = true
             }
         }
 
         viewBinding.btnNext.setOnClickListener {
-            if (!viewBinding.btnAgreeAll.isSelected){
+            if (!viewBinding.btnAgreeFirst.isSelected && !viewBinding.btnAgreeSecond.isSelected){
                 Toast.makeText(this, "약관동의를 진행해주세요", Toast.LENGTH_SHORT).show()
             }else{
                 val intent = Intent(this, SignUpLocationActivity::class.java)
+                intent.putExtra("name", name)
+                intent.putExtra("nickname", nickname)
+                intent.putExtra("uid", uid)
+                intent.putExtra("password", password)
+                intent.putExtra("gender", gender)
+                intent.putExtra("birth", birth)
+                intent.putExtra("marketing", marketing)
+                intent.putExtra("email", email)
                 startActivity(intent)
             }
         }

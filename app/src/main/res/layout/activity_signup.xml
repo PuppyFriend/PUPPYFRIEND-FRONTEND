@@ -122,7 +122,7 @@
                     android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <Spinner
                 android:id="@+id/textInput_birth_year"
                 android:layout_width="126.45dp"
                 android:layout_height="43.67dp"
@@ -130,19 +130,11 @@
                 app:layout_constraintEnd_toStartOf="@id/textInput_birth_month"
                 app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
                 android:layout_marginTop="30.63dp"
-                android:hint="출생 연도"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
-                style="@style/TextInputLayoutDropDownStyle">
-                <AutoCompleteTextView
-                    android:textSize="14sp"
-                    android:fontFamily="@font/inter_400"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:background="@drawable/selector_spinner_layout"
+                />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <Spinner
                 android:id="@+id/textInput_birth_month"
                 android:layout_width="80.21dp"
                 android:layout_height="43.67dp"
@@ -150,18 +142,11 @@
                 app:layout_constraintEnd_toStartOf="@id/textInput_birth_day"
                 app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
                 android:layout_marginTop="30.63dp"
-                android:hint="월"
-                style="@style/TextInputLayoutDropDownStyle">
-                <AutoCompleteTextView
-                    android:textSize="13sp"
-                    android:fontFamily="@font/inter_400"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:background="@drawable/selector_spinner_layout"
+                />
 
-            <com.google.android.material.textfield.TextInputLayout
+
+            <Spinner
                 android:id="@+id/textInput_birth_day"
                 android:layout_width="80.21dp"
                 android:layout_height="43.67dp"
@@ -169,17 +154,10 @@
                 app:layout_constraintEnd_toEndOf="@id/textInput_password_check"
                 app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
                 android:layout_marginTop="30.63dp"
-                android:hint="일"
-                style="@style/TextInputLayoutDropDownStyle">
-                <AutoCompleteTextView
-                    android:textSize="13sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:background="@drawable/selector_spinner_layout"
+                />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <Spinner
                 android:id="@+id/textInput_sexual"
                 android:layout_width="100.21dp"
                 android:layout_height="43.67dp"
@@ -188,19 +166,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="30.63dp"
                 android:layout_marginBottom="268.14dp"
-                android:hint="성별"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                style="@style/TextInputLayoutDropDownStyle">
-                <AutoCompleteTextView
-                    android:textSize="14sp"
-                    android:fontFamily="@font/inter_400"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
+                android:background="@drawable/selector_spinner_layout"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
