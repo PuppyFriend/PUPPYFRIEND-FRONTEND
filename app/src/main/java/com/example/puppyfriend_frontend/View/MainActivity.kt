@@ -2,6 +2,7 @@ package com.example.puppyfriend_frontend.View
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.View.Around.AroundFragment
@@ -29,6 +30,12 @@ class MainActivity : AppCompatActivity() {
             setOnItemSelectedListener {
                 when (it.itemId){
                     R.id.menu_home -> {
+                        it.setIcon(R.drawable.icon_bottom_home_selected)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_walk).setIcon(R.drawable.icon_bottom_map)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_sns).setIcon(R.drawable.icon_bottom_user)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_chatting).setIcon(R.drawable.icon_bottom_chatting)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_around).setIcon(R.drawable.icon_bottom_around)
+
                         supportFragmentManager
                             .beginTransaction()
                             .replace(viewBinding.fragmentContainer.id, HomeFragment())
@@ -36,6 +43,12 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     R.id.menu_walk -> {
+                        it.setIcon(R.drawable.icon_bottom_walk_selected)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_home).setIcon(R.drawable.icon_bottom_home)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_sns).setIcon(R.drawable.icon_bottom_user)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_chatting).setIcon(R.drawable.icon_bottom_chatting)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_around).setIcon(R.drawable.icon_bottom_around)
+
                         supportFragmentManager
                             .beginTransaction()
                             .replace(viewBinding.fragmentContainer.id, WalkFragment())
@@ -43,6 +56,12 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     R.id.menu_sns -> {
+                        it.setIcon(R.drawable.icon_bottom_sns_selected)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_home).setIcon(R.drawable.icon_bottom_home)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_walk).setIcon(R.drawable.icon_bottom_map)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_chatting).setIcon(R.drawable.icon_bottom_chatting)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_around).setIcon(R.drawable.icon_bottom_around)
+
                         supportFragmentManager
                             .beginTransaction()
                             .replace(viewBinding.fragmentContainer.id, SnsFragment())
@@ -50,6 +69,12 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     R.id.menu_chatting -> {
+                        it.setIcon(R.drawable.icon_bottom_chatting_selected)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_home).setIcon(R.drawable.icon_bottom_home)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_walk).setIcon(R.drawable.icon_bottom_map)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_sns).setIcon(R.drawable.icon_bottom_user)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_around).setIcon(R.drawable.icon_bottom_around)
+
                         supportFragmentManager
                             .beginTransaction()
                             .replace(viewBinding.fragmentContainer.id, ChatFragment())
@@ -57,6 +82,12 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     R.id.menu_around -> {
+                        it.setIcon(R.drawable.icon_bottom_around_selected)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_home).setIcon(R.drawable.icon_bottom_home)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_walk).setIcon(R.drawable.icon_bottom_map)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_sns).setIcon(R.drawable.icon_bottom_user)
+                        viewBinding.navBottom.menu.findItem(R.id.menu_chatting).setIcon(R.drawable.icon_bottom_chatting)
+
                         supportFragmentManager
                             .beginTransaction()
                             .replace(viewBinding.fragmentContainer.id, AroundFragment())
@@ -76,3 +107,4 @@ class MainActivity : AppCompatActivity() {
         viewBinding.actionbar.appbarInfoBtn.visibility = View.VISIBLE
     }
 }
+
