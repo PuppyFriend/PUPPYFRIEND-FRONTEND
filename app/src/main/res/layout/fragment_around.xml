@@ -21,8 +21,7 @@
             android:layout_marginRight="13dp"
             android:background="@drawable/style_around_search"
             android:paddingHorizontal="10dp"
-            app:layout_constraintEnd_toStartOf="@id/btn_filter"
-            app:layout_constraintStart_toEndOf="@+id/fragmentContainerView"
+            app:layout_constraintEnd_toStartOf="@id/constraint_filter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -49,35 +48,32 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_filter"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_filter"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginRight="23dp"
-            android:background="@drawable/style_around_search"
-            android:fontFamily="@font/roboto"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:paddingHorizontal="10dp"
-            android:text="필터"
-            android:textColor="#838383"
-            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/constraint_top"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraint_top" />
-
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/style_around_search"
+                android:fontFamily="@font/roboto"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="10dp"
+                android:text="필터"
+                android:textColor="#838383"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linear_category"
@@ -177,7 +173,7 @@
         </ScrollView>
 
         <FrameLayout
-            android:id="@+id/frameLayout"
+            android:id="@+id/frameLayout_filter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -222,7 +218,7 @@
                         <TableLayout
                             android:id="@+id/tableLayout2"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:paddingHorizontal="20dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -729,18 +725,20 @@
                         </TableLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="적용하기"
                         android:layout_marginHorizontal="15dp"
                         android:background="@drawable/style_around_apply"
+                        android:text="적용하기"
                         android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-v
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

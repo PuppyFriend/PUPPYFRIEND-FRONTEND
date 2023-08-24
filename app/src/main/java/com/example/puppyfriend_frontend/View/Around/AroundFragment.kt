@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.puppyfriend_frontend.databinding.FragmentAroundBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,9 +34,9 @@ class AroundFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewBinding = FragmentAroundBinding.inflate(layoutInflater)
-
+        var behavor=BottomSheetBehavior.from(viewBinding.bottomSheet)
         viewBinding.btnFilter.setOnClickListener {
-
+            behavor.state=BottomSheetBehavior.STATE_COLLAPSED
         }
         return viewBinding.root
     }
