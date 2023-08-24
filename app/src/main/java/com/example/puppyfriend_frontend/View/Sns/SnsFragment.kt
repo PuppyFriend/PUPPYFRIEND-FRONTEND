@@ -7,7 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,48 +16,46 @@ import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
 import com.example.puppyfriend_frontend.View.Sns.adapter.StoryAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.View.Sns.model.Story
-import com.example.puppyfriend_frontend.databinding.ActivitySnsBinding
+import com.example.puppyfriend_frontend.databinding.FragmentSnsBinding
 
-class SnsActivity: AppCompatActivity() {
-    private lateinit var viewBinding: ActivitySnsBinding
+class SnsFragment : Fragment(R.layout.fragment_sns) {
+    private lateinit var binding: FragmentSnsBinding
     private lateinit var toggleHiddenFragment: ToggleHiddenFragment
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewBinding = ActivitySnsBinding.inflate(layoutInflater)
-        setContentView(viewBinding.root)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentSnsBinding.bind(view)
 
         setupRecyclerView()
 
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.sns_story_width) // 간격 값을 리소스로부터 가져옴
-        viewBinding.recyclerViewStory.addItemDecoration(object : RecyclerView.ItemDecoration() {
+        binding.recyclerViewStory.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                 super.getItemOffsets(outRect, view, parent, state)
 
                 // 첫 번째 아이템이 아닌 경우 상하좌우 간격을 설정
-                    outRect.right = spacingInPixels
+                outRect.right = spacingInPixels
             }
         })
 
-
         // 이미지를 배경에 맞게 자른다.(게시글 이미지 둥근선 구현)
-        viewBinding.imgSnsPost.clipToOutline = true
+        binding.imgSnsPost.clipToOutline = true
 
         // 토글버튼 클릭시 유지
-        viewBinding.togglebtnSnsTriangle.setOnClickListener{
-            viewBinding.togglebtnSnsTriangle.isSelected = viewBinding.togglebtnSnsTriangle.isSelected != true
+        binding.togglebtnSnsTriangle.setOnClickListener{
+            binding.togglebtnSnsTriangle.isSelected = binding.togglebtnSnsTriangle.isSelected != true
         }
 
         // toggle_hidden_view
         // Fragment를 동적으로 추가
         toggleHiddenFragment = ToggleHiddenFragment()
-        supportFragmentManager.beginTransaction()
+        childFragmentManager.beginTransaction()
             .add(R.id.fragment_container, toggleHiddenFragment)
             .commit()
 
         // 토클 클릭에 view hidden
-        viewBinding.togglebtnSnsTriangle.setOnCheckedChangeListener { _, isChecked ->
+        binding.togglebtnSnsTriangle.setOnCheckedChangeListener { _, isChecked ->
             val toggleFragmentView = toggleHiddenFragment.view
             val visibility = if (isChecked) View.VISIBLE else View.GONE
 
@@ -67,26 +65,24 @@ class SnsActivity: AppCompatActivity() {
                 findViewById<View>(R.id.recyclerView_activity).visibility = visibility
                 findViewById<View>(R.id.text_activity).visibility = visibility
                 findViewById<View>(R.id.view_toggle_hidden).visibility = visibility
-
             }
-            viewBinding.fragmentContainer.visibility = visibility
+            binding.fragmentContainer.visibility = visibility
         }
 
         clickToCreatePost()
     }
 
-
     private fun setupRecyclerView() {
         val storyList = createStoryList()
         val postingList = createPostingList()
 
-        val storyRecyclerView = viewBinding.recyclerViewStory
-        val postingRecyclerView = viewBinding.recyclerViewPostingList
+        val storyRecyclerView = binding.recyclerViewStory
+        val postingRecyclerView = binding.recyclerViewPostingList
 
-        storyRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        storyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         storyRecyclerView.adapter = StoryAdapter(storyList)
 
-        postingRecyclerView.layoutManager = GridLayoutManager(this, 2)
+        postingRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         postingRecyclerView.adapter = PostingAdapter(postingList,
             postingRecyclerView.layoutManager as GridLayoutManager
         )
@@ -113,8 +109,8 @@ class SnsActivity: AppCompatActivity() {
     }
 
     private fun clickToCreatePost() {
-        viewBinding.btnSnsPosting.setOnClickListener {
-            val intent = Intent(this, CreatePostActivity::class.java)
+        binding.btnSnsPosting.setOnClickListener {
+            val intent = Intent(requireContext(), CreatePostActivity::class.java)
             startActivity(intent)
         }
     }
