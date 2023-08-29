@@ -64,6 +64,30 @@
         app:layout_constraintStart_toStartOf="@+id/view_blue_memo"
         app:layout_constraintTop_toTopOf="@+id/view_blue_memo" />
 
+    <View
+        android:id="@+id/view_select_delete_circle_btn"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5.93dp"
+        android:visibility="gone"
+        android:background="@drawable/img_sns_delete_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_select_delete_check"
+        android:layout_width="11dp"
+        android:layout_height="8dp"
+        android:visibility="gone"
+        android:background="@drawable/img_red_check"
+        app:layout_constraintBottom_toBottomOf="@+id/view_select_delete_circle_btn"
+        app:layout_constraintEnd_toEndOf="@+id/view_select_delete_circle_btn"
+        app:layout_constraintStart_toStartOf="@+id/view_select_delete_circle_btn"
+        app:layout_constraintTop_toTopOf="@+id/view_select_delete_circle_btn" />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

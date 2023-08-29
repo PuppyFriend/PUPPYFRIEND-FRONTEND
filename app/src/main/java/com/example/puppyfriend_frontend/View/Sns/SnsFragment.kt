@@ -1,12 +1,16 @@
 package com.example.puppyfriend_frontend.View.Sns
 
-import android.content.Intent
+import android.app.Dialog
 import android.graphics.Color
 import android.graphics.Rect
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.view.WindowManager
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,10 +20,14 @@ import com.example.puppyfriend_frontend.View.Sns.adapter.PostingAdapter
 import com.example.puppyfriend_frontend.View.Sns.adapter.StoryAdapter
 import com.example.puppyfriend_frontend.View.Sns.model.Posting
 import com.example.puppyfriend_frontend.View.Sns.model.Story
+import com.example.puppyfriend_frontend.databinding.DialogPostingBigImgBinding
 import com.example.puppyfriend_frontend.databinding.FragmentSnsBinding
+import com.example.puppyfriend_frontend.databinding.ListitemDeletePopupBinding
 
 class SnsFragment : Fragment(R.layout.fragment_sns) {
     private lateinit var binding: FragmentSnsBinding
+    private lateinit var dialogBinding: ListitemDeletePopupBinding
+    private lateinit var postingAdapter: PostingAdapter
     private lateinit var toggleHiddenFragment: ToggleHiddenFragment
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -39,9 +47,13 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
             }
         })
 
+        binding.fragmentContainer.bringToFront()
         // 이미지를 배경에 맞게 자른다.(게시글 이미지 둥근선 구현)
         binding.imgSnsPost.clipToOutline = true
 
+        binding.imgSnsPost.setOnClickListener {
+            postingImageZoom1()
+        }
         // 토글버튼 클릭시 유지
         binding.togglebtnSnsTriangle.setOnClickListener{
             binding.togglebtnSnsTriangle.isSelected = binding.togglebtnSnsTriangle.isSelected != true
@@ -64,7 +76,6 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
                 findViewById<View>(R.id.text_character).visibility = visibility
                 findViewById<View>(R.id.recyclerView_activity).visibility = visibility
                 findViewById<View>(R.id.text_activity).visibility = visibility
-                findViewById<View>(R.id.view_toggle_hidden).visibility = visibility
             }
             binding.fragmentContainer.visibility = visibility
         }
@@ -80,12 +91,20 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         val postingRecyclerView = binding.recyclerViewPostingList
 
         storyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        storyRecyclerView.adapter = StoryAdapter(storyList)
+        storyRecyclerView.adapter = StoryAdapter(storyList, requireActivity().supportFragmentManager )
 
-        postingRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        postingRecyclerView.adapter = PostingAdapter(postingList,
-            postingRecyclerView.layoutManager as GridLayoutManager
-        )
+        // adapter 초기화
+        val layoutManager = GridLayoutManager(requireContext(), 2)
+        postingRecyclerView.layoutManager = layoutManager
+
+        postingAdapter = PostingAdapter(
+            requireContext(),
+            postingList,
+            layoutManager,
+        ) {position ->
+            showDeleteDialog(position)  // (->) 반환 타입을 명시적으로 지정
+        }
+        postingRecyclerView.adapter = postingAdapter
     }
 
     private fun createStoryList(): List<Story> {
@@ -100,7 +119,7 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
 
     private fun createPostingList(): MutableList<Posting> {
         val postingList = mutableListOf<Posting>()
-        postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"오늘은 왜이리 밥을 안먹냐", Color.parseColor("#D3F5FF")))
+        postingList.add(Posting("8월 14일",R.drawable.kakao,"오늘은 왜이리 밥을 안먹냐", Color.parseColor("#D3F5FF")))
         postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"배고파", Color.parseColor("#FCF9D0")))
         postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"슬프다", Color.parseColor("#E4F9EB")))
         postingList.add(Posting("8월 14일",R.drawable.img_sns_post,"고마워", Color.parseColor("#FBE0E4")))
@@ -108,10 +127,108 @@ class SnsFragment : Fragment(R.layout.fragment_sns) {
         return postingList
     }
 
+    private fun showDeleteDialog(position: Int) {
+        val deleteDialog = Dialog(requireContext())
+        dialogBinding = ListitemDeletePopupBinding.inflate(layoutInflater)
+        deleteDialog.setContentView(dialogBinding.root)
+
+        // 클릭한 아이템의 위치를 기반으로 다이얼로그를 표시
+        val postingRecyclerView = binding.recyclerViewPostingList
+        val itemView = postingRecyclerView.findViewHolderForAdapterPosition(position)?.itemView
+        if (itemView != null) {
+            val location = IntArray(2)
+            itemView.getLocationInWindow(location)
+            val x = location[0]
+            val y = location[1]
+            deleteDialog.window?.setGravity(Gravity.TOP or Gravity.START)
+            deleteDialog.window?.attributes = deleteDialog.window?.attributes?.apply {
+                this.x = x + 58
+                this.y = y - 58
+            }
+        }
+
+        deleteDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        deleteDialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+
+        deleteDialog.setCanceledOnTouchOutside(true)
+        deleteDialog.setCancelable(true)
+
+        // 'btn_delete' 버튼 클릭 리스너 설정
+        dialogBinding.btnDelete.setOnClickListener {
+            // 클릭한 아이템에 대한 작업 수행
+            val deletedPosting = postingAdapter.getPostingList()[position]
+            postingAdapter.removePosting(position)
+
+            deleteDialog.dismiss()
+        }
+
+        // 'btn_select_delete' 버튼 클릭 리스너 설정
+        dialogBinding.btnSelectDelete.setOnClickListener {
+            // 선택 모드 작업 수행
+            deleteDialog.dismiss()
+
+            binding.btnSelectDeleteSolo.visibility = View.VISIBLE
+            postingAdapter.toggleSelectMode()
+            postingAdapter.notifyDataSetChanged()
+
+            onSoloDeleteClicked()
+        }
+
+        deleteDialog.show()
+    }
+
+    private fun onSoloDeleteClicked() {
+        binding.btnSelectDeleteSolo.setOnClickListener {
+            val postingList = postingAdapter.getPostingList()
+
+            val selectedItems = mutableListOf<Posting>()
+            for (posting in postingList) {
+                if (posting.isChecked) {
+                    selectedItems.add(posting)
+                }
+            }
+
+            postingList.removeAll(selectedItems)
+            postingAdapter.notifyDataSetChanged()
+        }
+
+
+    }
+
+
+
     private fun clickToCreatePost() {
         binding.btnSnsPosting.setOnClickListener {
-            val intent = Intent(requireContext(), CreatePostActivity::class.java)
-            startActivity(intent)
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(binding.fragmentContainer1.id, CreatePostFragment())
+                .addToBackStack(null)
+                .commit()
         }
+    }
+
+    private fun postingImageZoom1() {
+        val profileViewBinding = DialogPostingBigImgBinding.inflate(layoutInflater)
+        val profile = AlertDialog.Builder(requireContext()).create()
+        profile.setView(profileViewBinding.root)
+
+        profileViewBinding.imgSnsPost.clipToOutline = true
+
+        // 다이얼로그 배경 투명 처리
+        profile.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        // 다이얼로그 크기 및 위치 설정
+        val layoutParams = WindowManager.LayoutParams().apply {
+            copyFrom(profile.window?.attributes)
+            width = WindowManager.LayoutParams.MATCH_PARENT
+            height = WindowManager.LayoutParams.WRAP_CONTENT
+            gravity = Gravity.CENTER
+        }
+        profile.window?.attributes = layoutParams
+
+        profile.show()
+
+        profile.setCanceledOnTouchOutside(true)
+        profile.setCancelable(true)
     }
 }

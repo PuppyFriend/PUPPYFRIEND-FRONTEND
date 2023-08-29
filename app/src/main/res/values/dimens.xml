@@ -4,5 +4,5 @@
     <dimen name="other_height">180dp</dimen>
     <dimen name="sns_story_width">27dp</dimen>
     <dimen name="dialog_offset_x">50dp</dimen>
-    <dimen name="dialog_offset_y">60dp</dimen>
+    <dimen name="dialog_offset_y">100dp</dimen>
 </resources>

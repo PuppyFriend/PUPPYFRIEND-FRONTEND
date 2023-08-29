@@ -1,19 +1,20 @@
 package com.example.puppyfriend_frontend.View.Sns.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
 import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.View.Sns.OnPhotoClickListener
 import com.example.puppyfriend_frontend.View.Sns.model.Photo
 import com.example.puppyfriend_frontend.databinding.ItemPhotoBinding
 
-class PhotosAdapter(
-    private val photosList: List<Photo>,
-    private val onPhotoClickListener: (Photo) -> Unit,
-    private val onIconClickListener: () -> Unit
+class PhotosAdapter(private val photosList: MutableList<Photo>,
+                    private val onIconClickListener: () -> Unit,
+                    private val onPhotoClickListener: (Photo) -> Unit
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -26,7 +27,7 @@ class PhotosAdapter(
         return when (viewType) {
             VIEW_TYPE_ICON -> {
                 val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.item_icon, parent, false)
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_camera, parent, false)
                 IconViewHolder(view)
             }
             VIEW_TYPE_PHOTO -> {
@@ -41,12 +42,12 @@ class PhotosAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is IconViewHolder -> holder.bind()
-            is PhotoViewHolder -> holder.bind(photosList[position - 1]) // Subtract 1 to skip the icon
+            is PhotoViewHolder -> holder.bind(photosList[position - 1])
         }
     }
 
     override fun getItemCount(): Int {
-        return photosList.size + 1 // Add 1 to account for the icon item
+        return photosList.size + 1
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -55,7 +56,6 @@ class PhotosAdapter(
 
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
-            // Add click listener for the new icon
             itemView.setOnClickListener {
                 onIconClickListener.invoke()
             }
@@ -66,13 +66,25 @@ class PhotosAdapter(
         RecyclerView.ViewHolder(viewBinding.root) {
 
         fun bind(photo: Photo) {
+
+            val crossFadeFactory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()
             Glide.with(viewBinding.root)
                 .load(photo.url)
+                .fitCenter()
+                .encodeQuality(0)
+                .thumbnail(0.1f)
+                .dontAnimate()
+                .placeholder(R.drawable.img_gray_rect) // 로딩 중에 보여줄 이미지
+                .transition(DrawableTransitionOptions.withCrossFade(crossFadeFactory))
                 .into(viewBinding.imgPhoto)
 
             viewBinding.imgPhoto.setOnClickListener {
-                onPhotoClickListener.invoke(photo)
+                onPhotoClickListener(photo) // 클릭 시 리스너 호출
             }
+
+            Log.d("PhotoInfo", "Photo URL: ${photo.url}")
         }
+
+
     }
 }
