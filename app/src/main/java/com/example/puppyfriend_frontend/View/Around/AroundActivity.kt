@@ -8,7 +8,6 @@ import android.view.View
 import android.view.View.VISIBLE
 import com.example.puppyfriend_frontend.R
 import com.example.puppyfriend_frontend.databinding.ActivityAroundBinding
-import com.example.puppyfriend_frontend.databinding.ActivityAroundsearchBinding
 
 class AroundActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityAroundBinding
@@ -26,10 +25,7 @@ class AroundActivity : AppCompatActivity() {
             viewBinding.view.visibility=View.GONE
             viewBinding.linearRangePopup.visibility=View.GONE
         }
-        viewBinding.btnSearch.setOnClickListener{
-            val intent = Intent(this,AroundsearchActivity::class.java)
-            startActivity(intent)
-        }
+
     }
     fun initActionBar(){
         viewBinding.actionbar.appbarPuppyfriendSns.visibility = View.VISIBLE

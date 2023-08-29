@@ -43,10 +43,10 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         viewBinding = FragmentHomeBinding.inflate(inflater, container, false)
-        if (arguments != null && arguments?.containsKey("showDialog") == true) {
-            // 다이얼로그를 표시하는 코드 추가
-            showDialog()
-        }
+//        if (arguments != null && arguments?.containsKey("showDialog") == true) {
+//            // 다이얼로그를 표시하는 코드 추가
+//            showDialog()
+//        }
         return viewBinding.root
     }
 
