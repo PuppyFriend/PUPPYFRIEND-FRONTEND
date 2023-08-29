@@ -111,23 +111,11 @@
         <activity android:name=".View.Loading.Loading1Activity" />
         <activity android:name=".View.Loading.Loading2Activity" />
         <activity android:name=".View.Loading.Loading3Activity" />
-<<<<<<< HEAD
         <activity android:name=".View.Loading.Loading4Activity" /> <!-- 로그인 페이지 -->
         <activity android:name=".View.Login.LoginActivity" /> <!-- 회원가입 페이지 -->
         <!-- <activity android:name=".View.SignUp.SignUpActivity" /> -->
-=======
-        <activity android:name=".View.Loading.Loading4Activity" />
-        <!-- 로그인 페이지 -->
-        <activity
-            android:name=".View.Login.LoginActivity"
-            android:exported="true">
-        <meta-data
-            android:name="android.app.lib_name"
-            android:value="" />
-        </activity>
         <activity android:name=".View.Login.LoginSelfActivity" />
         <!-- 회원가입 페이지 -->
->>>>>>> 605569bcc673c5b6ea19b8b63839dce6bfaaaff6
         <activity
             android:name=".View.SignUp.SignUpActivity"
             android:exported="true">
@@ -148,5 +136,4 @@
                 android:resource="@xml/file_path"/>
         </provider>
     </application>
-
 </manifest>
