@@ -1,12 +1,13 @@
 package com.example.puppyfriend_frontend.ViewModel
 
 import android.app.Application
+import com.example.puppyfriend_frontend.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "http://43.200.9.109:8080"
+const val BASE_URL = BuildConfig.BASE_URL
 fun getRetrofit(): Retrofit {
     // timeout setting 해주기
     val okHttpClient = OkHttpClient().newBuilder()

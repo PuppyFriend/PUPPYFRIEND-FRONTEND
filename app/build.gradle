@@ -23,6 +23,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders=[kakaoApi:kakao_api]
+        buildConfigField("String", "BASE_URL", properties['BASE_URL'])
     }
 
     buildTypes {
