@@ -1,4 +1,4 @@
-package com.example.puppyfriend_frontend
+package com.example.puppyfriend_frontend.View.Walk
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
