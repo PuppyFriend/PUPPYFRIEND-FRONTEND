@@ -5,9 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.puppyfriend_frontend.R
-import com.example.puppyfriend_frontend.WalkFilterFragment
-import com.example.puppyfriend_frontend.WalkNeighborFragment
 import com.example.puppyfriend_frontend.databinding.FragmentWalkBinding
 import net.daum.mf.map.api.MapView
 

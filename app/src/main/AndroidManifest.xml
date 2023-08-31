@@ -26,13 +26,6 @@
         android:theme="@style/Theme.PUPPYFRIENDFRONTEND"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".View.Walk.WalkActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
@@ -41,13 +34,6 @@
         <activity
             android:name=".View.Chatting.ChattingActivity"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".View.Around.AroundActivity"
-            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
