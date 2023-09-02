@@ -2,22 +2,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_home"
-        android:title="홈"
-        android:icon="@drawable/icon_bottom_home" />
+        android:icon="@drawable/icon_bottom_home"
+        android:enabled="true"
+        android:title="홈" />
 
     <item
-        android:id="@+id/menu_chat"
+        android:id="@+id/menu_walk"
         android:title="산책"
+        android:enabled="true"
         android:icon="@drawable/icon_bottom_map" />
 
 
     <item
-        android:id="@+id/menu_ai"
-        android:title=""
-        android:icon="@drawable/icon_bottom_map" />
+        android:id="@+id/menu_sns"
+        android:title="내sns"
+        android:enabled="true"
+        android:icon="@drawable/icon_bottom_user" />
 
     <item
-        android:id="@+id/menu_mypage"
-        android:title=""
-        android:icon="@drawable/icon_bottom_map" />
+        android:id="@+id/menu_chatting"
+        android:title="채팅"
+        android:enabled="true"
+        android:icon="@drawable/icon_bottom_chatting" />
+
+    <item
+        android:id="@+id/menu_around"
+        android:title="둘러보기"
+        android:enabled="true"
+        android:icon="@drawable/icon_bottom_around" />
 </menu>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성격"
+        android:fontFamily="@font/inter_semibold"
+        android:textFontWeight="600"
+        android:textSize="9dp"
+        android:lineHeight="10.89dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="32.34dp"
+        android:layout_marginTop="18.42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_character"
+        android:layout_width="260dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_character"
+        app:spanCount="3" />
+
+    <TextView
+        android:id="@+id/text_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:layout_marginLeft="32.34dp"
+        android:fontFamily="@font/inter_semibold"
+        android:lineHeight="10.89dp"
+        android:text="활동"
+        android:textColor="#000000"
+        android:textFontWeight="600"
+        android:textSize="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_character" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_activity"
+        android:layout_width="260dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="34.34dp"
+        app:spanCount="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_activity" />
+
+
+
+</LinearLayout>

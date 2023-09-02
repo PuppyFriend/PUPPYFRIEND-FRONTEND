@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_camera_button.xml -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginRight="1dp"
+    android:layout_marginBottom="1dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <View
+        android:id="@+id/view_camera_clicker"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:adjustViewBounds="true"
+        android:background="#D9D9D9"
+        android:contentDescription="camera_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_camera"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/icon_camera"
+        android:layout_margin="19dp"
+        />
+
+</FrameLayout>

@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#ffffff">
+
+    <ScrollView
+        android:id="@+id/scroll_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text_mypuppy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25.55dp"
+                android:layout_marginTop="23dp"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="15.73dp"
+                android:text="my puppy"
+                android:textColor="#000000"
+                android:textFontWeight="600"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- name broder -->
+
+            <!-- name text -->
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="39.24dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="24.2dp"
+                android:maxLength="20"
+                android:text="name"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25.21dp"
+                android:layout_marginTop="71.73dp"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="12.1dp"
+                android:text="puppy breed- age(month)- gender"
+                android:textColor="#000000"
+                android:textFontWeight="600"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                android:id="@+id/layout_dog_profile"
+                android:layout_width="71.97dp"
+                android:layout_height="74dp"
+                android:layout_marginStart="230.55dp"
+                android:layout_marginTop="17dp"
+                android:background="@drawable/style_home_profile"
+                android:gravity="center"
+                android:padding="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/img_dog_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/style_home_profile"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:scaleType="centerCrop"
+                    android:transitionName="imgTrans"
+                    android:src="@drawable/img_real_dog" />
+
+            </LinearLayout>
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/img_dog"-->
+            <!--                android:layout_width="71.97dp"-->
+            <!--                android:layout_height="74dp"-->
+            <!--                android:layout_marginStart="230.55dp"-->
+            <!--                android:layout_marginTop="115dp"-->
+            <!--                android:background="@drawable/img_dog_profile"-->
+            <!--                android:clickable="true"-->
+            <!--                android:focusable="true"-->
+            <!--                android:scaleType="centerCrop"-->
+            <!--                android:transitionName="imgTrans"-->
+            <!--                android:src="@drawable/img_real_dog"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <TextView
+                android:id="@+id/text_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="121.76dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="18.15dp"
+                android:text="이번주 산책 리뷰"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_review_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="146.76dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="15.73dp"
+                android:lineSpacingExtra="-3dp"
+                android:text="5월 3주차에는 총 6번의 산책을 했어요.\n함께한 퍼프친구 :"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/text_puppyfriend_name"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="60dp"-->
+            <!--                android:fontFamily="@font/inter_extrabold"-->
+            <!--                android:lineHeight="15.73dp"-->
+            <!--                android:maxLength="10"-->
+            <!--                android:text="루루, 용식"-->
+            <!--                android:textColor="#000000"-->
+            <!--                android:textFontWeight="800"-->
+            <!--                android:textSize="13dp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/text_review_info"-->
+            <!--                app:layout_constraintEnd_toEndOf="@+id/text_review_info" />-->
+
+            <ToggleButton
+                android:id="@+id/togglebtn_home_triangle"
+                android:layout_width="10dp"
+                android:layout_height="9dp"
+                android:layout_marginStart="294dp"
+                android:layout_marginTop="197dp"
+                android:background="@drawable/selector_sns_togglebtn"
+                android:textOff=" "
+                android:textOn=" "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <GridLayout
+                android:id="@+id/gridlayout_review1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="212dp"
+                android:columnCount="7"
+                android:rowCount="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/img_review"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/selector_home_btn"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:stateListAnimator="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="308dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:columnCount="7"
+                android:rowCount="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/btn_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_marginTop="224.4dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:layout_marginLeft="14dp"
+                    android:stateListAnimator="@null"
+                    android:text="월"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/btn_tuesday"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="224.4dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:stateListAnimator="@null"
+                    android:text="화"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_monday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/btn_wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="224.4dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:stateListAnimator="@null"
+                    android:text="수"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_tuesday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/btn_thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="224.4dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:stateListAnimator="@null"
+                    android:text="목"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_wednesday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/btn_friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="224.4dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:stateListAnimator="@null"
+                    android:text="금"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_thursday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/btn_saturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="224.4dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:stateListAnimator="@null"
+                    android:text="토"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_friday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/btn_sunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="224.4dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:lineHeight="12.1dp"
+                    android:stateListAnimator="@null"
+                    android:text="일"
+                    android:textAlignment="center"
+                    android:textColor="#565656"
+                    android:textFontWeight="600"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_saturday"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </GridLayout>
+
+            <GridLayout
+                android:id="@+id/gridlayout_review2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:columnCount="7"
+                android:rowCount="3"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gridlayout_review1">
+
+                <ImageView
+                    android:id="@+id/img_walking_review"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowSpan="1"
+                    android:layout_rowWeight="1"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:backgroundTint="@drawable/selector_home_btn"
+                    android:gravity="center"
+                    android:stateListAnimator="@null" />
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    -->
+                <!--                    android:text="Cell" />-->
+
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/text_goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19.38dp"
+                android:layout_marginTop="281.32dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="18.15dp"
+                android:text="목표 산책 달성도"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_progressbar_outline"
+                android:layout_width="106dp"
+                android:layout_height="106dp"
+                android:layout_marginStart="2px"
+                android:layout_marginTop="2px"
+                android:layout_marginEnd="2px"
+                android:layout_marginBottom="2px"
+                android:background="@drawable/style_progressbar_outline"
+                app:layout_constraintBottom_toBottomOf="@+id/progressbar_back"
+                app:layout_constraintEnd_toEndOf="@+id/progressbar_back"
+                app:layout_constraintStart_toStartOf="@+id/progressbar_back"
+                app:layout_constraintTop_toTopOf="@+id/progressbar_back" />
+
+            <ProgressBar
+                android:id="@+id/progressbar_back"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="117dp"
+                android:layout_marginTop="320dp"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/icon_home_progressbar_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressbar_front"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:layout_centerInParent="true"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/icon_home_progressbar_front"
+                app:layout_constraintBottom_toBottomOf="@+id/view_progressbar_outline"
+                app:layout_constraintEnd_toEndOf="@+id/view_progressbar_outline"
+                app:layout_constraintStart_toStartOf="@+id/view_progressbar_outline"
+                app:layout_constraintTop_toTopOf="@+id/view_progressbar_outline" />
+
+            <TextView
+                android:id="@+id/text_progessbar_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semibold"
+                android:lineHeight="22.99dp"
+                android:text="86%"
+                android:textAlignment="center"
+                android:textColor="#685621"
+                android:textFontWeight="600"
+                android:textSize="19dp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressbar_back"
+                app:layout_constraintEnd_toEndOf="@+id/progressbar_back"
+                app:layout_constraintStart_toStartOf="@+id/progressbar_back"
+                app:layout_constraintTop_toTopOf="@+id/progressbar_back" />
+
+            <TextView
+                android:id="@+id/text_progessbar_goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="434.38dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:lineHeight="15.73dp"
+                android:lineSpacingExtra="-3dp"
+                android:text="목표 7회 중 6회 달성!\n아주 잘하고 있어요. 댕댕이와 함께 행복한 일주일이네요!"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textFontWeight="800"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <View
+                android:id="@+id/view_blank"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_progessbar_goal" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

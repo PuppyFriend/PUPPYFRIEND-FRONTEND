@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_select_delete_solo"
+        android:layout_width="85.72dp"
+        android:layout_height="17.51dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="172dp"
+        android:background="@drawable/style_sns_select_delete_solo"
+        android:elevation="2dp"
+        android:fontFamily="@font/inter_semibold"
+        android:lineHeight="10.89dp"
+        android:text="선택 삭제"
+        android:textColor="#D63228"
+        android:textFontWeight="600"
+        android:textSize="9dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

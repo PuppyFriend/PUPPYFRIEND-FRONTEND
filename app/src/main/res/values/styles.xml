@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorControlNormal">@color/textBox_gray</item>
+        <item name="boxStrokeColor">@color/textBox_gray</item>
+        <item name="android:textCursorDrawable">@color/textBox_gray</item>
         <!--FilledBox일 경우 밑줄 색상, OutlinedBox일 경우 테두리 색상-->
 <!--        <item name="boxStrokeColor">@color/selector_text_input_outlined_color</item>-->
         <!--EditText에 있을때의 Hint-->
@@ -50,5 +53,9 @@
         <!--상단에 있을때의 Hint-->
         <item name="hintTextColor">#BDBDBD</item>
         <item name="hintTextAppearance">@style/HintTextAppearance</item>
+    </style>
+    <style name="CalendarDateText">
+        <item name="android:textSize">16sp</item> <!-- 날짜 텍스트 크기 설정 -->
+        <item name="android:textColor">#000000</item> <!-- 날짜 텍스트 색상 설정 -->
     </style>
 </resources>

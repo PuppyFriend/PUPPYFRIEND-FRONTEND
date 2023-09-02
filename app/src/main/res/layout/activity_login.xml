@@ -30,14 +30,27 @@
         app:layout_constraintBottom_toBottomOf="@id/img_ellipse_yellow"/>
 
     <ImageView
-        android:id="@+id/img_img_ellipse_yellowPink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/img_puppy_login"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="278dp"
-        android:background="@drawable/img_login_pinkyellow"/>
+        android:background="@drawable/img_puppy_login"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="84dp"
+        android:layout_height="42.65dp"
+        android:background="@drawable/style_login_puppy"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="230dp"
+        android:text="‘퍼피프렌드’의 마스코트 ‘김퍼필'"
+        android:textColor="@color/black"
+        android:textSize="8sp"/>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_kakao"
@@ -77,27 +90,16 @@
         android:layout_marginTop="560dp"/>
 
     <TextView
-        android:id="@+id/btn_login_email"
+        android:id="@+id/btn_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/border_line"
-        android:layout_marginTop="583dp"
-        android:text="이메일로 로그인"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/btn_signup_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="@id/border_line"
         android:layout_marginTop="583dp"
-        android:text="이메일로 회원가입"
+        android:text="회원가입"
         android:textColor="@color/black"
-        android:textSize="15sp"/>
-
+        android:textSize="15sp" />
 
 
 

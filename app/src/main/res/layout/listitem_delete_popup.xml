@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_delete"
+        android:layout_width="85.72dp"
+        android:layout_height="17.32dp"
+        android:text="삭제"
+        android:fontFamily="@font/inter_semibold"
+        android:textFontWeight="600"
+        android:textSize="9sp"
+        android:stateListAnimator="@null"
+        android:textColor="#D63228"
+        android:background="@drawable/style_sns_delete_btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_select_delete"
+        android:layout_width="85.72dp"
+        android:layout_height="17.32dp"
+        android:background="@drawable/style_sns_select_delete_btn"
+        android:fontFamily="@font/inter_semibold"
+        android:text="선택 삭제"
+        android:textColor="#D63228"
+        android:textFontWeight="600"
+        android:textSize="9sp" />
+
+</LinearLayout>

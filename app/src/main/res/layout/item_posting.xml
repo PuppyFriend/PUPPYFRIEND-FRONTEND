@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="6dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/view_blue_memo"
+        android:layout_width="144dp"
+        android:layout_height="83dp"
+        android:background="#CCD3F5FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_blue_memo_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/inter_semibold"
+        android:lineHeight="10.89dp"
+        android:text="5월 19일"
+        android:textColor="#565656"
+        android:textFontWeight="600"
+        android:textSize="9dp"
+        app:layout_constraintStart_toStartOf="@+id/view_blue_memo"
+        app:layout_constraintTop_toTopOf="@+id/view_blue_memo" />
+
+    <LinearLayout
+        android:id="@+id/layout_blue_memo_img"
+        android:layout_width="42dp"
+        android:layout_height="36dp"
+        android:background="@drawable/style_sns_posts_img_border"
+        android:gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/view_blue_memo"
+        app:layout_constraintTop_toTopOf="@+id/view_blue_memo">
+
+        <ImageView
+            android:id="@+id/img_blue_memo"
+            android:layout_width="42dp"
+            android:layout_height="36dp"
+            android:background="@drawable/style_sns_posts_img_border"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_sns_post" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_blue_memo_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:lineHeight="9.89dp"
+        android:text="오늘은 왜이리 밥을 안먹냐.."
+        android:textColor="#565656"
+        android:textFontWeight="600"
+        android:textSize="8dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="65dp"
+        app:layout_constraintStart_toStartOf="@+id/view_blue_memo"
+        app:layout_constraintTop_toTopOf="@+id/view_blue_memo" />
+
+    <View
+        android:id="@+id/view_select_delete_circle_btn"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5.93dp"
+        android:visibility="gone"
+        android:background="@drawable/img_sns_delete_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_select_delete_check"
+        android:layout_width="11dp"
+        android:layout_height="8dp"
+        android:visibility="gone"
+        android:background="@drawable/img_red_check"
+        app:layout_constraintBottom_toBottomOf="@+id/view_select_delete_circle_btn"
+        app:layout_constraintEnd_toEndOf="@+id/view_select_delete_circle_btn"
+        app:layout_constraintStart_toStartOf="@+id/view_select_delete_circle_btn"
+        app:layout_constraintTop_toTopOf="@+id/view_select_delete_circle_btn" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

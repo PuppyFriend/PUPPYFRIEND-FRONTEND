@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Around.AroundFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".View.Around.AroundActivity">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_top"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="13dp"
+            android:background="@drawable/style_around_search"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintEnd_toStartOf="@id/constraint_filter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edit_search"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@color/nothing"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="Search..."
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_search"
+                android:layout_width="0dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:background="@color/nothing"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_around_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="23dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/style_around_search"
+                android:fontFamily="@font/roboto"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="10dp"
+                android:text="필터"
+                android:textColor="#838383"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linear_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="23dp"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraint_top">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_all"
+                android:layout_width="62dp"
+                android:layout_height="22dp"
+                android:layout_margin="0dp"
+                android:background="@drawable/style_around_search"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:text="전체"
+                android:textColor="#838383"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_worry"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_worry"
+                android:layout_width="62dp"
+                android:layout_height="22dp"
+                android:layout_margin="0dp"
+                android:background="@drawable/style_around_search"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:text="고민"
+                android:textColor="#838383"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_question"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_all"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_question"
+                android:layout_width="62dp"
+                android:layout_height="22dp"
+                android:layout_margin="0dp"
+                android:background="@drawable/style_around_search"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:text="질문"
+                android:textColor="#838383"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_worry"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_category">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/listitem_around" />
+            </LinearLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/frameLayout_filter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/coordinator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bottom_sheet"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/style_walk_bottomsheet"
+                    android:orientation="vertical"
+                    app:behavior_hideable="true"
+                    app:behavior_peekHeight="550dp"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+                    <ImageButton
+                        android:id="@+id/btn_bottom_bar"
+                        android:layout_width="48dp"
+                        android:layout_height="4dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/icon_bottomsheet_header"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:background="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/btn_bottom_bar">
+
+
+                        <TableLayout
+                            android:id="@+id/tableLayout2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingHorizontal="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txt_type"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="종"
+                                        android:textColor="@color/black"
+                                        android:textSize="22sp"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_type_dog"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_type_dog"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="개/강아지"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_type_cat"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_type_cat"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="고양이"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_type_other"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track"/>
+                                        <TextView
+                                            android:id="@+id/txt_type_other"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="다른 종"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txt_age"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="나이"
+                                        android:textColor="@color/black"
+                                        android:textSize="22sp"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_age_0to5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_age_0to5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="5살 이하"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_age_5to10"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_age_5to10"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="5살~10살"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_age_10to"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track"/>
+
+                                        <TextView
+                                            android:id="@+id/txt_age_10to"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="10살 이상"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingTop="30dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txt_size"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="크기"
+                                        android:textColor="@color/black"
+                                        android:textSize="22sp"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_size_big"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_size_big"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="대형견"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_size_mid"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track"/>
+
+                                        <TextView
+                                            android:id="@+id/txt_size_mid"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="중형견"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_size_small"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track"/>
+
+                                        <TextView
+                                            android:id="@+id/txt_size_small"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="소형견"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txt_character"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="성격"
+                                        android:textColor="@color/black"
+                                        android:textSize="22sp"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_character_calm"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track"/>
+
+                                        <TextView
+                                            android:id="@+id/txt_character_calm"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="차분해요"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_character_lazy"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_character_lazy"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="게을러요"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_character_shy"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track"/>
+
+                                        <TextView
+                                            android:id="@+id/txt_character_shy"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="낯 가려요"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_character_activity"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_character_activity"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="활동적이에요"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_character_people"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_character_people"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="사람 좋아해요"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="7dp"
+                                        android:orientation="horizontal">
+
+                                        <Switch
+                                            android:id="@+id/switch_character_friendly"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:thumb="@drawable/style_switch_thumb"
+                                            android:track="@drawable/style_switch_track" />
+
+                                        <TextView
+                                            android:id="@+id/txt_character_friendly"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="15dp"
+                                            android:layout_weight="1"
+                                            android:text="친구 좋아해요"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </TableRow>
+                        </TableLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:background="@drawable/style_around_apply"
+                        android:text="적용하기"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

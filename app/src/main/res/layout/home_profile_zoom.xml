@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="360dp"
+    android:layout_height="740dp">
+
+    <LinearLayout
+        android:id="@+id/layout_dog_profile"
+        android:layout_width="207.46dp"
+        android:layout_height="211.09dp"
+        android:layout_marginLeft="74dp"
+        android:background="@drawable/style_home_profile"
+        android:gravity="center"
+        android:padding="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_dog_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/style_home_profile"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_real_dog" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
