@@ -122,13 +122,34 @@
                     android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInput_email"
+                android:layout_width="315.01dp"
+                android:layout_height="60.04dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
+                android:layout_marginTop="30.63dp"
+                android:hint="이메일"
+                app:errorEnabled="true"
+                app:endIconMode="clear_text"
+                style="@style/TextInputLayoutStyle">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEdit_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <Spinner
                 android:id="@+id/textInput_birth_year"
                 android:layout_width="126.45dp"
                 android:layout_height="43.67dp"
-                app:layout_constraintStart_toStartOf="@id/textInput_password_check"
+                app:layout_constraintStart_toStartOf="@id/textInput_email"
                 app:layout_constraintEnd_toStartOf="@id/textInput_birth_month"
-                app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
+                app:layout_constraintTop_toBottomOf="@id/textInput_email"
                 android:layout_marginTop="30.63dp"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 android:background="@drawable/selector_spinner_layout"
@@ -140,7 +161,7 @@
                 android:layout_height="43.67dp"
                 app:layout_constraintStart_toEndOf="@id/textInput_birth_year"
                 app:layout_constraintEnd_toStartOf="@id/textInput_birth_day"
-                app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
+                app:layout_constraintTop_toBottomOf="@id/textInput_email"
                 android:layout_marginTop="30.63dp"
                 android:background="@drawable/selector_spinner_layout"
                 />
@@ -151,8 +172,8 @@
                 android:layout_width="80.21dp"
                 android:layout_height="43.67dp"
                 app:layout_constraintStart_toEndOf="@id/textInput_birth_month"
-                app:layout_constraintEnd_toEndOf="@id/textInput_password_check"
-                app:layout_constraintTop_toBottomOf="@id/textInput_password_check"
+                app:layout_constraintEnd_toEndOf="@id/textInput_email"
+                app:layout_constraintTop_toBottomOf="@id/textInput_email"
                 android:layout_marginTop="30.63dp"
                 android:background="@drawable/selector_spinner_layout"
                 />
@@ -161,7 +182,7 @@
                 android:id="@+id/textInput_sexual"
                 android:layout_width="100.21dp"
                 android:layout_height="43.67dp"
-                app:layout_constraintStart_toStartOf="@id/textInput_password_check"
+                app:layout_constraintStart_toStartOf="@id/textInput_email"
                 app:layout_constraintTop_toBottomOf="@id/textInput_birth_year"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="30.63dp"
