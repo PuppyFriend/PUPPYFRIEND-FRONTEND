@@ -30,6 +30,7 @@ class SignUpActivity: AppCompatActivity() {
     private var nickname : String = ""
     private var password : String = ""
     private var uid : String = ""
+    private var email : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,13 +43,14 @@ class SignUpActivity: AppCompatActivity() {
         setupSpinnerHandler()
 
         viewBinding.btnNext.setOnClickListener {
-            val intent = Intent(this, SignUpPhoneActivity::class.java)
+            val intent = Intent(this, SignUpAgreeActivity::class.java)
             intent.putExtra("name", name)
             intent.putExtra("nickname", nickname)
             intent.putExtra("uid", uid)
             intent.putExtra("password", password)
             intent.putExtra("gender", gender)
             intent.putExtra("birth", "$birth_year-$birth_month-$birth_day")
+            intent.putExtra("email", email)
             startActivity(intent)
         }
     }
@@ -138,6 +140,17 @@ class SignUpActivity: AppCompatActivity() {
                 // 오류인 경우
                 //viewBinding.textInputPassword.error = "이미 존재하는 닉네임입니다."
             }
+        })
+
+        // 패스워드
+        viewBinding.textInputEditEmail.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                email = viewBinding.textInputEditEmail.text.toString()
+            }
+
+
         })
 
 //        }
