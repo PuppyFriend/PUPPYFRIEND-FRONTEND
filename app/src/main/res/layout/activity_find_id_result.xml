@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <ImageView
+            android:id="@+id/img_puppy"
+            android:layout_width="136dp"
+            android:layout_height="136dp"
+            android:background="@drawable/img_puppy_login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="101.85dp"/>
+        <TextView
+            android:id="@+id/txt_puppyfriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Puppy Friend"
+            android:fontFamily="@font/baloo_da2_extra_bold"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="237.85dp"/>
+
+        <TextView
+            android:id="@+id/txt_notice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="입력하신 정보와 일치하는"
+            android:fontFamily="@font/baloo_da2_extra_bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_puppyfriend"/>
+        <TextView
+            android:id="@+id/txt_notice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아이디가 "
+            android:fontFamily="@font/baloo_da2_extra_bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txt_notice_result"
+            app:layout_constraintTop_toBottomOf="@id/txt_notice1"
+            app:layout_constraintHorizontal_chainStyle="packed"/>
+
+        <TextView
+            android:id="@+id/txt_notice_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:fontFamily="@font/baloo_da2_extra_bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/txt_notice2"
+            app:layout_constraintEnd_toStartOf="@id/txt_notice3"
+            app:layout_constraintTop_toBottomOf="@id/txt_notice1"/>
+
+        <TextView
+            android:id="@+id/txt_notice3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개 있습니다."
+            android:fontFamily="@font/baloo_da2_extra_bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/txt_notice_result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_notice1"/>
+
+        <TextView
+            android:id="@+id/txt_result_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="puppyfr***d"
+            android:fontFamily="@font/inter_400"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txt_result_info"
+            app:layout_constraintTop_toBottomOf="@id/txt_notice3"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="35dp"/>
+
+        <TextView
+            android:id="@+id/txt_result_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가입일 2023-08-19"
+            android:fontFamily="@font/inter_400"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/txt_result_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_result_id"
+            app:layout_constraintBottom_toBottomOf="@id/txt_result_id"
+            android:layout_marginEnd="10dp"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_find_pw"
+            android:layout_width="130dp"
+            android:layout_height="43dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_login"
+            app:layout_constraintTop_toBottomOf="@id/txt_result_id"
+            android:layout_marginTop="61dp"
+            android:background="@drawable/style_btn_find_id"
+            android:text="비밀번호 찾기"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textAlignment="center" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="130dp"
+            android:layout_height="43dp"
+            app:layout_constraintStart_toEndOf="@id/btn_find_pw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_result_id"
+            android:layout_marginTop="61dp"
+            android:background="@drawable/style_login_btn"
+            android:text="로그인"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textAlignment="center" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

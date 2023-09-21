@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.puppyfriend_frontend.View.Find.FindIDActivity
+import com.example.puppyfriend_frontend.View.Find.FindPWActivity
 import com.example.puppyfriend_frontend.View.MainActivity
 import com.example.puppyfriend_frontend.ViewModel.User.Login.LoginResult
 import com.example.puppyfriend_frontend.ViewModel.User.Login.LoginService
@@ -19,6 +21,16 @@ class LoginSelfActivity: AppCompatActivity(), LoginResult {
 
         viewBinding.btnLogin.setOnClickListener{
             login()
+        }
+
+        viewBinding.txtFindId.setOnClickListener {
+            val intent = Intent(this, FindIDActivity::class.java)
+            startActivity(intent)
+        }
+
+        viewBinding.txtFindPw.setOnClickListener {
+            val intent = Intent(this, FindPWActivity::class.java)
+            startActivity(intent)
         }
     }
 

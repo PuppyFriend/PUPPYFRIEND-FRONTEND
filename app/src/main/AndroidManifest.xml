@@ -93,14 +93,21 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" /> <!-- 첫 화면 로딩 페이지 -->
+            android:resource="@array/preloaded_fonts" />
+        <!-- 첫 화면 로딩 페이지 -->
         <activity android:name=".View.Loading.Loading1Activity" />
         <activity android:name=".View.Loading.Loading2Activity" />
         <activity android:name=".View.Loading.Loading3Activity" />
-        <activity android:name=".View.Loading.Loading4Activity" /> <!-- 로그인 페이지 -->
-        <activity android:name=".View.Login.LoginActivity" /> <!-- 회원가입 페이지 -->
-        <!-- <activity android:name=".View.SignUp.SignUpActivity" /> -->
-        <activity android:name=".View.Login.LoginSelfActivity" />
+        <activity android:name=".View.Loading.Loading4Activity" />
+        <!-- 로그인 페이지 -->
+        <activity android:name=".View.Login.LoginActivity"/>
+        <activity
+            android:name=".View.Login.LoginSelfActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <!-- 회원가입 페이지 -->
         <activity
             android:name=".View.SignUp.SignUpActivity"
@@ -109,7 +116,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".View.SignUp.SignUpPhoneActivity" />
         <activity android:name=".View.SignUp.SignUpAgreeActivity" />
         <activity android:name=".View.SignUp.SignUpLocationActivity" />
         <provider
@@ -121,5 +127,11 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_path"/>
         </provider>
+
+        <!--아이디, 패스워드 찾기 페이지-->
+        <activity android:name=".View.Find.FindIDActivity"/>
+        <activity android:name=".View.Find.FindPWActivity"/>
+        <activity android:name=".View.Find.FindIDResultActivity"/>
+        <activity android:name=".View.Find.FindPWResultActivity"/>
     </application>
 </manifest>
